@@ -26,11 +26,7 @@ $ export ROM_BUILDTYPE=<MICROG|WEEKLY>
 $ export TEMPORARY_DISABLE_PATH_RESTRICTIONS=true
 $ export ALLOW_MISSING_DEPENDENCIES=true
 $ source build/envsetup.sh
-$ lunch omni_rpi4-userdebug
-
-# build
-
-Use -j[n] option with make, if build host has a good number of CPU cores.
+$ brunch rpi4 userdebug
 
 # prepare boot device (sdcard or USB device)
 
