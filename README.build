@@ -13,6 +13,7 @@ email notice. Otherwise you can simple remove the include of that xml
 file and build without
 
 If you want to build with microG add the contents of <device>/repo/local_manifest.xml
+to .repo/local_manifests/local_manifest.xml
 
 $ repo sync
 
@@ -26,11 +27,19 @@ $ export ROM_BUILDTYPE=<MICROG|WEEKLY>
 $ export TEMPORARY_DISABLE_PATH_RESTRICTIONS=true
 $ export ALLOW_MISSING_DEPENDENCIES=true
 $ source build/envsetup.sh
-$ lunch omni_rpi4-userdebug
+$ brunch rpi4 userdebug
 
-# build
+brunch will do 3 things
+1) checkout device/brcm/rpi4 
+2) from device/brcm/rpi4/omni.dependecies to create .repo/local_manifests/roomservice.xml
+   and sync the device specific repostories
+3) start build
 
-Use -j[n] option with make, if build host has a good number of CPU cores.
+if you just want a shell use
+$ breakfast rpi4 userdebug
+
+This will skip step 3
+
 
 # prepare boot device (sdcard or USB device)
 
