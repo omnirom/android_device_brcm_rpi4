@@ -1,0 +1,101 @@
+# How to update
+
+This describes the steps to update your current version with
+a new build. You must have an ext ernal USB backup device available
+e.g. USB stick 
+
+### Preface
+
+Note: In the following the terms recovery and TWRP have the same
+meaning cause there is only TWRP as a recovery
+
+There actually at least two ways of doing an update
+There is a "beginners" way and an "expert" way at the end.
+
+I will layout the beginners way in great detail even if you will
+notice that once you done the steps its not that complicated.
+
+So its a lot of words for just the basic steps of
+
+* backup your current userdata with TWRP on an USB storage device
+* connect your boot device to your PC
+* flash new image to your boot device on your PC
+* boot new build and reboot into TWRP
+* resize userdata in TWRP
+* restore userdata back made in first step in TWRP
+* restore any other changes you have done in TWRP or on your PC
+* reboot into ROM
+
+### Create userdata backup
+First make sure your display is conncted to HDM1
+Recovery will only show black screen on HDM2
+
+If you have changed anything in boot or system or vendor partition
+make sure you have a backup and know how to apply again.
+
+Backup is only from userdata partition which contains
+all apps you installed all the config and changes you made in
+android system and settings
+
+Especially backup all changes you did to boot partiton config.txt.* files
+make sure you have a backup of those. You need to restore them later
+especially if you use an USB boot device
+
+1) reboot to recovery
+- Advanced settings and set boot mode to recovery then reboot
+- press cancel when asked for password
+
+2) insert USB backup device -> mount usb
+3) select backup -> select storage -> manually choose backup name -> backup
+4) go back to top level menu -> umount USB device and remove -> Reboot shutdown
+
+### Flash new image
+Remove boot device from your raspi
+
+5) flash the new image to your boot device by your preferred method
+e.g. dd or balena etcher
+6) mount the new image on your PC and apply the needed changes to
+ALL the config.txt.* files if needed
+
+### Boot new image
+We now boot the new clean image once just to reboot into recovery
+and restore the backup
+
+7) after boot is complete with default settings
+do again 2) and reboot into recovery
+
+### Resize userdata and restore backup
+8) resize userdata parttion using Install -> up on level -> userdata_resize
+9) go back to top level menu and insert your USB backup storage device and mount
+10) select restore -> select storage usb -> select your backup made in 4 -> restore
+11) remove your USB backup device
+12) go back to top level menu and switch boot to rom using Install -> up on level -> switch_boot_rom
+13) select Reboot -> System
+14) hopefully it will boot into the same setup that you had before you started :)
+
+## The expert way
+
+PLEASE only continue to read if you know what you are doing!
+
+The expert way of doing involves kpartx and dd. So if none of those
+two things mean anything to you you better stop reading now :)
+
+You basically mount the image with kpartx and dd the partition images 1,2,3
+to your storage device
+
+So something like
+
+kpartx -av <image file>
+for partnum [1-3] do
+    dd if=/dev/mapper/loop0p<partnum> of=/dev/<storage device dev><partnum>
+done
+kpart -dv <image file>
+
+Obviously this still requires that you are aware to restore your changes
+you made and restore them afterwards - but hey - you are an expert so you already
+know that right? :)
+
+Partition 1 (boot) you might skip anyway cause you only need
+this if kernel and/or ramdisk changes. You can also simply diff the changes in 
+there since its only the config.txt.* files kernel image and overlays and ramdisk
+This can be done manually too to see what changed
