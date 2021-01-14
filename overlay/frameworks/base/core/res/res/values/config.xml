@@ -204,4 +204,7 @@
     <bool name="config_use16BitTaskSnapshotPixelFormat">true</bool>
     <item name="config_lowResTaskSnapshotScale" format="float" type="dimen">0.3</item>
 
+    <!-- If true, then we do not ask user for permission for apps to connect to USB devices.
+         Do not set this to true for production devices. Doing so will cause you to fail CTS. -->
+    <bool name="config_disableUsbPermissionDialogs">true</bool>
 </resources>
