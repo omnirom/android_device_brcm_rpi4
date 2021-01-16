@@ -1,3 +1,5 @@
 gpu_access(system_server)
 allow system_server self:capability sys_module;
 allow system_server gpio_dev:chr_file rw_file_perms;
+allow system_server userspace_reboot_config_prop:file { getattr map open read };
+allow system_server userspace_reboot_exported_prop:file { getattr map open read };
