@@ -32,6 +32,8 @@ $(call inherit-product, device/brcm/rpi4/device.mk)
 # Boot animation
 TARGET_BOOTANIMATION_SIZE := 720p
 
+ALLOW_MISSING_DEPENDENCIES := true
+
 # Device identifier. This must come after all inclusions
 PRODUCT_DEVICE := rpi4
 PRODUCT_NAME := omni_rpi4
