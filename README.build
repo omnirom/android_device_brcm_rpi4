@@ -23,23 +23,18 @@ Refer to http://source.android.com/source/building.html
 
 # prepare environment
 
-$ export ROM_BUILDTYPE=<MICROG|WEEKLY>
-$ export TEMPORARY_DISABLE_PATH_RESTRICTIONS=true
-$ export ALLOW_MISSING_DEPENDENCIES=true
-$ source build/envsetup.sh
-$ brunch rpi4 userdebug
+export ROM_BUILDTYPE=<MICROG|WEEKLY>
+export TEMPORARY_DISABLE_PATH_RESTRICTIONS=true
+export PRODUCT_EXCLUDE_EXTRA_PACKAGES=true
+source build/envsetup.sh
+breakfast rpi4 userdebug
 
-brunch will do 3 things
-1) checkout device/brcm/rpi4 
-2) use device/brcm/rpi4/omni.dependecies to create
-   .repo/local_manifests/roomservice.xml and sync
-3) start build
+# start build
 
-if you just want a shell use
-$ breakfast rpi4 userdebug
+m
 
-This will skip step 3
-
+after the buils is complete the generated image files are located in 
+out/target/product/rpi4/
 
 # prepare boot device (sdcard or USB device)
 
