@@ -1,4 +1,10 @@
-Builds as 64bit only so make sure you have propper firmware!
+# this is a high level guide on how to build android
+# for Raspberry Pi4 (rpi4) - this is NOT a beginners guide!
+# So the requirement that you have either build android before or
+# have enough experiences to understand what is important here
+
+Builds as 64bit only so make sure you have propper firmware
+on you rpi4. Same is true if you want to use an USB boot device
 
 # sync omni source
 
@@ -25,21 +31,18 @@ Refer to http://source.android.com/source/building.html
 
 $ export ROM_BUILDTYPE=<MICROG|WEEKLY>
 $ export TEMPORARY_DISABLE_PATH_RESTRICTIONS=true
-$ export ALLOW_MISSING_DEPENDENCIES=true
+$ export PRODUCT_EXCLUDE_EXTRA_PACKAGES=true
 $ source build/envsetup.sh
-$ brunch rpi4 userdebug
 
-brunch will do 3 things
-1) checkout device/brcm/rpi4 
-2) use device/brcm/rpi4/omni.dependecies to create
-   .repo/local_manifests/roomservice.xml and sync
-3) start build
+# start build
+# we dont build an OTA therefore we cant use
+# brunch and lunch but simply use
 
-if you just want a shell use
 $ breakfast rpi4 userdebug
+$ m
 
-This will skip step 3
-
+after the buils is complete the generated image files are located in 
+out/target/product/rpi4/
 
 # prepare boot device (sdcard or USB device)
 
@@ -64,10 +67,12 @@ userdata you MUST enable project quotas with e.g.
 
 tune2fs -O project,quota <userdata partition device>
 
-# boot order
+Using resize2fs will keep quota setting intact
 
-Switching between booting from sdcard and USB is done in config.txt
-by enabling the needed overlay
+# boot device mode
+
+Switching between booting from sdcard and USB is done in ALL config.txt*
+files by enabling the needed overlay
 
 ...
 # booting from sdcard
@@ -79,9 +84,14 @@ dtoverlay=rpi-android-usb
 
 You can still mess with the fstab if you want and dont use the overlay
 
-Note
+# flash to boot device
 
-the files in scripts are what I use to create and update
+I will keep it to your experience how you get the img files
+on to your boot device in the according partitions (system and vendor)
+
+Boot partition needs special treatment so I recommend to
+look at one of my prebuilt zip files to see what must be in that
+partition
+
+The files in the scripts dir are what I use to create and update
 feel free to adjust and update to your needs if you want
-
-# flash to boot device with e.g. dd
