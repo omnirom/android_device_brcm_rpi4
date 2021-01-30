@@ -18,6 +18,9 @@ https://github.com/omnirom/android/README and head over to send us a short
 email notice. Otherwise you can simple remove the include of that xml
 file and build without
 
+Independent of that you must have a ssh key in your github account
+this is a requirement for easy syuncing
+
 If you want to build with microG add the contents of <device>/repo/local_manifest.xml
 to .repo/local_manifests/local_manifest.xml
 
@@ -26,6 +29,13 @@ $ repo sync
 # Build Android source
 
 Refer to http://source.android.com/source/building.html
+
+# install needed host packages
+
+This depends on your distro. There is also a list on the google
+page linked above. The following list should be an example
+
+apt-get install git-core gnupg flex bison build-essential zip curl zlib1g-dev gcc-multilib g++-multilib libc6-dev-i386 lib32ncurses5-dev x11proto-core-dev libx11-dev lib32z1-dev libgl1-mesa-dev libxml2-utils xsltproc unzip fontconfig kpartx sudo dosfstools rsync  libncurses5 libssl-dev python3-mako unzip
 
 # prepare environment
 
