@@ -95,10 +95,10 @@ dd if=/dev/zero of="$OUT_IMAGE_FILE" bs=1M count=8192
 
 echo "create partitions"
 sudo sfdisk "$OUT_IMAGE_FILE"  << EOF
-2,262144,0xC,*
-264192,4194304,0x83,-
-4458496,524288,0x83,-
-4982784,,-
+,+128M,0xC,*
+,+2G,0x83,-
+,+256M,0x83,-
+,,0x83,-
 EOF
 
 echo "mount partitions"
