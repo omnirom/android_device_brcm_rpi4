@@ -16,12 +16,15 @@ umount /data
 umount /sdcard
 
 # remove existing data partition and create new partition table entry
+FIRST_SECTOR=$(/tmp/fdisk -l /dev/block/$DEVICE | grep $DEVICE$PARTITION | awk '{print $2}')
+echo FIRST_SECTOR=$FIRST_SECTOR >> /tmp/resize.log
+
 (
 echo d
 echo 4
 echo n
 echo p
-echo
+echo $FIRST_SECTOR
 echo
 echo n
 echo w
