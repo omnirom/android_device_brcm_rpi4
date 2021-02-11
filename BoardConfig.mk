@@ -83,8 +83,6 @@ TARGET_INIT_VENDOR_LIB := //$(DEVICE_PATH):libinit_rpi4
 TARGET_VOLD_VENDOR_LIB := //$(DEVICE_PATH):libinit_rpi4
 BOARD_BLUETOOTH_BDROID_BUILDCFG_INCLUDE_DIR := $(DEVICE_PATH)/bluetooth/cfg
 
-BUILD_FINGERPRINT := Raspberry/omni_rpi4/rpi4:10/QKQ1.190716.003/1910071200:userdebug/release-keys
-
 # recovery
 # change to false when building recoveryimage
 TARGET_NO_RECOVERY := true
