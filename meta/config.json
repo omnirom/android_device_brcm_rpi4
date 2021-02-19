@@ -1,0 +1,8 @@
+{
+    "model": "Raspberry Pi 4",
+    "pageUrl":"https://dl.omnirom.org/tmp/rpi4",
+    "make": "Raspberry Foundation",
+    "image": "meta/device_image.jpg",
+    "state": "unofficial",
+    "device": "rpi4"
+}
