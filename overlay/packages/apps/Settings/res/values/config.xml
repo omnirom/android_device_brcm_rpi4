@@ -39,4 +39,6 @@
 
     <bool name="config_has_power_button">false</bool>
 
+    <bool name="config_has_volume_button">false</bool>
+
 </resources>
