@@ -62,14 +62,5 @@
   },
   {
     "remove": "platform/packages/apps/Camera2"
-  },
-  {
-    "remove": "android_packages_apps_OmniChromium"
-  },
-  {
-    "remote": "aosp",
-    "repository": "platform/external/chromium-webview",
-    "target_path": "external/chromium-webview",
-    "revision": "refs/tags/android-11.0.0_r3"
   }
 ]

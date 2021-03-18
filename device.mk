@@ -191,8 +191,7 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     Provision \
     DeviceParts \
-    Terminal \
-    webview
+    Terminal
 
 PRODUCT_PACKAGES += \
     htop \
