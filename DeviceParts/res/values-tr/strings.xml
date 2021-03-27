@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright (C) 2014-2020 The OmniROM Project
+
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+
+          http://www.apache.org/licenses/LICENSE-2.0
+
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
+-->
+<resources>
+    <string name="advanced_settings">İleri seviye</string>
+    <string name="wip">Çalışma devam etmekte</string>
+    <string name="rotation_lock_title">Döndürmeye mecbur et</string>
+    <string name="rotation_lock_off">Kapalı</string>
+    <string name="rotation_lock_landscape">Yatay</string>
+    <string name="rotation_lock_portrait">Dikey</string>
+    <string name="rotation_lock_portrait_reverse">Ters Dikey</string>
+    <string name="rotation_lock_landscape_reverse">Ters Yatay</string>
+    <string name="tuner_nav_bar_system_keys_title">Sistem tuşları desteğini devreye sok</string>
+    <string name="tuner_nav_bar_system_keys_summary">Güç, ses artırma ve ses kısma tuşlarının taklit edilmesine izin verin</string>
+    <string name="boot_mode_title">Ön yükleme modu</string>
+    <string name="audio_card_title">Ses çıkışı - yeniden başlatma gerekir</string>
+    <string name="audio_card_hdmi">HDMI</string>
+    <string name="audio_card_headphone_jack">Kulaklık Girişi</string>
+    <string name="boot_mode_rom">ROM</string>
+    <string name="boot_mode_recovery">Kurtarma</string>
+    <string name="cpu_governor_title">Regülatör</string>
+    <string name="cpu_max_freq_title">Azami frekans</string>
+</resources>
