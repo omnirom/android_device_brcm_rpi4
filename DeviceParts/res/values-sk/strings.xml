@@ -13,4 +13,26 @@
      See the License for the specific language governing permissions and
      limitations under the License.
 -->
-<resources></resources>
+<resources>
+    <string name="advanced_settings">Rozšírené</string>
+    <string name="wip">Rozpracované</string>
+    <string name="rotation_lock_title">vynútiť otočenie</string>
+    <string name="rotation_lock_off">Vyp.</string>
+    <string name="rotation_lock_landscape">Na šírku</string>
+    <string name="rotation_lock_portrait">Na výšku</string>
+    <string name="rotation_lock_portrait_reverse">Na výšku - obrátene</string>
+    <string name="rotation_lock_landscape_reverse">Na šírku - obrátene</string>
+    <string name="tuner_nav_bar_system_keys_title">Zapnúť podporu systémových tlačidiel</string>
+    <string name="tuner_nav_bar_system_keys_summary">Umožnite emulovať tlačidlá pre zapnutie, zvýšenie a zníženie hlasitosti</string>
+    <string name="boot_mode_title">Režim spúšťania</string>
+    <string name="audio_card_title">Zvukový výstup - vyžadovaný reštart</string>
+    <string name="audio_card_hdmi">HDMI</string>
+    <string name="audio_card_headphone_jack">Jack sluchátok</string>
+    <string name="boot_mode_rom">ROM</string>
+    <string name="boot_mode_recovery">Recovery</string>
+    <string name="cpu_governor_title">Správca</string>
+    <string name="cpu_max_freq_title">Maximálna frekvencia</string>
+    <string name="category_cpu">Škálovanie CPU</string>
+    <string name="category_display">Displej</string>
+    <string name="category_system">Systém</string>
+</resources>

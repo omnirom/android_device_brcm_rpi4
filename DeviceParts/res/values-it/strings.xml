@@ -13,4 +13,26 @@
      See the License for the specific language governing permissions and
      limitations under the License.
 -->
-<resources></resources>
+<resources>
+    <string name="advanced_settings">Avanzato</string>
+    <string name="wip">Lavori in corso</string>
+    <string name="rotation_lock_title">Forza rotazione</string>
+    <string name="rotation_lock_off">Off</string>
+    <string name="rotation_lock_landscape">Orizzontale</string>
+    <string name="rotation_lock_portrait">Verticale</string>
+    <string name="rotation_lock_portrait_reverse">Verticale inverso</string>
+    <string name="rotation_lock_landscape_reverse">Orizzontale inverso</string>
+    <string name="tuner_nav_bar_system_keys_title">Attiva il supporto ai tasti di sistema</string>
+    <string name="tuner_nav_bar_system_keys_summary">Permette di emulare i tasti di alimentazione, volume su e volume giù</string>
+    <string name="boot_mode_title">Modalità avvio</string>
+    <string name="audio_card_title">Uscita audio - riavvio richiesto</string>
+    <string name="audio_card_hdmi">HDMI</string>
+    <string name="audio_card_headphone_jack">Jack cuffie</string>
+    <string name="boot_mode_rom">ROM</string>
+    <string name="boot_mode_recovery">Recovery</string>
+    <string name="cpu_governor_title">Governatore</string>
+    <string name="cpu_max_freq_title">Frequenza massima</string>
+    <string name="category_cpu">Scala CPU</string>
+    <string name="category_display">Display</string>
+    <string name="category_system">Sistema</string>
+</resources>

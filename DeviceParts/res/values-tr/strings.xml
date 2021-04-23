@@ -32,4 +32,7 @@
     <string name="boot_mode_recovery">Kurtarma</string>
     <string name="cpu_governor_title">Regülatör</string>
     <string name="cpu_max_freq_title">Azami frekans</string>
+    <string name="category_cpu">CPU ölçeklendirme</string>
+    <string name="category_display">Ekran</string>
+    <string name="category_system">Sistem</string>
 </resources>
