@@ -13,4 +13,26 @@
      See the License for the specific language governing permissions and
      limitations under the License.
 -->
-<resources></resources>
+<resources>
+    <string name="advanced_settings">高度な設定</string>
+    <string name="wip">試験動作中です</string>
+    <string name="rotation_lock_title">回転の強制</string>
+    <string name="rotation_lock_off">OFF</string>
+    <string name="rotation_lock_landscape">横向き</string>
+    <string name="rotation_lock_portrait">縦向き</string>
+    <string name="rotation_lock_portrait_reverse">反転の縦向き</string>
+    <string name="rotation_lock_landscape_reverse">反転の横向き</string>
+    <string name="tuner_nav_bar_system_keys_title">システムキーサポートを有効にする</string>
+    <string name="tuner_nav_bar_system_keys_summary">電源、音量アップ、音量ダウンキーをエミュレートする。</string>
+    <string name="boot_mode_title">ブートモード</string>
+    <string name="audio_card_title">オーディオ出力 - 再起動が必要です</string>
+    <string name="audio_card_hdmi">HDMI</string>
+    <string name="audio_card_headphone_jack">ヘッドホンジャック</string>
+    <string name="boot_mode_rom">ROM</string>
+    <string name="boot_mode_recovery">リカバリー</string>
+    <string name="cpu_governor_title">ガバナー</string>
+    <string name="cpu_max_freq_title">最大周波数</string>
+    <string name="category_cpu">CPU スケーリング</string>
+    <string name="category_display">ディスプレイ</string>
+    <string name="category_system">システム</string>
+</resources>
