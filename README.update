@@ -65,7 +65,7 @@ and restore the backup
 do again 2) and reboot into recovery
 
 ### Resize userdata and restore backup
-8) resize userdata parttion using Install -> up on level -> userdata_resize
+8) resize userdata parttion using Install -> up on level -> resize_userdata
 9) go back to top level menu and insert your USB backup storage device and mount
 10) select restore -> select storage usb -> select your backup made in 4 -> restore
 11) remove your USB backup device
