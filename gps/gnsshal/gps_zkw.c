@@ -62,7 +62,7 @@ static int flag_unlock = 0;
 GpsStatus gps_status;
 const char* gps_native_thread = "GPS NATIVE THREAD";
 static GpsCallbacks callback_backup;
-static float report_time_interval = 0;
+static float report_time_interval = .5;
 static int started = 0;
 
 /*****************************************************************************/
