@@ -21,5 +21,5 @@
      for different hardware and product builds. -->
 <resources>
     <!-- Nav bar button default ordering/layout -->
-    <string name="config_navBarLayout" translatable="false">left;voldown,volup,back,home,recent,power;right</string>
+    <string name="config_navBarLayout" translatable="false">left;voldown,back,home,recent,volup;right,power</string>
 </resources>

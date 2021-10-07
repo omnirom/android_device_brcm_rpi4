@@ -21,24 +21,25 @@
      for different hardware and product builds. -->
 <resources>
     <!-- Nav bar button default ordering/layout -->
-    <string name="config_navBarLayout" translatable="false">left,voldown,volup,back;home;recent,power,right</string>
-    
-   <string name="quick_settings_tiles_stock" translatable="false">
-        wifi,dnd,bt,airplane,location,hotspot,inversion,dark,work,night,screenrecord,reverse
-    </string>
+    <string name="config_navBarLayout" translatable="false">left;voldown,back,home,recent,volup;right,power</string>
 
+    <integer name="quick_settings_num_columns">4</integer>
+
+    <integer name="power_menu_lite_max_columns">4</integer>
+
+    <bool name="config_skinnyNotifsInLandscape">false</bool>
+
+    <!-- The default tiles to display in QuickSettings -->
     <string name="quick_settings_tiles_default" translatable="false">
-        wifi,bt,location,airplane,dark,screenrecord
+        wifi,bt,dnd,airplane,location,hotspot,screenrecord,dark
     </string>
 
-    <bool name="config_batteryPresentVisibility">true</bool>
+    <!-- Tiles native to System UI. Order should match "quick_settings_tiles_default" -->
+    <string name="quick_settings_tiles_stock" translatable="false">
+        wifi,bt,dnd,airplane,location,hotspot,screenrecord,dark,work,night,inversion,reverse
+    </string>
 
-    <!-- The CPU temperature sensor path, defaults to empty -->
-    <string name="config_cpuTempSensor" translatable="false">/sys/class/thermal/thermal_zone0/temp</string>
-
-    <!-- The CPU temperature divider, if needed -->
-    <integer name="config_cpuTempDivider" translatable="false">1000</integer>
-
-    <!-- The CPUs to display in CPUInfoService view -->
-    <string name="config_displayCpus" translatable="false">0</string>
+    <!-- to hide statusbar and qs batteryy on unknown state
+        needed for battery less devices -->
+    <bool name="config_battery_hide_on_unknown">true</bool>
 </resources>

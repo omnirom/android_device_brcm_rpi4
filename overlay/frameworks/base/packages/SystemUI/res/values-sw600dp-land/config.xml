@@ -1,8 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--
-/* Copyright (c) 2013, The Linux Foundation. All rights reserved.
-** Not a Contribution.
-**
+/*
 ** Copyright 2012, The Android Open Source Project
 **
 ** Licensed under the Apache License, Version 2.0 (the "License");
@@ -18,9 +16,13 @@
 ** limitations under the License.
 */
 -->
+
+<!-- These resources are around just to allow their values to be customized
+     for different hardware and product builds. -->
 <resources>
 
-    <string-array translatable="false" name="config_rebootActionsList">
-    </string-array>
-
+    <integer name="controls_max_columns">4</integer>
+    
+    <!-- Whether to use the split 2-column notification shade -->
+    <bool name="config_use_split_notification_shade">false</bool>
 </resources>
