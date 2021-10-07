@@ -18,7 +18,7 @@ DEVICE_PATH := device/brcm/rpi4
 
 include frameworks/native/build/tablet-7in-hdpi-1024-dalvik-heap.mk
 
-PRODUCT_AAPT_CONFIG := normal
+# PRODUCT_AAPT_CONFIG := normal
 PRODUCT_AAPT_PREF_CONFIG := mdpi
 
 # Audio
@@ -69,7 +69,8 @@ PRODUCT_PACKAGES += \
 # DRM
 PRODUCT_PACKAGES += \
     android.hardware.drm@1.0-impl \
-    android.hardware.drm@1.0-service
+    android.hardware.drm@1.0-service \
+    android.hardware.drm@1.4-service.clearkey
 
 # camera
 PRODUCT_PACKAGES += \
@@ -213,6 +214,25 @@ PRODUCT_COPY_FILES += \
 PRODUCT_SOONG_NAMESPACES += $(DEVICE_PATH)
 PRODUCT_SOONG_NAMESPACES += external/mesa3d
 PRODUCT_SOONG_NAMESPACES += packages/apps/Bluetooth
+
+# for bringup to disable secure adb - copy adbkey.pub from ~/.android
+#PRODUCT_ADB_KEYS := device/amlogic/yukawa/adbkey.pub
+#PRODUCT_PACKAGES += \
+    adb_keys
+
+# Keep the VNDK APEX in /system partition for REL branches as these branches are
+# expected to have stable API/ABI surfaces.
+ifneq (REL,$(PLATFORM_VERSION_CODENAME))
+  PRODUCT_PACKAGES += com.android.vndk.current.on_vendor
+endif
+
+PRODUCT_BROKEN_VERIFY_USES_LIBRARIES := true
+
+# All VNDK libraries (HAL interfaces, VNDK, VNDK-SP, LL-NDK)
+PRODUCT_PACKAGES += vndk_package
+
+# Build and run only ART
+PRODUCT_RUNTIMES := runtime_libart_default
 
 # recovery
 # enable when building recoveryimage
