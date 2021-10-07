@@ -1,5 +1,5 @@
 android_app {
-    name: "Provision",
+    name: "Provision2",
     srcs: ["**/*.java"],
     platform_apis: true,
     system_ext_specific: true,
@@ -9,4 +9,7 @@ android_app {
     optimize: {
         proguard_flags_files: ["proguard.flags"],
     },
+    overrides: [
+        "Provision",
+    ],
 }

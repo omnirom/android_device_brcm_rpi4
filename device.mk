@@ -18,7 +18,7 @@ DEVICE_PATH := device/brcm/rpi4
 
 include frameworks/native/build/tablet-7in-hdpi-1024-dalvik-heap.mk
 
-PRODUCT_AAPT_CONFIG := normal
+# PRODUCT_AAPT_CONFIG := normal
 PRODUCT_AAPT_PREF_CONFIG := mdpi
 
 # Audio
@@ -69,7 +69,8 @@ PRODUCT_PACKAGES += \
 # DRM
 PRODUCT_PACKAGES += \
     android.hardware.drm@1.0-impl \
-    android.hardware.drm@1.0-service
+    android.hardware.drm@1.0-service \
+    android.hardware.drm@1.4-service.clearkey
 
 # camera
 PRODUCT_PACKAGES += \
@@ -150,7 +151,8 @@ PRODUCT_COPY_FILES += \
     $(DEVICE_PATH)/audio_policy_volumes.xml:$(TARGET_COPY_OUT_VENDOR)/etc/audio_policy_volumes.xml \
     $(DEVICE_PATH)/audio_policy_configuration.xml:$(TARGET_COPY_OUT_VENDOR)/etc/audio_policy_configuration.xml
 
-PRODUCT_COPY_FILES += \
+# use default in /apex/com.android.media.swcodec
+#PRODUCT_COPY_FILES += \
     $(DEVICE_PATH)/media_codecs.xml:$(TARGET_COPY_OUT_VENDOR)/etc/media_codecs.xml \
     frameworks/av/media/libstagefright/data/media_codecs_google_c2_video.xml:$(TARGET_COPY_OUT_VENDOR)/etc/media_codecs_google_c2_video.xml \
     frameworks/av/media/libstagefright/data/media_codecs_google_c2_audio.xml:$(TARGET_COPY_OUT_VENDOR)/etc/media_codecs_google_c2_audio.xml \
@@ -213,6 +215,29 @@ PRODUCT_COPY_FILES += \
 PRODUCT_SOONG_NAMESPACES += $(DEVICE_PATH)
 PRODUCT_SOONG_NAMESPACES += external/mesa3d
 PRODUCT_SOONG_NAMESPACES += packages/apps/Bluetooth
+
+# for bringup to disable secure adb - copy adbkey.pub from ~/.android
+#PRODUCT_ADB_KEYS := device/amlogic/yukawa/adbkey.pub
+#PRODUCT_PACKAGES += \
+    adb_keys
+
+# Keep the VNDK APEX in /system partition for REL branches as these branches are
+# expected to have stable API/ABI surfaces.
+ifneq (REL,$(PLATFORM_VERSION_CODENAME))
+  PRODUCT_PACKAGES += com.android.vndk.current.on_vendor
+endif
+
+PRODUCT_BROKEN_VERIFY_USES_LIBRARIES := true
+
+# All VNDK libraries (HAL interfaces, VNDK, VNDK-SP, LL-NDK)
+PRODUCT_PACKAGES += vndk_package
+
+# Build and run only ART
+PRODUCT_RUNTIMES := runtime_libart_default
+
+PRODUCT_PACKAGES += \
+    android.hardware.health@2.1-impl-rpi4 \
+    android.hardware.health@2.1-service
 
 # recovery
 # enable when building recoveryimage

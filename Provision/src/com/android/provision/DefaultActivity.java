@@ -40,16 +40,9 @@ public class DefaultActivity extends Activity {
         Settings.Global.putInt(getContentResolver(), Settings.Global.DEVICE_PROVISIONED, 1);
         Settings.Secure.putInt(getContentResolver(), Settings.Secure.USER_SETUP_COMPLETE, 1);
 
-        // set useful defaults for raspi
+        // set useful defaults
         Settings.Secure.putInt(getContentResolver(), "qs_show_brightness", 0);
-        // enable always on -> TODO assumes fake charging is set
-        Settings.Global.putInt(getContentResolver(), Settings.Global.STAY_ON_WHILE_PLUGGED_IN,
-                BatteryManager.BATTERY_PLUGGED_AC | BatteryManager.BATTERY_PLUGGED_USB
-                | BatteryManager.BATTERY_PLUGGED_WIRELESS);
-
-        // disable screen lock -> TODO on first boot it still comes up with initial swipe
-        LockPatternUtils lockPatternUtils = new LockPatternUtils(getApplicationContext());
-        lockPatternUtils.setLockScreenDisabled(true, UserHandle.myUserId());
+        Settings.Secure.putString(getContentResolver(), "icon_blacklist", "rotate,headset,battery");
 
         PackageManager pm = getPackageManager();
         ComponentName name = new ComponentName(this, DefaultActivity.class);

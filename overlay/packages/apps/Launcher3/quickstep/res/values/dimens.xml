@@ -1,7 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!--
-
-     Copyright (C) 2018 The Android Open Source Project
+<!-- Copyright (C) 2009 The Android Open Source Project
 
      Licensed under the Apache License, Version 2.0 (the "License");
      you may not use this file except in compliance with the License.
@@ -15,15 +13,13 @@
      See the License for the specific language governing permissions and
      limitations under the License.
 -->
-<resources>
-    <!-- List of packages whose icons are used to preview the icon shape for a theme. -->
-    <array name="icon_shape_preview_packages">
-        <item>com.android.settings</item>
-        <item>com.android.documentsui</item>
-        <item>org.omnirom.logcat</item>
-        <item>com.android.contacts</item>
-        <item>org.omnirom.omnichange</item>
-        <item>org.omnirom.omnistore</item>
-    </array>
-</resources>
 
+<resources>
+    <dimen name="popup_single_item_radius">8dp</dimen>
+    <dimen name="rounded_button_radius">8dp</dimen>
+    <dimen name="popup_smaller_radius">8dp</dimen>
+    <dimen name="widget_list_top_bottom_corner_radius">8dp</dimen>
+    <dimen name="widget_list_content_corner_radius">8dp</dimen>
+    <dimen name="widget_preview_corner_radius">8dp</dimen>
+    <dimen name="search_box_radius">8dp</dimen>
+</resources>
