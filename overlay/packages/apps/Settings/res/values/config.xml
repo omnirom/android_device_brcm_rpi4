@@ -37,8 +37,4 @@
     <!-- dont touch encryption status for now -->
     <bool name="config_show_encryption_and_credentials_encryption_status">false</bool>
 
-    <bool name="config_has_power_button">false</bool>
-
-    <bool name="config_has_volume_button">false</bool>
-
 </resources>

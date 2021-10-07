@@ -22,4 +22,7 @@
 <resources>
     <!-- Nav bar button default ordering/layout -->
     <string name="config_navBarLayout" translatable="false">left;voldown,volup,back,home,recent,power;right</string>
+    
+    <integer name="controls_max_columns">3</integer>
+
 </resources>
