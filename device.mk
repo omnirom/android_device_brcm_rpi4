@@ -212,7 +212,8 @@ PRODUCT_PACKAGES += \
 PRODUCT_COPY_FILES += \
     $(DEVICE_PATH)/scripts/switch_boot.sh:$(TARGET_COPY_OUT_SYSTEM)/xbin/switch_boot
 
-PRODUCT_SOONG_NAMESPACES += $(DEVICE_PATH)
+PRODUCT_SOONG_NAMESPACES += $(DEVICE_PATH)/apps
+PRODUCT_SOONG_NAMESPACES += $(DEVICE_PATH)/gpio
 PRODUCT_SOONG_NAMESPACES += external/mesa3d
 PRODUCT_SOONG_NAMESPACES += packages/apps/Bluetooth
 
@@ -227,8 +228,6 @@ ifneq (REL,$(PLATFORM_VERSION_CODENAME))
   PRODUCT_PACKAGES += com.android.vndk.current.on_vendor
 endif
 
-PRODUCT_BROKEN_VERIFY_USES_LIBRARIES := true
-
 # All VNDK libraries (HAL interfaces, VNDK, VNDK-SP, LL-NDK)
 PRODUCT_PACKAGES += vndk_package
 
@@ -238,6 +237,10 @@ PRODUCT_RUNTIMES := runtime_libart_default
 PRODUCT_PACKAGES += \
     android.hardware.health@2.1-impl-rpi4 \
     android.hardware.health@2.1-service
+
+PRODUCT_PROPERTY_OVERRIDES += ro.surface_flinger.use_color_management=false \
+    ro.surface_flinger.has_wide_color_display=false \
+    ro.surface_flinger.has_HDR_display=false
 
 # recovery
 # enable when building recoveryimage
