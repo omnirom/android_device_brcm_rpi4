@@ -42,7 +42,6 @@ public class DefaultActivity extends Activity {
 
         // set useful defaults
         Settings.Secure.putInt(getContentResolver(), "qs_show_brightness", 0);
-        Settings.Secure.putString(getContentResolver(), "icon_blacklist", "rotate,headset,battery");
 
         PackageManager pm = getPackageManager();
         ComponentName name = new ComponentName(this, DefaultActivity.class);
