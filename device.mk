@@ -16,37 +16,36 @@
 
 DEVICE_PATH := device/brcm/rpi4
 
-include frameworks/native/build/tablet-7in-hdpi-1024-dalvik-heap.mk
+# Enable Scoped Storage related
+$(call inherit-product, $(SRC_TARGET_DIR)/product/emulated_storage.mk)
 
-# PRODUCT_AAPT_CONFIG := normal
-PRODUCT_AAPT_PREF_CONFIG := mdpi
+$(call inherit-product, frameworks/native/build/tablet-10in-xhdpi-2048-dalvik-heap.mk)
+$(call inherit-product, $(SRC_TARGET_DIR)/product/full_base.mk)
 
-# Audio
+# Build default bluetooth a2dp and usb audio HALs
 PRODUCT_PACKAGES += \
-    android.hardware.audio@2.0-impl \
-    android.hardware.audio@2.0-service \
-    android.hardware.audio.effect@2.0-impl \
+    android.hardware.bluetooth.audio@2.0-impl \
+    audio.usb.default \
+    audio.primary.yukawa \
     audio.r_submix.default \
-    audio.usb.default
-
-#PRODUCT_PACKAGES += \
-    android.hardware.graphics.allocator@2.0-service.rpi4 \
-    android.hardware.graphics.mapper@2.0-impl.rpi4 \
-    android.hardware.graphics.composer@2.1-service.rpi4 \
-    gralloc.rpi4
+    audio.bluetooth.default \
+    audio.hearing_aid.default \
+    audio.a2dp.default
 
 PRODUCT_PACKAGES += \
-    android.hardware.graphics.allocator@2.0-impl \
+    android.hardware.audio.service \
+    android.hardware.audio@7.0-impl \
+    android.hardware.audio.effect@7.0-impl \
+    android.hardware.soundtrigger@2.3-impl
+
+PRODUCT_PACKAGES += \
+    android.hardware.graphics.composer@2.2-impl \
+    android.hardware.graphics.composer@2.2-service \
     android.hardware.graphics.allocator@2.0-service \
-    android.hardware.graphics.composer@2.1-impl \
-    android.hardware.graphics.composer@2.1-service \
-    android.hardware.graphics.mapper@2.0-impl \
+    android.hardware.graphics.allocator@2.0-impl \
+    android.hardware.graphics.mapper@2.0-impl-2.1 \
     hwcomposer.drm \
     gralloc.gbm
-
-PRODUCT_PACKAGES += \
-    android.hardware.memtrack@1.0-impl \
-    android.hardware.memtrack@1.0-service
 
 # egl
 PRODUCT_PACKAGES += \
@@ -57,14 +56,13 @@ PRODUCT_PACKAGES += \
     libGLESv1_CM_swiftshader \
     libGLESv2_swiftshader
 
-# Keymaster HAL
+# Software Gatekeeper HAL
+PRODUCT_PACKAGES += \
+    android.hardware.gatekeeper@1.0-service.software
+
 PRODUCT_PACKAGES += \
     android.hardware.keymaster@3.0-impl \
     android.hardware.keymaster@3.0-service
-
-PRODUCT_PACKAGES += \
-    android.hardware.gatekeeper@1.0-impl \
-    android.hardware.gatekeeper@1.0-service.software
 
 # DRM
 PRODUCT_PACKAGES += \
@@ -72,27 +70,25 @@ PRODUCT_PACKAGES += \
     android.hardware.drm@1.0-service \
     android.hardware.drm@1.4-service.clearkey
 
-# camera
-PRODUCT_PACKAGES += \
-    android.hardware.camera.provider@2.5-external-service
+# Enable USB Camera
+PRODUCT_PACKAGES += android.hardware.camera.provider@2.4-impl
+PRODUCT_PACKAGES += android.hardware.camera.provider@2.4-external-service
 
 PRODUCT_PACKAGES += \
-    android.hardware.configstore@1.1-service \
-    vndservicemanager
+    android.hardware.configstore@1.1-service
 
 # gps
 PRODUCT_PACKAGES += \
     android.hardware.gnss@1.0-impl \
     android.hardware.gnss@1.0-service
 
+# PowerHAL
 PRODUCT_PACKAGES += \
-    android.hardware.health@2.1-service \
-    android.hardware.health@2.1-impl \
-    android.hardware.health.storage@1.0-service
+    android.hardware.power-service.example
 
+# PowerStats HAL
 PRODUCT_PACKAGES += \
-    android.hardware.power@1.0-impl \
-    android.hardware.power@1.0-service
+    android.hardware.power.stats-service.example
 
 # Permissions
 PRODUCT_COPY_FILES += \
@@ -127,19 +123,14 @@ PRODUCT_COPY_FILES += \
     $(DEVICE_PATH)/wifi/wpa_supplicant_overlay.conf:$(TARGET_COPY_OUT_VENDOR)/etc/wifi/wpa_supplicant_overlay.conf \
     $(DEVICE_PATH)/wifi/p2p_supplicant_overlay.conf:$(TARGET_COPY_OUT_VENDOR)/etc/wifi/p2p_supplicant_overlay.conf
 
-PRODUCT_COPY_FILES += \
-     $(DEVICE_PATH)/hostapd/hostapd_default.conf:$(TARGET_COPY_OUT_VENDOR)/etc/hostapd/hostapd_default.conf \
-     $(DEVICE_PATH)/hostapd/hostapd.accept:$(TARGET_COPY_OUT_VENDOR)/etc/hostapd/hostapd.accept \
-     $(DEVICE_PATH)/hostapd/hostapd.deny:$(TARGET_COPY_OUT_VENDOR)/etc/hostapd/hostapd.deny
-
 # bluetooth
 PRODUCT_PACKAGES += \
     android.hardware.bluetooth@1.0-service.rpi4 \
     btuart
 
-# USB HAL
+# USB
 PRODUCT_PACKAGES += \
-    android.hardware.usb@1.0-service.basic
+    android.hardware.usb@1.1-service
 
 # media configurations
 PRODUCT_COPY_FILES += \
@@ -156,15 +147,14 @@ PRODUCT_COPY_FILES += \
     $(DEVICE_PATH)/media_codecs.xml:$(TARGET_COPY_OUT_VENDOR)/etc/media_codecs.xml \
     frameworks/av/media/libstagefright/data/media_codecs_google_c2_video.xml:$(TARGET_COPY_OUT_VENDOR)/etc/media_codecs_google_c2_video.xml \
     frameworks/av/media/libstagefright/data/media_codecs_google_c2_audio.xml:$(TARGET_COPY_OUT_VENDOR)/etc/media_codecs_google_c2_audio.xml \
-    frameworks/av/media/libstagefright/data/media_codecs_google_c2_tv.xml:$(TARGET_COPY_OUT_VENDOR)/etc/media_codecs_google_c2_tv.xml \
-    $(DEVICE_PATH)/media_profiles_V1_0.xml:$(TARGET_COPY_OUT_VENDOR)/etc/media_profiles_V1_0.xml
+    frameworks/av/media/libstagefright/data/media_codecs_google_c2_tv.xml:$(TARGET_COPY_OUT_VENDOR)/etc/media_codecs_google_c2_tv.xml
 
 PRODUCT_COPY_FILES += \
     $(DEVICE_PATH)/init.vendor.rpi4.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/hw/init.rpi4.rc \
     $(DEVICE_PATH)/init.rpi4.usb.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/hw/init.rpi4.usb.rc \
-    $(DEVICE_PATH)/ueventd.rpi4.rc:root/ueventd.rpi4.rc \
-    $(DEVICE_PATH)/init.system.rpi4.rc:root/init.rpi4.rc \
     $(DEVICE_PATH)/fstab.rpi4:$(TARGET_COPY_OUT_VENDOR)/etc/fstab.rpi4 \
+    $(DEVICE_PATH)/ueventd.rc:$(TARGET_COPY_OUT_VENDOR)/etc/ueventd.rc \
+    $(DEVICE_PATH)/init.system.rpi4.rc:root/init.rpi4.rc \
     $(DEVICE_PATH)/fstab.rpi4:$(TARGET_COPY_OUT_RAMDISK)/fstab.rpi4
 
 PRODUCT_COPY_FILES += \
@@ -172,23 +162,10 @@ PRODUCT_COPY_FILES += \
 
 PRODUCT_PACKAGES += \
     audio.primary.rpi4 \
-    memtrack.rpi4 \
-    gps.rpi4 \
-    power.rpi4
-
-#PRODUCT_PACKAGES += \
-    gatekeeper.rpi4 \
+    gps.rpi4
 
 PRODUCT_PACKAGES += \
     libinit_rpi4
-
-PRODUCT_PACKAGES += \
-    ims-ext-common \
-    ims_ext_common.xml \
-    qti-telephony-hidl-wrapper \
-    qti_telephony_hidl_wrapper.xml \
-    qti-telephony-utils \
-    qti_telephony_utils.xml
 
 PRODUCT_PACKAGES += \
     Provision \
