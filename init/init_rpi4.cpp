@@ -20,9 +20,10 @@
 #include <fcntl.h>
 #include <fstream>
 #include <unistd.h>
+
 #include <android-base/file.h>
-#include <android-base/properties.h>
 #include <android-base/logging.h>
+#include <android-base/properties.h>
 #include <android-base/strings.h>
 
 #include "uevent.h"
@@ -35,7 +36,7 @@ namespace android {
 namespace init {
 
 using android::base::GetProperty;
-
+using android::base::ReadFileToString;
 
 template <typename T>
 static T get(const std::string& path, const T& def) {
