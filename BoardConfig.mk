@@ -26,15 +26,15 @@ PRODUCT_FULL_TREBLE_OVERRIDE := true
 
 TARGET_ARCH := arm64
 TARGET_ARCH_VARIANT := armv8-a
-TARGET_CPU_VARIANT := cortex-a72
 TARGET_CPU_ABI := arm64-v8a
-TARGET_CPU_ABI2 :=
+TARGET_CPU_VARIANT := cortex-a53
 
+# Secondary Arch
 TARGET_2ND_ARCH := arm
-TARGET_2ND_ARCH_VARIANT := armv7-a-neon
-TARGET_2ND_CPU_VARIANT := cortex-a72
+TARGET_2ND_ARCH_VARIANT := armv8-a
 TARGET_2ND_CPU_ABI := armeabi-v7a
 TARGET_2ND_CPU_ABI2 := armeabi
+TARGET_2ND_CPU_VARIANT := cortex-a53
 
 USE_OPENGL_RENDERER := true
 TARGET_USES_HWC2 := true
@@ -78,6 +78,7 @@ DEVICE_MANIFEST_FILE := $(DEVICE_PATH)/manifest.xml
 DEVICE_MANIFEST_FILE += $(DEVICE_PATH)/hal/gps/manifest.xml
 
 DEVICE_PRODUCT_COMPATIBILITY_MATRIX_FILE := $(DEVICE_PATH)/compatibility_matrix.device.xml
+DEVICE_MATRIX_FILE := $(DEVICE_PATH)/compatibility_matrix.xml
 
 BOARD_SEPOLICY_DIRS += \
     $(DEVICE_PATH)/sepolicy
@@ -86,6 +87,8 @@ TARGET_SYSTEM_PROP := $(DEVICE_PATH)/system.prop
 TARGET_INIT_VENDOR_LIB := //$(DEVICE_PATH):libinit_rpi4
 TARGET_VOLD_VENDOR_LIB := //$(DEVICE_PATH):libinit_rpi4
 BOARD_BLUETOOTH_BDROID_BUILDCFG_INCLUDE_DIR := $(DEVICE_PATH)/bluetooth/cfg
+
+BUILD_BROKEN_ELF_PREBUILT_PRODUCT_COPY_FILES := true
 
 # recovery
 # change to false when building recoveryimage
