@@ -17,29 +17,20 @@
 # Inherit device configuration
 DEVICE_PATH := device/brcm/rpi4
 
-PRODUCT_QUOTA_PROJID := 1
-PRODUCT_PROPERTY_OVERRIDES += external_storage.projid.enabled=1
-PRODUCT_PROPERTY_OVERRIDES += external_storage.sdcardfs.enabled=0
-
 $(call inherit-product, $(SRC_TARGET_DIR)/product/core_64_bit.mk)
-$(call inherit-product, $(SRC_TARGET_DIR)/product/aosp_base.mk)
 
+# before including common overlay
 DEVICE_PACKAGE_OVERLAYS += $(DEVICE_PATH)/overlay
+TARGET_BOOTANIMATION_SIZE := 720p
 
 $(call inherit-product, vendor/omni/config/common_tablet.mk)
 $(call inherit-product, device/brcm/rpi4/device.mk)
-
-# Boot animation
-TARGET_BOOTANIMATION_SIZE := 720p
-
-ALLOW_MISSING_DEPENDENCIES := true
 
 # Device identifier. This must come after all inclusions
 PRODUCT_DEVICE := rpi4
 PRODUCT_NAME := omni_rpi4
 PRODUCT_BRAND := Raspberry
-PRODUCT_MODEL := Raspberry Pi 4
+PRODUCT_MODEL := Pi 4
 PRODUCT_MANUFACTURER := Raspberry
-PRODUCT_RELEASE_NAME := Raspberry Pi 4
 
 $(call inherit-product, vendor/brcm/rpi4/rpi4-vendor.mk)
