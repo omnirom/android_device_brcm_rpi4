@@ -51,6 +51,13 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     libGLES_mesa
 
+# Vulkan
+PRODUCT_COPY_FILES += \
+    frameworks/native/data/etc/android.hardware.vulkan.version-1_0_3.xml:vendor/etc/permissions/android.hardware.vulkan.version.xml \
+    frameworks/native/data/etc/android.hardware.vulkan.level-1.xml:vendor/etc/permissions/android.hardware.vulkan.level.xml
+
+PRODUCT_PACKAGES +=  vulkan.broadcom
+
 #PRODUCT_PACKAGES += \
     libEGL_swiftshader \
     libGLESv1_CM_swiftshader \
