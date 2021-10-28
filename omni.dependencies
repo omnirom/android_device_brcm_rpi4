@@ -34,6 +34,6 @@
     "override": "platform/external/mesa3d",
     "repository": "maxwen/android_external_mesa3d",
     "target_path": "external/mesa3d",
-    "revision": "android-11-v20.2"
+    "revision": "android-12-v21.1"
   }
 ]
