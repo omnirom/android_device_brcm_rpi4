@@ -20,9 +20,6 @@ debug.renderengine.backend=gles
 # GPS
 gps.device.path=/dev/ttyACM0
 
-# USB
-persist.sys.usb.config=mtp
-
 # Wifi
 wifi.interface=wlan0
 ro.boot.wificountrycode=00
