@@ -191,7 +191,8 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     Provision \
     DeviceParts \
-    Terminal
+    Terminal \
+    RemoveOpenDelta
 
 PRODUCT_PACKAGES += \
     htop \
