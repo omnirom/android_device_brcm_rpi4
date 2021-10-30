@@ -17,4 +17,5 @@
 
 <resources>
     <dimen name="settingslib_preference_title_textSize">16sp</dimen>
+    <dimen name="settingslib_dialogCornerRadius">8dp</dimen>
 </resources>
