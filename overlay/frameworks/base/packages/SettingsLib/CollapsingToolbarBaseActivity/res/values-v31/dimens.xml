@@ -17,5 +17,5 @@
 <resources>
     <!-- Collapsing toolbar layout dimensions -->
     <dimen name="settingslib_toolbar_layout_height">139dp</dimen>
-    <dimen name="expanded_title_textSize">24dp</dimen>
+    <dimen name="expanded_title_text_size">24dp</dimen>
 </resources>
