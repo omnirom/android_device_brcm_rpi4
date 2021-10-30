@@ -22,6 +22,7 @@ import android.content.pm.PackageManager;
 import android.os.BatteryManager;
 import android.os.Bundle;
 import android.os.UserHandle;
+import android.provider.DeviceConfig;
 import android.provider.Settings;
 import android.util.Log;
 
@@ -42,6 +43,7 @@ public class DefaultActivity extends Activity {
 
         // set useful defaults
         Settings.Secure.putInt(getContentResolver(), "qs_show_brightness", 0);
+        DeviceConfig.setProperty(DeviceConfig.NAMESPACE_INTERACTION_JANK_MONITOR, "enabled", "false", true);
 
         PackageManager pm = getPackageManager();
         ComponentName name = new ComponentName(this, DefaultActivity.class);
