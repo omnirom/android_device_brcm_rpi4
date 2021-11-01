@@ -40,3 +40,6 @@ audio.pcm.device=0
 # used in DeviceParts
 sys.rpi4.boot_mode=rom
 
+# on usb boot dont mount root blk device again
+sys.vendor.vold.skip_root_mnt=true
+

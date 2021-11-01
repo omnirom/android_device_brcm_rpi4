@@ -32,11 +32,11 @@
 #define _REALLY_INCLUDE_SYS__SYSTEM_PROPERTIES_H_
 #include <sys/_system_properties.h>
 
-namespace android {
-namespace init {
-
 using android::base::GetProperty;
 using android::base::ReadFileToString;
+
+namespace android {
+namespace init {
 
 template <typename T>
 static T get(const std::string& path, const T& def) {
@@ -115,36 +115,21 @@ void vendor_load_properties()
     set_drm_mode_property();
 }
 
-void vendor_create_device_symlinks(const Uevent& uevent, std::vector<std::string>& links)
+void vendor_create_device_symlinks(int partNum, std::string partName, std::vector<std::string>& links)
 {
-    LOG(INFO) << "vendor_create_device_symlinks: device " << uevent.device_name;
+    LOG(INFO) << "vendor_create_device_symlinks: device " << partName;
 
     // TODO raspi hardcode start
-    int num = uevent.partition_num;
-    if (num == 2 || uevent.device_name.find("sda2") != std::string::npos
-                || uevent.device_name.find("mmcblk0p2") != std::string::npos) {
+    if (partNum == 2 || partName.find("sda2") != std::string::npos
+                || partName.find("mmcblk0p2") != std::string::npos) {
         links.emplace_back("/dev/block/by-name/system");
-    } else if (num == 3 || uevent.device_name.find("sda3") != std::string::npos
-                || uevent.device_name.find("mmcblk0p3") != std::string::npos) {
+    } else if (partNum == 3 || partName.find("sda3") != std::string::npos
+                || partName.find("mmcblk0p3") != std::string::npos) {
         links.emplace_back("/dev/block/by-name/vendor");
-    } else if (num == 4 || uevent.device_name.find("sda4") != std::string::npos
-                || uevent.device_name.find("mmcblk0p4") != std::string::npos) {
+    } else if (partNum == 4 || partName.find("sda4") != std::string::npos
+                || partName.find("mmcblk0p4") != std::string::npos) {
         links.emplace_back("/dev/block/by-name/userdata");
     }
 }
 }
-}
-
-bool vendor_vold_add_device(std::string devName)
-{
-    LOG(INFO) << "vendor_vold_add_device: device " << devName;
-
-    std::string rootDev = android::base::GetProperty("dev.mnt.blk.root", "");
-    if (!rootDev.empty()) {
-        if (rootDev.find(devName) != std::string::npos) {
-            LOG(INFO) << "VolumeManager: skip dev = " << devName << " it is the boot device";
-            return false;
-        }
-    }
-    return true;
 }
