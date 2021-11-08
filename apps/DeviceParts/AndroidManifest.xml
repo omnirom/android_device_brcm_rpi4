@@ -20,7 +20,6 @@
         android:supportsRtl="true" >
         <activity
             android:name="org.omnirom.device.DeviceSettingsActivity"
-            android:exported="true"
             android:label="@string/advanced_settings"
             android:launchMode="singleTask"
             android:exported="true" >
