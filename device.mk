@@ -178,7 +178,8 @@ PRODUCT_PACKAGES += \
     Provision2 \
     DeviceParts \
     Terminal \
-    RemoveOpenDelta
+    RemoveOpenDelta \
+    RemoveCamera2
 
 PRODUCT_PACKAGES += \
     htop \
