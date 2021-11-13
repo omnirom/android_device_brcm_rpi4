@@ -19,7 +19,6 @@ package com.android.provision;
 import android.app.Activity;
 import android.content.ComponentName;
 import android.content.pm.PackageManager;
-import android.os.BatteryManager;
 import android.os.Bundle;
 import android.os.UserHandle;
 import android.provider.DeviceConfig;
@@ -32,18 +31,17 @@ import com.android.internal.widget.LockPatternUtils;
  * Application that sets the provisioned bit, like SetupWizard does.
  */
 public class DefaultActivity extends Activity {
+    private static final String TAG = "Provision";
 
     @Override
     protected void onCreate(Bundle icicle) {
         super.onCreate(icicle);
 
+        Log.d(TAG, "onCreate: DefaultActivity");
+
         // Add a persistent setting to allow other apps to know the device has been provisioned.
         Settings.Global.putInt(getContentResolver(), Settings.Global.DEVICE_PROVISIONED, 1);
         Settings.Secure.putInt(getContentResolver(), Settings.Secure.USER_SETUP_COMPLETE, 1);
-
-        // set useful defaults
-        Settings.Secure.putInt(getContentResolver(), "qs_show_brightness", 0);
-        DeviceConfig.setProperty(DeviceConfig.NAMESPACE_INTERACTION_JANK_MONITOR, "enabled", "false", true);
 
         PackageManager pm = getPackageManager();
         ComponentName name = new ComponentName(this, DefaultActivity.class);

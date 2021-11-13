@@ -22,8 +22,8 @@
     <!-- For miscellaneous settings -->
     <uses-permission android:name="android.permission.WRITE_SETTINGS" />
     <uses-permission android:name="android.permission.WRITE_SECURE_SETTINGS" />
-    <uses-permission android:name="android.permission.ACCESS_KEYGUARD_SECURE_STORAGE" />
     <uses-permission android:name="android.permission.WRITE_DEVICE_CONFIG" />
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
 
     <application>
         <activity android:name="DefaultActivity"
@@ -36,6 +36,12 @@
                 <category android:name="android.intent.category.SETUP_WIZARD" />
             </intent-filter>
         </activity>
+        <receiver android:name="Startup"
+                android:exported="true" >
+            <intent-filter android:priority="100" >
+                <action android:name="android.intent.action.BOOT_COMPLETED" />
+            </intent-filter>
+        </receiver>
     </application>
 </manifest>
 
