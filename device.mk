@@ -175,7 +175,7 @@ PRODUCT_PACKAGES += \
     libinit_rpi4
 
 PRODUCT_PACKAGES += \
-    Provision2 \
+    OmniProvision \
     DeviceParts \
     Terminal \
     RemoveOpenDelta \

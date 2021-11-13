@@ -1,15 +1,17 @@
 android_app {
-    name: "Provision2",
+    name: "OmniProvision",
     srcs: ["**/*.java"],
     platform_apis: true,
     system_ext_specific: true,
     certificate: "platform",
     privileged: true,
-    required: ["privapp_whitelist_com.android.provision"],
-    optimize: {
-        proguard_flags_files: ["proguard.flags"],
-    },
-    overrides: [
-        "Provision",
-    ],
+    required: ["privapp_whitelist_org.omnirom.provision"],
+}
+
+prebuilt_etc {
+    name: "privapp_whitelist_org.omnirom.provision",
+    system_ext_specific: true,
+    sub_dir: "permissions",
+    src: "org.omnirom.provision.xml",
+    filename_from_src: true,
 }
