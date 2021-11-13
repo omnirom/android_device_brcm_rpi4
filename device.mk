@@ -172,9 +172,6 @@ PRODUCT_PACKAGES += \
     gps.rpi4
 
 PRODUCT_PACKAGES += \
-    libinit_rpi4
-
-PRODUCT_PACKAGES += \
     OmniProvision \
     DeviceParts \
     Terminal \
