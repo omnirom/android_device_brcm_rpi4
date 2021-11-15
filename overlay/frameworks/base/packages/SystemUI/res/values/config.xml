@@ -39,7 +39,10 @@
         wifi,bt,dnd,airplane,location,hotspot,screenrecord,dark,work,night,inversion,reverse
     </string>
 
-    <!-- to hide statusbar and qs batteryy on unknown state
+    <!-- to hide statusbar and qs battery on unknown state
         needed for battery less devices -->
     <bool name="config_battery_hide_on_unknown">true</bool>
+
+    <string name="config_displayCpus" translatable="false">0</string>
+
 </resources>
