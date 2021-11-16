@@ -8,15 +8,6 @@ on init
 on fs
     mount_all /vendor/etc/fstab.rpi4
 
-on post-fs-data
-    # Create the directories used by the Wireless subsystem
-    mkdir /data/vendor/wifi 0770 wifi wifi
-    mkdir /data/vendor/wifi/wpa 0770 wifi wifi
-    mkdir /data/vendor/wifi/wpa/sockets 0770 wifi wifi
-
-    # Set indication (checked by vold) that we have finished this action
-    setprop vold.post_fs_data_done 1
-
 on zygote-start
     # Create the directories used by the Wireless subsystem
     mkdir /data/vendor/wifi 0770 wifi wifi
@@ -30,19 +21,6 @@ on zygote-start
 
     # Create directories for Location services
     mkdir /data/vendor/location 0770 gps gps
-
-on boot
-    setprop net.dns1 8.8.8.8
-    setprop net.dns2 8.8.4.4
-
-    # fake some battery state
-    #setprop status.battery.state Slow
-    #setprop status.battery.level 100
-    #setprop status.battery.level_raw  50
-    #setprop status.battery.level_scale 9
-
-    #setprop service.adb.tcp.port 5555
-    #start adbd
 
 on property:ro.revision=*
     start btuart

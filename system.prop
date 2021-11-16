@@ -43,3 +43,4 @@ sys.rpi4.boot_mode=rom
 # on usb boot dont mount root blk device again
 sys.vendor.vold.skip_root_mnt=true
 
+persist.rpi4.cpufreq.governor=ondemand
