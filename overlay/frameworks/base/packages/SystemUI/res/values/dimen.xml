@@ -47,4 +47,10 @@
     <dimen name="qs_security_footer_corner_radius">8dp</dimen>
     
     <dimen name="volume_dialog_panel_width_half">8dp</dimen>
+
+    <dimen name="screenshot_action_container_corner_radius">8dp</dimen>
+
+    <dimen name="screenshot_border_corner_radius">8dp</dimen>
+
+    <dimen name="screenshot_preview_corner_radius">8dp</dimen>
 </resources>
