@@ -1,4 +1,4 @@
-on post-fs-data
+on init
     chmod 0660 /sys/class/rfkill/rfkill0/state
     chown bluetooth bluetooth /sys/class/rfkill/rfkill0/state
     chown bluetooth bluetooth /sys/class/rfkill/rfkill0/type
@@ -10,8 +10,14 @@ on post-fs-data
     chmod 0666 /dev/gpiochip1
     mkdir /data/gpio 0777 system system
 
+    # boot time cpufreq tuning
+    write /sys/devices/system/cpu/cpu0/cpufreq/scaling_governor performance
+
+on property:sys.boot_completed=1
+    write /sys/devices/system/cpu/cpu0/cpufreq/scaling_governor ${persist.rpi4.cpufreq.governor}
+
 # cpufreq tuning
-on property:persist.rpi4.cpufreq.governor=*
+on property:persist.rpi4.cpufreq.governor=* && property:sys.boot_completed=1
     write /sys/devices/system/cpu/cpu0/cpufreq/scaling_governor ${persist.rpi4.cpufreq.governor}
 
 on property:persist.rpi4.cpufreq.max_freq=*
