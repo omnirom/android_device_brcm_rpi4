@@ -3,7 +3,6 @@
 # but value here will overrule if set
 #debug.drm.mode.force=1280x800
 
-hwc.drm.scale_with_gpu=1
 ro.hardware.egl=mesa
 ro.hardware.hwcomposer=drm
 ro.hardware.gralloc=gbm
@@ -13,6 +12,9 @@ ro.sf.lcd_density=180
 
 # no flickering for now
 debug.sf.disable_hwc_overlays=1
+
+# TODO just for reference
+#vendor.hwc.drm.scale_with_gpu=1
 
 # no SkiaGl for us
 debug.renderengine.backend=gles
@@ -43,4 +45,5 @@ sys.rpi4.boot_mode=rom
 # on usb boot dont mount root blk device again
 sys.vendor.vold.skip_root_mnt=true
 
+# default
 persist.rpi4.cpufreq.governor=ondemand
