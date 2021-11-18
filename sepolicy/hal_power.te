@@ -1,0 +1,9 @@
+typeattribute hal_power_default data_between_core_and_vendor_violators;
+
+allow hal_power_default cgroup:dir search;
+allow hal_power_default cgroup:file rw_file_perms;
+
+allow hal_power_default sysfs_devices_system_cpu:file rw_file_perms;
+allow hal_power_default sysfs_power:file rw_file_perms;
+
+
