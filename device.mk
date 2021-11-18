@@ -91,7 +91,8 @@ PRODUCT_PACKAGES += \
 
 # PowerHAL
 PRODUCT_PACKAGES += \
-    android.hardware.power-service.example
+    android.hardware.power@1.1-impl \
+    android.hardware.power@1.1-service.rpi4
 
 # PowerStats HAL
 PRODUCT_PACKAGES += \
