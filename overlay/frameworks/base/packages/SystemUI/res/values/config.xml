@@ -43,7 +43,7 @@
         needed for battery less devices -->
     <bool name="config_battery_hide_on_unknown">true</bool>
 
-    <string name="config_displayCpus" translatable="false">0,2</string>
+    <string name="config_displayCpus" translatable="false">0</string>
 
     <bool name="always_show_screenshot_dismiss_botton">true</bool>
 </resources>
