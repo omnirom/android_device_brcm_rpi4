@@ -45,5 +45,9 @@
 
     <string name="config_displayCpus" translatable="false">0</string>
 
+    <string name="config_cpuTempSensor" translatable="false">/sys/class/thermal/thermal_zone0/temp</string>
+
+    <integer name="config_cpuTempDivider" translatable="false">10</integer>
+
     <bool name="always_show_screenshot_dismiss_botton">true</bool>
 </resources>
