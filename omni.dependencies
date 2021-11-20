@@ -35,5 +35,11 @@
     "repository": "maxwen/android_external_mesa3d",
     "target_path": "external/mesa3d",
     "revision": "android-12-v21.1"
+  },
+  {
+    "remote": "omnirom",
+    "repository": "android_packages_apps_DeviceRegistration",
+    "target_path": "packages/apps/DeviceRegistration",
+    "revision": "android-12.0"
   }
 ]
