@@ -179,6 +179,11 @@ PRODUCT_PACKAGES += \
     RemoveOpenDelta \
     RemoveCamera2
 
+ifeq ($(ROM_BUILDTYPE),GAPPS)
+PRODUCT_PACKAGES += \
+    DeviceRegistration
+endif
+
 PRODUCT_PACKAGES += \
     htop \
     zip
