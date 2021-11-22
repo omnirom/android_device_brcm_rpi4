@@ -22,4 +22,6 @@
 
     <dimen name="avatar_margin_top">16dp</dimen>
 
+    <dimen name="rounded_corner_theme_overlay_radius">8dp</dimen>
+
 </resources>
