@@ -218,4 +218,9 @@
     -->
     <!--<bool name="config_enableWifiDisplay">true</bool>-->
 
+    <!-- we dont want any dimming -->
+    <integer name="config_screenBrightnessDim">@integer/config_screenBrightnessSettingDefault</integer>
+    <item name="config_screenBrightnessDimFloat" format="float" type="dimen">-2</item>
+    <integer name="config_maximumScreenDimDuration">0</integer>
+    <fraction name="config_maximumScreenDimRatio">0%</fraction>
 </resources>
