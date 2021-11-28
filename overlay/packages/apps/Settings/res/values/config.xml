@@ -39,12 +39,6 @@
 
     <bool name="config_show_brightness">false</bool>
 
-    <!-- Whether or not homepage should display user's account avatar -->
-    <bool name="config_show_avatar_in_homepage">true</bool>
-
-    <!-- Whether or not device header widget tile should display in device info page -->
-    <bool name="config_show_device_header_in_device_info">false</bool>
-    
     <!-- Whether battery from app_info_settings is available or not. -->
     <bool name="config_show_app_info_settings_battery">false</bool>
 
