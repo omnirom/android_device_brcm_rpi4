@@ -21,7 +21,7 @@
      for different hardware and product builds. -->
 <resources>
     <!-- Nav bar button default ordering/layout -->
-    <string name="config_navBarLayout" translatable="false">left;voldown,back,home,recent,volup;right,notifications,power</string>
+    <string name="config_navBarLayout" translatable="false">left;voldown,back,home,recent,volup;right,notifications,power[90AC]</string>
     
     <integer name="controls_max_columns">3</integer>
 
