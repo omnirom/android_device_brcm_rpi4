@@ -185,10 +185,6 @@ PRODUCT_PACKAGES += \
 endif
 
 PRODUCT_PACKAGES += \
-    htop \
-    zip
-
-PRODUCT_PACKAGES += \
     gpiodetect \
     gpiofind \
     gpioget \

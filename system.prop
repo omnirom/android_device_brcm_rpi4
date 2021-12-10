@@ -1,7 +1,7 @@
 # Change for a different screen resolutions
 # can be set during ruintime by using persist.debug.drm.mode.force
 # but value here will overrule if set
-#debug.drm.mode.force=1280x800
+#debug.drm.mode.force=1280x800@60
 
 ro.hardware.egl=mesa
 ro.hardware.hwcomposer=drm
