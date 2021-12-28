@@ -15,14 +15,5 @@
 -->
 
 <resources>
-    <dimen name="popup_single_item_radius">8dp</dimen>
-    <dimen name="rounded_button_radius">8dp</dimen>
-    <dimen name="popup_smaller_radius">8dp</dimen>
-    <dimen name="widget_list_top_bottom_corner_radius">8dp</dimen>
-    <dimen name="widget_list_content_corner_radius">8dp</dimen>
-    <dimen name="widget_reconfigure_button_corner_radius">8dp</dimen>
-    <dimen name="widget_preview_corner_radius">8dp</dimen>
-    <dimen name="search_box_radius">8dp</dimen>
-    <dimen name="enforced_rounded_corner_max_radius">8dp</dimen>
-    <dimen name="grid_visualization_rounding_radius">8dp</dimen>
+    <dimen name="system_app_widget_background_radius">8dp</dimen>
 </resources>
