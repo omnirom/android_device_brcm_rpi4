@@ -25,6 +25,9 @@
 
     <integer name="quick_settings_num_columns">4</integer>
 
+    <!-- The maximum number of tiles in the QuickQSPanel -->
+    <integer name="quick_qs_panel_max_columns">4</integer>
+
     <integer name="power_menu_lite_max_columns">4</integer>
 
     <bool name="config_skinnyNotifsInLandscape">false</bool>
@@ -39,6 +42,11 @@
         wifi,bt,dnd,airplane,location,hotspot,screenrecord,dark,work,night,inversion,reverse
     </string>
 
+    <!-- tiles that should NEVER end up in qs -->
+    <string name="quick_settings_tiles_blacklist" translatable="false">
+        rotation,battery
+    </string>
+
     <!-- to hide statusbar and qs battery on unknown state
         needed for battery less devices -->
     <bool name="config_battery_hide_on_unknown">true</bool>
@@ -48,5 +56,11 @@
     <string name="config_cpuTempSensor" translatable="false">/sys/class/thermal/thermal_zone0/temp</string>
 
     <integer name="config_cpuTempDivider" translatable="false">1000</integer>
+
+    <!-- Whether to enable dimming navigation buttons when wallpaper is not visible, should be
+         enabled for OLED devices to reduce/prevent burn in on the navigation bar (because of the
+         black background and static button placements) and disabled for all other devices to
+         prevent wasting cpu cycles on the dimming animation -->
+    <bool name="config_navigation_bar_enable_auto_dim_no_visible_wallpaper">false</bool>
 
 </resources>
