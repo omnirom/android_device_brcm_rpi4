@@ -312,18 +312,12 @@ nmea_reader_init(NmeaReader* const r)
 }
 
 static void
-nmea_reader_set_callback(NmeaReader* const r, GpsCallbacks* const cbs)
+nmea_reader_reset_stats(NmeaReader* const r)
 {
-        if (!r) {           /*this should not happen*/
-                return;
-        } else if (!cbs) {  /*unregister the callback */
-                return;
-        } else {/*register the callback*/
-                r->fix.flags = 0;
-                r->sv_count = 0;
-                r->sv_status_gps.num_svs = 0;
-                r->sv_status_gnss.num_svs = 0;
-        }
+        r->fix.flags = 0;
+        r->sv_count = 0;
+        r->sv_status_gps.num_svs = 0;
+        r->sv_status_gnss.num_svs = 0;
 }
 
 
@@ -1081,14 +1075,13 @@ gps_state_thread(void*  arg)
                                                 if (!started) {
                                                         DBG("gps thread starting  location_cb=%p", &callback_backup);
                                                         started = 1;
-                                                        nmea_reader_set_callback(reader, &state->callbacks);
+                                                        nmea_reader_reset_stats(reader);
                                                 }
                                         }
                                         else if (cmd == CMD_STOP) {
                                                 if (started) {
                                                         DBG("gps thread stopping");
                                                         started = 0;
-                                                        nmea_reader_set_callback(reader, NULL);
                                                         DBG("CMD_STOP has been receiving from HAL thread, release lock so can handle CLEAN_UP\n");
                                                 }
                                         }
@@ -1097,6 +1090,9 @@ gps_state_thread(void*  arg)
                                         }
                                 }
                                 else if (fd == gps_fd) {
+                                        if (!started) {
+                                            continue;
+                                        }
                                         if (!flag_unlock) {
                                                 flag_unlock = 1;
                                                 DBG("got first NMEA sentence, release lock to set state ENGINE ON, SESSION BEGIN");
