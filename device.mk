@@ -133,7 +133,7 @@ PRODUCT_COPY_FILES += \
 
 # bluetooth
 PRODUCT_PACKAGES += \
-    android.hardware.bluetooth@1.0-service.rpi4 \
+    android.hardware.bluetooth@1.1-service.btlinux \
     btuart
 
 # USB
@@ -153,7 +153,6 @@ PRODUCT_COPY_FILES += \
 PRODUCT_COPY_FILES += \
     $(DEVICE_PATH)/audio_policy_configuration.xml:$(TARGET_COPY_OUT_VENDOR)/etc/audio_policy_configuration.xml
 
-# use default in /apex/com.android.media.swcodec
 PRODUCT_COPY_FILES += \
     $(DEVICE_PATH)/media_codecs.xml:$(TARGET_COPY_OUT_VENDOR)/etc/media_codecs.xml \
     frameworks/av/media/libstagefright/data/media_codecs_google_audio.xml:$(TARGET_COPY_OUT_VENDOR)/etc/media_codecs_google_audio.xml

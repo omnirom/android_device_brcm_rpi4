@@ -7,4 +7,6 @@
 
 #define KERNEL_MISSING_CLOCK_BOOTTIME_ALARM TRUE
 
+#define BTA_AV_SINK_INCLUDED           TRUE
+
 #endif
