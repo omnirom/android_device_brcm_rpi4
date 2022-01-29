@@ -24,6 +24,7 @@ gps.device.path=/dev/ttyACM0
 
 # Wifi
 wifi.interface=wlan0
+wifi.supplicant_scan_interval=15
 ro.boot.wificountrycode=00
 
 # DONT ADD THIS
