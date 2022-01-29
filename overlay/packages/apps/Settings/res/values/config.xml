@@ -45,4 +45,6 @@
     <!-- When true enable gesture setting. -->
     <bool name="config_gesture_settings_enabled">true</bool>
 
+    <!-- wifi direct -->
+    <bool name="config_show_p2p_config">false</bool>
 </resources>
