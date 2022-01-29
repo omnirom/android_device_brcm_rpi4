@@ -9,4 +9,6 @@
 
 #define BTA_AV_SINK_INCLUDED           TRUE
 
+#define MAX_PCM_FRAME_NUM_PER_TICK 28
+
 #endif
