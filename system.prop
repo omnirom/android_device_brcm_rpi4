@@ -16,9 +16,6 @@ debug.sf.disable_hwc_overlays=1
 # TODO just for reference
 #vendor.hwc.drm.scale_with_gpu=1
 
-# no SkiaGl for us
-debug.renderengine.backend=gles
-
 # GPS
 gps.device.path=/dev/ttyACM0
 
