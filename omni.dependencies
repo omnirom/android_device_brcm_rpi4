@@ -3,13 +3,13 @@
     "remote": "omnirom",
     "repository": "android_kernel_brcm_arpi",
     "target_path": "kernel/brcm/arpi",
-    "revision": "android-11"
+    "revision": "android-12.0"
   },
   {
     "remote": "omnirom",
     "repository": "android_hardware_arpi",
     "target_path": "hardware/arpi",
-    "revision": "android-11"
+    "revision": "android-12.0"
   },
   {
     "remote": "omnirom",
@@ -27,7 +27,7 @@
     "remote": "omnirom",
     "repository": "android_external_libgpiod",
     "target_path": "external/libgpiod",
-    "revision": "android-11"
+    "revision": "android-12.0"
   },
   {
     "remote": "github",
