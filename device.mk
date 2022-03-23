@@ -219,6 +219,10 @@ PRODUCT_PROPERTY_OVERRIDES += ro.surface_flinger.use_color_management=false \
     ro.surface_flinger.has_wide_color_display=false \
     ro.surface_flinger.has_HDR_display=false
 
+PRODUCT_PACKAGES += \
+    androidx.window.extensions \
+    androidx.window.sidecar
+
 # recovery
 # enable when building recoveryimage
 #PRODUCT_COPY_FILES += $(call find-copy-subdir-files,*,$(LOCAL_PATH)/recovery/root,recovery/root)
