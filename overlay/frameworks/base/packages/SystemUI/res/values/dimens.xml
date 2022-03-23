@@ -55,6 +55,8 @@
     <dimen name="screenshot_preview_corner_radius">8dp</dimen>
 
     <dimen name="screenshot_button_corner_radius">8dp</dimen>
+
+    <dimen name="buttonCornerRadius">8dp</dimen>
     
     <dimen name="internet_dialog_corner_radius">8dp</dimen>
 
