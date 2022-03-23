@@ -24,4 +24,8 @@
 
     <dimen name="rounded_corner_theme_overlay_radius">8dp</dimen>
 
+    <dimen name="homepage_menu_entry_corner_radius">8dp</dimen>
+
+    <dimen name="output_switcher_panel_icon_corner_radius">8dp</dimen>
+
 </resources>

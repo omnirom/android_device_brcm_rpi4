@@ -207,4 +207,9 @@
     <item name="config_screenBrightnessDimFloat" format="float" type="dimen">-2</item>
     <integer name="config_maximumScreenDimDuration">0</integer>
     <fraction name="config_maximumScreenDimRatio">0%</fraction>
+
+    <!-- The percentage of the screen width to use for the default width or height of
+         picture-in-picture windows. Regardless of the percent set here, calculated size will never
+         be smaller than @dimen/default_minimal_size_pip_resizable_task. -->
+    <item name="config_pictureInPictureDefaultSizePercent" format="float" type="dimen">0.25</item>
 </resources>
