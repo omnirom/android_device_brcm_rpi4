@@ -19,4 +19,7 @@
     <!-- The corner radius for PiP window. -->
     <dimen name="pip_corner_radius">8dp</dimen>
 
+    <!-- The radius of the corners of the compat hint bubble. -->
+    <dimen name="compat_hint_corner_radius">8dp</dimen>
+
 </resources>
