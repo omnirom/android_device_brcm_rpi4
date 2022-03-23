@@ -26,7 +26,7 @@
     <integer name="quick_settings_num_columns">4</integer>
 
     <!-- The maximum number of tiles in the QuickQSPanel -->
-    <integer name="quick_qs_panel_max_columns">4</integer>
+    <integer name="quick_qs_panel_max_tiles">4</integer>
 
     <integer name="power_menu_lite_max_columns">4</integer>
 
