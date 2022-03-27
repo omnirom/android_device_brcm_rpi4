@@ -18,7 +18,7 @@
     
     <dimen name="settings_panel_corner_radius">8dp</dimen>
     
-    <dimen name="search_bar_corner_radius">8dp</dimen>
+    <!--<dimen name="search_bar_corner_radius">8dp</dimen>-->
 
     <dimen name="avatar_margin_top">16dp</dimen>
 

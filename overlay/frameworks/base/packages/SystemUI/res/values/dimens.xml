@@ -26,7 +26,7 @@
     <!-- Radius for notifications corners without adjacent notifications -->
     <dimen name="notification_corner_radius">8dp</dimen>
     
-    <dimen name="notification_button_corner_radius">8dp</dimen>
+    <!--<dimen name="notification_button_corner_radius">8dp</dimen>-->
 
     <!-- Distance over which notification corner animations run, near the shelf while scrolling. -->
     <dimen name="notification_corner_animation_distance">28dp</dimen>
@@ -35,7 +35,7 @@
 
     <dimen name="control_corner_radius">8dp</dimen>
 
-    <dimen name="qs_footer_action_corner_radius">8dp</dimen>
+    <!--<dimen name="qs_footer_action_corner_radius">8dp</dimen>-->
     
     <!-- global actions dialog -->
     <dimen name="global_actions_corner_radius">8dp</dimen>
@@ -54,13 +54,11 @@
 
     <dimen name="screenshot_preview_corner_radius">8dp</dimen>
 
-    <dimen name="screenshot_button_corner_radius">8dp</dimen>
-
-    <dimen name="buttonCornerRadius">8dp</dimen>
+    <!--<dimen name="screenshot_button_corner_radius">8dp</dimen>-->
     
     <dimen name="internet_dialog_corner_radius">8dp</dimen>
 
-    <dimen name="internet_dialog_button_corner_radius">8dp</dimen>
+    <!--<dimen name="internet_dialog_button_corner_radius">8dp</dimen>-->
 
     <!-- 12dp -->
     <dimen name="cpu_info_text_height">14dp</dimen>
