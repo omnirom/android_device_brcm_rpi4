@@ -18,6 +18,7 @@
     <dimen name="popup_single_item_radius">8dp</dimen>
     <!--<dimen name="rounded_button_radius">8dp</dimen>-->
     <dimen name="popup_smaller_radius">8dp</dimen>
+    <dimen name="task_menu_corner_radius">8dp</dimen>
     <dimen name="widget_list_top_bottom_corner_radius">8dp</dimen>
     <dimen name="widget_list_content_corner_radius">8dp</dimen>
     <!--<dimen name="widget_reconfigure_button_corner_radius">8dp</dimen>-->

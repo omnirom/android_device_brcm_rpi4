@@ -17,7 +17,43 @@
 
 <profiles xmlns:launcher="http://schemas.android.com/apk/res-auto" >
 
+    
+    <grid-option
+        launcher:name="5_by_5"
+        launcher:numRows="5"
+        launcher:numColumns="5"
+        launcher:numFolderRows="4"
+        launcher:numFolderColumns="4"
+        launcher:numHotseatIcons="5"
+        launcher:dbFile="launcher.db"
+        launcher:defaultLayoutId="@xml/default_workspace_5x5"
+        launcher:deviceCategory="phone|multi_display" >
 
+        <display-option
+            launcher:name="Large Phone"
+            launcher:minWidthDps="406"
+            launcher:minHeightDps="694"
+            launcher:iconImageSize="56"
+            launcher:iconTextSize="14.4"
+            launcher:canBeDefault="true" />
+
+        <display-option
+            launcher:name="Large Phone Split Display"
+            launcher:minWidthDps="406"
+            launcher:minHeightDps="694"
+            launcher:iconImageSize="56"
+            launcher:iconTextSize="14.4"
+            launcher:canBeDefault="true" />
+
+        <display-option
+            launcher:name="Shorter Stubby"
+            launcher:minWidthDps="255"
+            launcher:minHeightDps="400"
+            launcher:iconImageSize="48"
+            launcher:iconTextSize="13.0"
+            launcher:canBeDefault="true" />
+
+    </grid-option>
     <grid-option
         launcher:name="6_by_5"
         launcher:numRows="5"
