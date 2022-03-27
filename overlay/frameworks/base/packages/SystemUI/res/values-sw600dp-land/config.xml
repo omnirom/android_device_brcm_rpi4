@@ -22,7 +22,5 @@
 <resources>
 
     <integer name="controls_max_columns">4</integer>
-    
-    <!-- Whether to use the split 2-column notification shade -->
-    <bool name="config_use_split_notification_shade">false</bool>
+
 </resources>
