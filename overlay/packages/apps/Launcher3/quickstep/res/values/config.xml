@@ -1,3 +1,4 @@
 <resources>
     <bool name="qsb_show_default">false</bool>
+    <bool name="taskbar_add_hardware_buttons">true</bool>
 </resources>

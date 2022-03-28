@@ -25,4 +25,8 @@
     <dimen name="widget_preview_corner_radius">8dp</dimen>
     <dimen name="enforced_rounded_corner_max_radius">8dp</dimen>
     <dimen name="grid_visualization_rounding_radius">8dp</dimen>
+    
+    <dimen name="taskbar_nav_buttons_spacing">4dp</dimen>
+    <dimen name="taskbar_icon_spacing">2dp</dimen>
+    <dimen name="taskbar_hotseat_nav_spacing">4dp</dimen>
 </resources>

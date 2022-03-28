@@ -33,16 +33,16 @@
             launcher:name="Large Phone"
             launcher:minWidthDps="406"
             launcher:minHeightDps="694"
-            launcher:iconImageSize="56"
-            launcher:iconTextSize="14.4"
+            launcher:iconImageSize="48"
+            launcher:iconTextSize="15"
             launcher:canBeDefault="true" />
 
         <display-option
             launcher:name="Large Phone Split Display"
             launcher:minWidthDps="406"
             launcher:minHeightDps="694"
-            launcher:iconImageSize="56"
-            launcher:iconTextSize="14.4"
+            launcher:iconImageSize="48"
+            launcher:iconTextSize="15"
             launcher:canBeDefault="true" />
 
         <display-option
@@ -50,34 +50,7 @@
             launcher:minWidthDps="255"
             launcher:minHeightDps="400"
             launcher:iconImageSize="48"
-            launcher:iconTextSize="13.0"
-            launcher:canBeDefault="true" />
-
-    </grid-option>
-    <grid-option
-        launcher:name="6_by_5"
-        launcher:numRows="5"
-        launcher:numColumns="6"
-        launcher:numFolderRows="3"
-        launcher:numFolderColumns="3"
-        launcher:numHotseatIcons="7"
-        launcher:numAllAppsColumns="6"
-        launcher:dbFile="launcher_6_by_5.db"
-        launcher:defaultLayoutId="@xml/default_workspace_6x5"
-        launcher:deviceCategory="tablet" >
-
-        <display-option
-            launcher:name="Tablet"
-            launcher:minWidthDps="900"
-            launcher:minHeightDps="820"
-            launcher:minCellHeightDps="104"
-            launcher:minCellWidthDps="80"
-            launcher:iconImageSize="60"
-            launcher:iconTextSize="14"
-            launcher:borderSpaceDps="16"
-            launcher:allAppsIconSize="60"
-            launcher:allAppsIconTextSize="14"
-            launcher:allAppsCellSpacingDps="16"
+            launcher:iconTextSize="15"
             launcher:canBeDefault="true" />
 
     </grid-option>
@@ -88,7 +61,7 @@
         launcher:numColumns="6"
         launcher:numFolderRows="4"
         launcher:numFolderColumns="4"
-        launcher:numHotseatIcons="7"
+        launcher:numHotseatIcons="6"
         launcher:numAllAppsColumns="6"
         launcher:dbFile="launcher_6_by_6.db"
         launcher:defaultLayoutId="@xml/default_workspace_6x5"
@@ -98,7 +71,7 @@
             launcher:name="1280x800"
             launcher:minWidthDps="500"
             launcher:minHeightDps="900"
-            launcher:iconImageSize="54"
+            launcher:iconImageSize="48"
             launcher:iconTextSize="15"
             launcher:canBeDefault="true" />
 
@@ -106,8 +79,8 @@
             launcher:name="1920x1080"
             launcher:minWidthDps="900"
             launcher:minHeightDps="1500"
-            launcher:iconImageSize="54"
-            launcher:iconTextSize="18"
+            launcher:iconImageSize="48"
+            launcher:iconTextSize="15"
             launcher:canBeDefault="true" />
     </grid-option>
 
@@ -127,7 +100,7 @@
             launcher:name="1280x800"
             launcher:minWidthDps="500"
             launcher:minHeightDps="900"
-            launcher:iconImageSize="54"
+            launcher:iconImageSize="48"
             launcher:iconTextSize="15"
             launcher:canBeDefault="true" />
 
@@ -135,8 +108,8 @@
             launcher:name="1920x1080"
             launcher:minWidthDps="900"
             launcher:minHeightDps="1500"
-            launcher:iconImageSize="54"
-            launcher:iconTextSize="18"
+            launcher:iconImageSize="48"
+            launcher:iconTextSize="15"
             launcher:canBeDefault="true" />
     </grid-option>
     
@@ -146,7 +119,7 @@
         launcher:numColumns="7"
         launcher:numFolderRows="5"
         launcher:numFolderColumns="5"
-        launcher:numHotseatIcons="7"
+        launcher:numHotseatIcons="6"
         launcher:numAllAppsColumns="7"
         launcher:dbFile="launcher_7_by_7.db"
         launcher:defaultLayoutId="@xml/default_workspace_6x5"
@@ -156,7 +129,7 @@
             launcher:name="1280x800"
             launcher:minWidthDps="500"
             launcher:minHeightDps="900"
-            launcher:iconImageSize="54"
+            launcher:iconImageSize="48"
             launcher:iconTextSize="15"
             launcher:canBeDefault="true" />
 
@@ -164,8 +137,8 @@
             launcher:name="1920x1080"
             launcher:minWidthDps="900"
             launcher:minHeightDps="1500"
-            launcher:iconImageSize="54"
-            launcher:iconTextSize="18"
+            launcher:iconImageSize="48"
+            launcher:iconTextSize="15"
             launcher:canBeDefault="true" />
     </grid-option>
 
@@ -185,7 +158,7 @@
             launcher:name="1280x800"
             launcher:minWidthDps="500"
             launcher:minHeightDps="900"
-            launcher:iconImageSize="54"
+            launcher:iconImageSize="48"
             launcher:iconTextSize="15"
             launcher:canBeDefault="true" />
 
@@ -193,8 +166,8 @@
             launcher:name="1920x1080"
             launcher:minWidthDps="900"
             launcher:minHeightDps="1500"
-            launcher:iconImageSize="54"
-            launcher:iconTextSize="18"
+            launcher:iconImageSize="48"
+            launcher:iconTextSize="15"
             launcher:canBeDefault="true" />
     </grid-option>
     
@@ -204,7 +177,7 @@
         launcher:numColumns="8"
         launcher:numFolderRows="5"
         launcher:numFolderColumns="5"
-        launcher:numHotseatIcons="8"
+        launcher:numHotseatIcons="6"
         launcher:numAllAppsColumns="8"
         launcher:dbFile="launcher_8_by_8.db"
         launcher:defaultLayoutId="@xml/default_workspace_6x5"
@@ -214,7 +187,7 @@
             launcher:name="1280x800"
             launcher:minWidthDps="500"
             launcher:minHeightDps="900"
-            launcher:iconImageSize="54"
+            launcher:iconImageSize="48"
             launcher:iconTextSize="15"
             launcher:canBeDefault="true" />
 
@@ -222,8 +195,8 @@
             launcher:name="1920x1080"
             launcher:minWidthDps="900"
             launcher:minHeightDps="1500"
-            launcher:iconImageSize="54"
-            launcher:iconTextSize="18"
+            launcher:iconImageSize="48"
+            launcher:iconTextSize="15"
             launcher:canBeDefault="true" />
     </grid-option>
 
@@ -243,7 +216,7 @@
             launcher:name="1280x800"
             launcher:minWidthDps="500"
             launcher:minHeightDps="900"
-            launcher:iconImageSize="54"
+            launcher:iconImageSize="48"
             launcher:iconTextSize="15"
             launcher:canBeDefault="true" />
 
@@ -251,8 +224,8 @@
             launcher:name="1920x1080"
             launcher:minWidthDps="900"
             launcher:minHeightDps="1500"
-            launcher:iconImageSize="54"
-            launcher:iconTextSize="18"
+            launcher:iconImageSize="48"
+            launcher:iconTextSize="15"
             launcher:canBeDefault="true" />
     </grid-option>
 </profiles>
