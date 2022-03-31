@@ -62,4 +62,9 @@
 
     <!-- 12dp -->
     <dimen name="cpu_info_text_height">14dp</dimen>
+
+    <!-- 32dp -->
+    <!-- MUST be increased if we want to show hardware buttons
+    on keyguard else device controls will be overlapping taskbar -->
+    <dimen name="keyguard_affordance_vertical_offset">64dp</dimen>
 </resources>
