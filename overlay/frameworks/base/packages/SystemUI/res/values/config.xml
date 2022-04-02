@@ -34,12 +34,12 @@
 
     <!-- The default tiles to display in QuickSettings -->
     <string name="quick_settings_tiles_default" translatable="false">
-        internet,bt,dnd,airplane,location,hotspot,screenrecord,dark
+        internet,bt,dnd,alarm,airplane,location,hotspot,screenrecord,dark
     </string>
 
     <!-- Tiles native to System UI. Order should match "quick_settings_tiles_default" -->
     <string name="quick_settings_tiles_stock" translatable="false">
-        internet,bt,dnd,airplane,location,hotspot,screenrecord,dark,work,night,inversion,reverse
+        internet,bt,dnd,alarm,airplane,controls,screenrecord,mictoggle,location,hotspot,inversion,dark,work,night,cast
     </string>
 
     <!-- tiles that should NEVER end up in qs -->
