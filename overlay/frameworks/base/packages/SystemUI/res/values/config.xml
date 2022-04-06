@@ -63,4 +63,6 @@
          prevent wasting cpu cycles on the dimming animation -->
     <bool name="config_navigation_bar_enable_auto_dim_no_visible_wallpaper">false</bool>
 
+    <bool name="config_keyguard_user_switch_opens_qs_details">true</bool>
+
 </resources>
