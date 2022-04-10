@@ -1,9 +1,0 @@
-TODO:
-
--p2p e.g. screencast
--fix chromium
--think about how to handle OTA
--kernel cmdline option for default gps device (custom init sets property then)
--support usb cameras - preview works capture not (v3d_bo_map_unsynchronized)
--screen distortion on higher resolutions (seems to be on hdmi 1 only - maybe my device port is broken)
--video playback - lets start easy with even a simple screen record (v3d_bo_map_unsynchronized)
