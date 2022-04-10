@@ -1,0 +1,13 @@
+<resources>
+    <integer-array name="camera_modes">
+        <item>@integer/camera_mode_photo</item>
+    </integer-array>
+
+    <integer-array name="camera_modes_in_nav_drawer_if_supported">
+        <item>@integer/camera_mode_photo</item>
+    </integer-array>
+
+    <integer-array name="camera_mode_nested_in_nav_drawer">
+        <item>@integer/camera_mode_photo</item>
+    </integer-array>
+</resources>
