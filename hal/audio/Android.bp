@@ -1,0 +1,16 @@
+cc_library_shared {
+    name: "audio.primary.rpi4",
+    relative_install_path: "hw",
+    proprietary: true,
+    srcs: ["audio_hw.c"],
+    include_dirs: [
+        "external/tinyalsa/include",
+    ],
+    header_libs: ["libhardware_headers"],
+    shared_libs: [
+        "liblog",
+        "libtinyalsa",
+        "libcutils",
+    ],
+    cflags: ["-Wall", "-Werror", "-Wno-unused-parameter"],
+}
