@@ -21,3 +21,4 @@
 /dev/block/by-name/userdata /data               ext4      noatime,nosuid,nodev latemount,wait,check,quota
 
 /devices/platform/scb/*.pcie/*/*/*/usb*    auto     auto    defaults                                        voldmanaged=usb:auto
+/dev/block/zram0                           none     swap    defaults                                        zramsize=268435456
