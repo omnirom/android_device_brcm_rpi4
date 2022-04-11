@@ -1,10 +1,5 @@
 import /vendor/etc/init/hw/init.rpi4.usb.rc
 
-on init
-    # Support legacy paths
-    symlink /sdcard /mnt/sdcard
-    symlink /sdcard /storage/sdcard0
-
 on fs
     mount_all /vendor/etc/fstab.rpi4
 
