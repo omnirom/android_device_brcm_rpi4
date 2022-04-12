@@ -164,7 +164,7 @@ PRODUCT_COPY_FILES += \
     $(DEVICE_PATH)/init.rpi4.usb.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/hw/init.rpi4.usb.rc \
     $(DEVICE_PATH)/fstab.rpi4:$(TARGET_COPY_OUT_VENDOR)/etc/fstab.rpi4 \
     $(DEVICE_PATH)/ueventd.rc:$(TARGET_COPY_OUT_VENDOR)/etc/ueventd.rc \
-    $(DEVICE_PATH)/init.system.rpi4.rc:root/init.rpi4.rc \
+    $(DEVICE_PATH)/init.system.rpi4.rc:$(TARGET_COPY_OUT_SYSTEM)/etc/init/init.rpi4.rc \
     $(DEVICE_PATH)/fstab.rpi4:$(TARGET_COPY_OUT_RAMDISK)/fstab.rpi4
 
 PRODUCT_COPY_FILES += \
