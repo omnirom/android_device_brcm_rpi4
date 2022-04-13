@@ -135,6 +135,9 @@ void vendor_create_device_symlinks(int partNum, std::string partName, std::vecto
     } else if (partNum == 4 || partName.find("sda4") != std::string::npos
                 || partName.find("mmcblk0p4") != std::string::npos) {
         links.emplace_back("/dev/block/by-name/userdata");
+    } else if (partNum == 1 || partName.find("sda1") != std::string::npos
+                || partName.find("mmcblk0p1") != std::string::npos) {
+        links.emplace_back("/dev/block/by-name/boot");
     }
 }
 }
