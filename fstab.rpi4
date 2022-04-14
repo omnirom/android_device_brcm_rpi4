@@ -4,17 +4,9 @@
 #
 #<src>                  <mnt_point>         <type>    <mnt_flags and options>                               <fs_mgr_flags>
 
-# these partitions are defined by default from dt using overlay so just keeping here for reference or if ever needed
-
-#/dev/block/mmcblk0p2    /system             ext4      ro,barrier=1                                          wait,first_stage_mount
-#/dev/block/sda2         /system             ext4      ro,barrier=1                                          wait,first_stage_mount
-
-#/dev/block/mmcblk0p3    /vendor             ext4      ro,barrier=1                                          wait,first_stage_mount
-#/dev/block/sda3         /vendor             ext4      ro,barrier=1                                          wait,first_stage_mount
-
-# TODO fileencryption=aes-256-xts
-#/dev/block/mmcblk0p4    /data               ext4      noatime,nosuid,nodev latemount,wait,check,quota
-#/dev/block/sda4         /data               ext4      noatime,nosuid,nodev latemount,wait,check,quota
+# system and vendor partitions are defined by default from dt using overlay
+# possible device paths are
+# /dev/block/mmcblk0p[1-4] /dev/block/sda[1-4] /dev/block/by-name/[system|vendor|boot|userdata]
 
 # TODO fileencryption=aes-256-xts
 # relies on the userdata parition beeing number 4 or named sda4 or mmcblk0p4
