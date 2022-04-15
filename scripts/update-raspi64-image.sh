@@ -70,9 +70,11 @@ if  [ ! -f "$IN_IMAGE_DIR/vendor.img" ]; then
     exit 0
 fi
 
+if [ $UPDATE_BOOT_PARTITION -eq 1 ]; then
 if  [ ! -f "$IN_IMAGE_DIR/obj/KERNEL_OBJ/arch/arm64/boot/Image" ]; then
     echo "no <input folder>/obj/KERNEL_OBJ/arch/arm64/boot/Image"
     exit 0
+fi
 fi
 
 if [ ! -b $SD_CARD_DEVICE ]; then
@@ -99,6 +101,9 @@ if [ $UPDATE_BOOT_PARTITION -eq 1 ]; then
     sudo cp "$IN_IMAGE_DIR/ramdisk.img" /mnt/tmp
     sudo cp "$IN_IMAGE_DIR/obj/KERNEL_OBJ/arch/arm64/boot/Image" /mnt/tmp/Image
     sudo cp "$IN_IMAGE_DIR/obj/KERNEL_OBJ/arch/arm64/boot/dts/broadcom/bcm2711-rpi-4-b.dtb" /mnt/tmp
+    sudo cp "$IN_IMAGE_DIR/obj/KERNEL_OBJ/arch/arm64/boot/dts/broadcom/bcm2711-rpi-400.dtb" /mnt/tmp
+    sudo cp "$IN_IMAGE_DIR/obj/KERNEL_OBJ/arch/arm64/boot/dts/broadcom/bcm2711-rpi-cm4.dtb" /mnt/tmp
+    sudo cp "$IN_IMAGE_DIR/obj/KERNEL_OBJ/arch/arm64/boot/dts/broadcom/bcm2711-rpi-cm4s.dtb" /mnt/tmp
     sudo mkdir /mnt/tmp/overlays/
     sudo cp $IN_IMAGE_DIR/obj/KERNEL_OBJ/arch/arm64/boot/dts/overlays/* /mnt/tmp/overlays/
     sudo cp $IN_BOOT_FILES/* /mnt/tmp/
