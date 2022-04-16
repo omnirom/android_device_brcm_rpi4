@@ -238,11 +238,3 @@ PRODUCT_PACKAGES += \
     androidx.window.extensions \
     androidx.window.sidecar
 
-# recovery
-# enable when building recoveryimage
-#PRODUCT_COPY_FILES += $(call find-copy-subdir-files,*,$(LOCAL_PATH)/recovery/root,recovery/root)
-
-#PRODUCT_COPY_FILES += \
-    $(DEVICE_PATH)/scripts/switch_boot_rom.zip:recovery/root/switch_boot_rom.zip \
-    $(DEVICE_PATH)/scripts/fix_quotas.zip:recovery/root/fix_quotas.zip \
-    $(DEVICE_PATH)/scripts/resize_userdata.zip:recovery/root/resize_userdata.zip
