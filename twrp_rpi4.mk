@@ -17,22 +17,22 @@
 # Inherit device configuration
 DEVICE_PATH := device/brcm/rpi4
 
-TARGET_NO_RECOVERY := true
+TARGET_NO_RECOVERY := false
 
 $(call inherit-product, $(SRC_TARGET_DIR)/product/core_64_bit.mk)
 
-# before including common overlay
-DEVICE_PACKAGE_OVERLAYS += $(DEVICE_PATH)/overlay
-TARGET_BOOTANIMATION_SIZE := 720p
-
-$(call inherit-product, vendor/omni/config/common_tablet.mk)
 $(call inherit-product, device/brcm/rpi4/device.mk)
+
+PRODUCT_COPY_FILES += $(call find-copy-subdir-files,*,$(LOCAL_PATH)/recovery/root,recovery/root)
+
+PRODUCT_COPY_FILES += \
+    $(DEVICE_PATH)/scripts/switch_boot_rom.zip:recovery/root/switch_boot_rom.zip \
+    $(DEVICE_PATH)/scripts/fix_quotas.zip:recovery/root/fix_quotas.zip \
+    $(DEVICE_PATH)/scripts/resize_userdata.zip:recovery/root/resize_userdata.zip
 
 # Device identifier. This must come after all inclusions
 PRODUCT_DEVICE := rpi4
-PRODUCT_NAME := omni_rpi4
+PRODUCT_NAME := twrp_rpi4
 PRODUCT_BRAND := Raspberry
 PRODUCT_MODEL := Pi 4
 PRODUCT_MANUFACTURER := Raspberry
-
-$(call inherit-product, vendor/brcm/rpi4/rpi4-vendor.mk)
