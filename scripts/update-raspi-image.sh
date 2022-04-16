@@ -3,7 +3,7 @@
 #IN_IMAGE_DIR=$OUT_DIR/target/product/rpi4/
 #IN_BOOT_FILES=$ANDROID_BUILD_TOP/vendor/brcm/rpi4/proprietary/boot/
 #SD_CARD_DEVICE=/dev/sdc
-#UPDATE_BOOT_PARTITION=1
+UPDATE_BOOT_PARTITION=1
 
 if [ -z $ROM_BUILDTYPE ]; then
     echo "missing ROM_BUILDTYPE"

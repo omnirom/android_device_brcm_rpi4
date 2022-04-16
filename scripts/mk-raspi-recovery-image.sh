@@ -2,7 +2,7 @@
 
 #IN_IMAGE_DIR=$OUT_DIR/target/product/rpi4/
 #IN_BOOT_FILES=$ANDROID_BUILD_TOP/vendor/brcm/rpi4/proprietary/boot/
-#OUT_IMAGE_FILE=$HOME/raspberrypi/boot.img
+#OUT_IMAGE_FILE=$HOME/raspberrypi/omni-recovery.img
 
 options=$(getopt -o ho:i:b: -- "$@")
 [ $? -eq 0 ] || { 
@@ -17,14 +17,19 @@ while true; do
         OUT_IMAGE_FILE=$1
         shift
         ;;
+    -i)
+        shift
+        IN_IMAGE_DIR=$1
+        shift
+        ;;
     -b)
         shift
         IN_BOOT_FILES=$1
         shift
         ;;
     -h)
-        echo "-b <boot file dir> -o <image file>"
-        echo "e.g. -b $ANDROID_BUILD_TOP/vendor/brcm/rpi4/proprietary/boot/ -o /tmp/omni.img"
+        echo "-i <image folder> -b <boot file dir> -o <image file>"
+        echo "e.g. -i $OUT_DIR/target/product/rpi4/ -b $ANDROID_BUILD_TOP/vendor/brcm/rpi4/proprietary/boot/ -o /tmp/omni.img"
         exit 0
         ;;
     --)
@@ -33,6 +38,11 @@ while true; do
         ;;
     esac
 done
+
+if [ -z $IN_IMAGE_DIR ]; then
+    echo "missing -i <image folder>"
+    exit 0
+fi
 
 if [ -z $OUT_IMAGE_FILE ]; then
     echo "missing -o <image file>"
@@ -59,26 +69,37 @@ if  [ ! -f "$IN_BOOT_FILES/config.txt" ]; then
     exit 0
 fi
 
-echo "create: boot files $IN_BOOT_FILES -> $OUT_IMAGE_FILE"
+echo "create: images $IN_IMAGE_DIR + boot files $IN_BOOT_FILES -> $OUT_IMAGE_FILE"
 
 if [ -f $OUT_IMAGE_FILE ]; then
     rm $OUT_IMAGE_FILE
 fi
 
 echo "create empty image"
-dd if=/dev/zero of="$OUT_IMAGE_FILE" bs=1M count=128
+dd if=/dev/zero of="$OUT_IMAGE_FILE" bs=1M count=8192
 
 echo "create partitions"
 sudo sfdisk "$OUT_IMAGE_FILE"  << EOF
-,,0xC,*
+,+128M,0xC,*
+,+2G,0x83,-
+,+256M,0x83,-
+,,0x83,-
 EOF
 
+echo "mount partitions"
+sudo kpartx -av "$OUT_IMAGE_FILE"
+
 echo "create file systems"
-sudo mkfs.vfat $OUT_IMAGE_FILE -n boot
+sudo mkfs.vfat /dev/mapper/loop0p1 -n boot
+sudo mkfs.ext4 /dev/mapper/loop0p2 -L system
+sudo mkfs.ext4 /dev/mapper/loop0p3 -L vendor
+sudo mkfs.ext4 /dev/mapper/loop0p4 -L userdata
+echo "enable project quota"
+sudo tune2fs -O project,quota /dev/mapper/loop0p4
 
 echo "write boot patition"
 sudo mkdir /mnt/tmp
-sudo mount $OUT_IMAGE_FILE /mnt/tmp
+sudo mount /dev/mapper/loop0p1 /mnt/tmp
 sudo cp "$IN_IMAGE_DIR/ramdisk.img" /mnt/tmp/
 sudo cp "$IN_IMAGE_DIR/obj/KERNEL_OBJ/arch/arm64/boot/Image" /mnt/tmp/Image
 sudo cp "$IN_IMAGE_DIR/obj/KERNEL_OBJ/arch/arm64/boot/dts/broadcom/bcm2711-rpi-4-b.dtb" /mnt/tmp/
@@ -88,10 +109,17 @@ sudo cp "$IN_IMAGE_DIR/obj/KERNEL_OBJ/arch/arm64/boot/dts/broadcom/bcm2711-rpi-c
 sudo mkdir /mnt/tmp/overlays/
 sudo cp $IN_IMAGE_DIR/obj/KERNEL_OBJ/arch/arm64/boot/dts/overlays/* /mnt/tmp/overlays/
 sudo cp $IN_BOOT_FILES/* /mnt/tmp/
+
+# boot recovery by default
+sudo cp /mnt/tmp/config.txt.twrp /mnt/tmp/config.txt
 sync
 
 echo "unmounting"
 sudo umount /mnt/tmp
 sudo rm -fr /mnt/tmp
+
+sudo kpartx -dv "$OUT_IMAGE_FILE"
+
+echo "now write $OUT_IMAGE_FILE to a sdcard"
 
 exit 1
