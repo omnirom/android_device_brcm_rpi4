@@ -12,8 +12,8 @@ PARTITION=4
 fi
 
 # unmount partitions
-umount /data
-umount /sdcard
+umount /data 2>&1
+umount /sdcard 2>&1
 
 # remove existing data partition and create new partition table entry
 FIRST_SECTOR=$(/tmp/fdisk -l /dev/block/$DEVICE | grep $DEVICE$PARTITION | awk '{print $2}')
@@ -31,9 +31,12 @@ echo w
 ) | /tmp/fdisk /dev/block/$DEVICE 1>> /tmp/resize.log 2>&1
 EXIT=$?
 if [ $EXIT != "0" ]; then
-    echo $EXIT >> /tmp/resize.log
+    echo "fdisk " $EXIT >> /tmp/resize.log
     exit $EXIT
 fi
+
+sync
+sleep 5
 
 # calculate new filesystem size
 CURSIZE=$(/tmp/fdisk -l /dev/block/$DEVICE | grep $DEVICE$PARTITION | awk '{print $4}')
@@ -46,7 +49,7 @@ resize2fs -f /dev/block/$DEVICE$PARTITION $NEWSIZE 1>> /tmp/resize.log 2>&1
 
 EXIT=$?
 if [ $EXIT != "0" ]; then
-    echo $EXIT >> /tmp/resize.log
+    echo "resize2fs " $EXIT >> /tmp/resize.log
     exit $EXIT
 fi
 
@@ -56,8 +59,12 @@ tune2fs -O project,quota /dev/block/$DEVICE$PARTITION 1>> /tmp/resize.log 2>&1
 
 EXIT=$?
 if [ $EXIT != "0" ]; then
-    echo $EXIT >> /tmp/resize.log
+    echo "tune2fs " $EXIT >> /tmp/resize.log
     exit $EXIT
 fi
+
+# unmount partitions
+umount /data 2>&1
+umount /sdcard 2>&1
 
 exit 0
