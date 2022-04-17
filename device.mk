@@ -180,8 +180,7 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     OmniProvision \
     DeviceParts \
-    Terminal \
-    RemoveOpenDelta
+    Terminal
 
 ifeq ($(ROM_BUILDTYPE),GAPPS)
 PRODUCT_PACKAGES += \
