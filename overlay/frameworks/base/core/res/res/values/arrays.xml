@@ -21,6 +21,8 @@
 <resources>
 
     <string-array translatable="false" name="config_rebootActionsList">
+        <item>restart</item>
+        <item>reboot_recovery</item>
     </string-array>
 
 </resources>

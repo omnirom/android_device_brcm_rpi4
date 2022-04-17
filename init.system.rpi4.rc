@@ -14,6 +14,9 @@ on property:sys.rpi4.boot_mode=recovery
 on property:sys.rpi4.boot_mode=rom
     start switch_boot_rom
 
+on property:sys.shutdown.requested=1recovery
+    setprop sys.rpi4.boot_mode recovery
+
 service switch_boot_recovery /system/xbin/switch_boot recovery
     user root
     group system
