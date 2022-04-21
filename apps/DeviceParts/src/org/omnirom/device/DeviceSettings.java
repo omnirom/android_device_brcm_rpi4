@@ -32,6 +32,8 @@ import android.provider.Settings;
 import android.view.Display;
 import android.view.View;
 import android.view.IWindowManager;
+import android.view.WindowManager;
+import android.view.WindowMetrics;
 import android.view.Surface;
 import android.util.Log;
 
@@ -66,6 +68,8 @@ public class DeviceSettings extends PreferenceFragment implements
     private ListPreference mAudioCard;
     private ListPreference mCPUGovernor;
     private ListPreference mCPUMaxFreq;
+    // 0 landscape 1 portrait
+    private int mNativeOrientation;
 
     @Override
     public void onCreatePreferences(Bundle savedInstanceState, String rootKey) {
@@ -106,6 +110,10 @@ public class DeviceSettings extends PreferenceFragment implements
             mCPUMaxFreq.setValue(maxFreq);
             mCPUMaxFreq.setSummary(mCPUMaxFreq.getEntry());
         }
+
+        WindowManager windowManager = (WindowManager) getContext().getSystemService(Context.WINDOW_SERVICE);
+        WindowMetrics metrics = windowManager.getCurrentWindowMetrics();
+        mNativeOrientation = metrics.getBounds().width() > metrics.getBounds().height() ? 0 : 1;
     }
 
     @Override
@@ -125,22 +133,22 @@ public class DeviceSettings extends PreferenceFragment implements
                     Settings.System.putInt(getContext().getContentResolver(),
                             Settings.System.ACCELEROMETER_ROTATION, 0);
                 } else if (rotationLockValue == 1) {
-                    mWindowManager.freezeRotation(Surface.ROTATION_0);
+                    mWindowManager.freezeRotation(mNativeOrientation == 0 ? Surface.ROTATION_0 : Surface.ROTATION_90);
                     mWindowManager.setFixedToUserRotation(Display.DEFAULT_DISPLAY, 2);
                     Settings.System.putInt(getContext().getContentResolver(),
                             Settings.System.ACCELEROMETER_ROTATION, 1);
                 } else if (rotationLockValue == 2) {
-                    mWindowManager.freezeRotation(Surface.ROTATION_270);
+                    mWindowManager.freezeRotation(mNativeOrientation == 0 ? Surface.ROTATION_270 : Surface.ROTATION_0);
                     mWindowManager.setFixedToUserRotation(Display.DEFAULT_DISPLAY, 2);
                     Settings.System.putInt(getContext().getContentResolver(),
                             Settings.System.ACCELEROMETER_ROTATION, 1);
                 } else if (rotationLockValue == 3) {
-                    mWindowManager.freezeRotation(Surface.ROTATION_90);
+                    mWindowManager.freezeRotation(mNativeOrientation == 0 ? Surface.ROTATION_90 : Surface.ROTATION_180);
                     mWindowManager.setFixedToUserRotation(Display.DEFAULT_DISPLAY, 2);
                     Settings.System.putInt(getContext().getContentResolver(),
                             Settings.System.ACCELEROMETER_ROTATION, 1);
                 } else if (rotationLockValue == 4) {
-                    mWindowManager.freezeRotation(Surface.ROTATION_180);
+                    mWindowManager.freezeRotation(mNativeOrientation == 0 ? Surface.ROTATION_180 : Surface.ROTATION_270);
                     mWindowManager.setFixedToUserRotation(Display.DEFAULT_DISPLAY, 2);
                     Settings.System.putInt(getContext().getContentResolver(),
                             Settings.System.ACCELEROMETER_ROTATION, 1);
