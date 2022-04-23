@@ -9,6 +9,9 @@ on init
     chown bluetooth bluetooth /sys/class/rfkill/rfkill0/state
     chown bluetooth bluetooth /sys/class/rfkill/rfkill0/type
 
+    chmod 0664 /sys/class/backlight/rpi_backlight/brightness
+    chown system system /sys/class/backlight/rpi_backlight/brightness
+
     # gpio
     chown system system /dev/gpiochip0
     chmod 0666 /dev/gpiochip0
