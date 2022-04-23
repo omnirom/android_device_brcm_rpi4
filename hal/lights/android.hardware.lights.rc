@@ -1,0 +1,7 @@
+service android.hardware.lights-service.rpi4  /vendor/bin/hw/android.hardware.lights-service.rpi4
+    class hal
+    user system
+    group system
+    # FIXME: actually do this
+    # shutting off lights while powering-off
+    shutdown critical
