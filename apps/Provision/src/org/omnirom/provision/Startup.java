@@ -26,6 +26,8 @@ import android.provider.DeviceConfig;
 import android.provider.Settings;
 import android.util.Log;
 
+import java.io.File;
+
 public class Startup extends BroadcastReceiver {
     private static final String TAG = "OmniProvision";
 
@@ -34,7 +36,10 @@ public class Startup extends BroadcastReceiver {
         Log.d(TAG, "onReceive: Startup");
 
         // set useful defaults
-        Settings.Secure.putInt(context.getContentResolver(), "qs_show_brightness", 0);
+        if (!new File("/sys/class/backlight/rpi_backlight/brightness").exists()) {
+            Settings.Secure.putInt(context.getContentResolver(), "qs_show_brightness", 0);
+        }
+
         DeviceConfig.setProperty(DeviceConfig.NAMESPACE_INTERACTION_JANK_MONITOR, "enabled", "false", true);
 
         // we dont need the boot receiver anymore
