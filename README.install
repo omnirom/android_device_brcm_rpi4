@@ -1,0 +1,54 @@
+### Initial install
+
+Attention: this only applies to builds of Android 12
+for older builds see folder https://dl.omnirom.org/tmp/rpi4/legacy
+
+If you setup a new system there are two steps you need to do
+
+1) a recovery image
+https://dl.omnirom.org/tmp/rpi4/omni-rpi4-recovery.img.zip
+
+2) a recovery flashable zip of the build you want to install eg
+https://dl.omnirom.org/tmp/rpi4/omni-12-<date>-<type>.zip
+
+Step 1 - flashing TWP 
+-unzip recovery image downloaded from 1 and flash to your new system storage device (SD or USB)
+-boot from that storage device into TWRP
+-resize userdata by running install -> up one level -> resize_userdata.zip
+
+Step 2 - flashing build with TWRP
+-copy recovery flashable zip downloaded from 2 to another USB stick
+-insert USB stick and flash by running install -> select storage -> select USB stick
+-after flash is done -> reboot system
+
+If you dont have a second USB stick you can also copy the recovery flashable zip
+to your storage device after resizing userdata from step 1 eg with adb
+
+### Updates
+
+Attention: if you run a build BEFORE 20220407 you can not
+use this way out of the box.
+
+Better create a backup using TWRP on an external USB stick and
+follow the steps above to setup a new system and then restore
+your backup
+
+If you think you are too smart to follow this simple advice
+you can also extract the contents of the boot partition of 1)
+and copy it to your current storage device. Then reboot to
+recovery and continue with step 2
+
+### OTA updates
+
+Open app Control Center -> System updates
+-> Check - if new build is available
+-> Download - recovery flashable zip will be stored in internal storage /sdcard/OpenDelta
+-> Flash - device will reboot into TWRP flash the update and will reboot back into the ROM
+
+Optional you can set automatic checks to get notified for new builds
+
+### manual TWRP updates
+
+Download recovery flashable zip of the build from 2 and either copy to
+external USB stick or to internal storage in /sdcard/OpenDelta using adb
+Follow step 2 above from initial install
