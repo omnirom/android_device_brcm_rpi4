@@ -177,6 +177,10 @@ PRODUCT_PACKAGES += \
     audio.primary.rpi4 \
     gps.rpi4
 
+# Light HAL
+PRODUCT_PACKAGES += \
+    android.hardware.lights-service.rpi4
+
 PRODUCT_PACKAGES += \
     OmniProvision \
     DeviceParts \
