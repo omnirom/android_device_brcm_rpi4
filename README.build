@@ -11,7 +11,7 @@ on you rpi4. Same is true if you want to use an USB boot device
 Refer to http://source.android.com/source/downloading.html
 Refer to https://github.com/omnirom/android
 
-$ repo init -u git://github.com/omnirom/android.git -b android-11
+$ repo init -u git://github.com/omnirom/android.git -b android-12.1
 
 If you want to use the contents of omni-private.xml please check
 https://github.com/omnirom/android/README and head over to send us a short
