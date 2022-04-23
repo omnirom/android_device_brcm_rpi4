@@ -1,0 +1,199 @@
+New installations:
+
+Builds as 64bit only so make sure you have propper firmware!
+
+The image is prepared for a sdcard with minimal size of 8gb and
+contains 4 partitions with the following layout
+
+Device          Start      End  Sectors  Size Id Type
+boot               2    262145   262144  128M  c W95 FAT32 (LBA)
+system        264192   4458495  4194304    2G 83 Linux
+vendor        4458496  4982783   524288  256M 83 Linux
+userdata      4982784 16777215 11794432  5.6G 83 Linux
+
+you can use e.g. kpartx to mount the inidividual partitions
+
+Note:
+
+Devices with GPT partition table cant be used as an USB boot device!
+You must use MBR (msdos) parition table
+
+If you create your own boot devices (sdcard or USB device)
+THE PARTITION ORDER MUST BE LIKE THIS
+
+Starting with android-11 project quotas are mandatory in userdata
+parition. Prebuilt images have it enabled but if you recreate your
+userdata you MUST enable project quotas with e.g.
+
+tune2fs -O project,quota <userdata partition device>
+
+Switching between booting from sdcard and USB is done in config.txt.*
+files by enabling the needed overlay (sdcard is default)
+
+...
+# booting from sdcard
+dtoverlay=rpi-android-sdcard
+....
+
+# booting from usb
+dtoverlay=rpi-android-usb
+....
+
+No other changes are needed if you follow the required partition
+layout described above
+
+DONT ONLY CHANGE config.txt!
+It will be overwritten with config.txt.rom|twrp depending on boot mode
+See section about Recovery TWRP below for details
+
+Steps to flash:
+
+0) after download check md5sum
+1) unzip image
+2) use dd or any other tool to write the image to a boot device
+
+optional
+
+3) mount boot device and make changes like to config.txt or resize userdata
+
+NOTE:
+
+if you flash this to an existing installation you will overwrite
+userdata and therefore loose existing data! For updates
+you only need to update the 3 other partitions or make sure
+you backup and restore the contents of userdata partition
+
+Alternativly use recovery (see below) to create an backup of userdata
+on an external USB device.
+
+MicroG:
+
+Images taged with MICROG contain a pre-installed ready to use
+microG setup https://microg.org/
+
+Permissions that are required for microG - must be set manually
+
+microG Service Core
+-Spoof package signature
+-Location
+
+Under system apps
+FakeStore
+-Spoof package signature
+
+Mozilla UnifedNp Backend
+-Location (Allow all the time)
+
+Use app microG Settings and configure
+-Self Check (control that all check boxes are on)
+-Location modules
+
+Images tagged with WEEKLY can be used to setup
+official Google gapps
+
+Recovery TWRP:
+
+Every image contains a build of TWRP (kernel and ramdisk)
+Based on how bootloader works the config.txt file defines
+what gets booted
+
+For convinience it comes with 3 different files
+
+config.txt.rom -> default config.txt
+config.txt.twrp
+config.txt.gpio -> if you have a switch on gpio 21
+
+NOTE:
+if you need USB boot as described above you have to
+change the overlay in ALL of the relevant files
+
+DONT ONLY CHANGE config.txt!
+It will be overwritten with config.txt.rom|twrp
+
+You can either copy those by hand or use the hooks built in
+to switch between the booot modes (rom or recovery)
+This switch is based on a script that will adjust the config.txt
+according to the boot mode.
+
+NOTE:
+the script relies on the correct naming of the config.txt.* files
+as described above. So DONT remove or rename those files if your want
+to use the easy way of switching the boot mode
+
+There are different ways to call the script
+
+1) adb shell
+/vendor/xbin/switch_boot rom|recovery
+
+2) by using setprop
+sys.rpi4.boot_mode=rom|recovery
+
+3) or easiest by going to the Advanced app or settings
+and selecting "Boot mode"
+
+Next reboot will then boot the correct mode
+
+Inside TWRP you can switch back to booting rom by simply
+flashing switch_boot_rom.zip that is available in the
+root folder
+
+TWRP is preconfigured for the device and supports
+sdcard and USB boot out of the box. A different USB device
+can be used as external storage to e.g. create userdata
+backups or contain flashable zip files
+
+TWRP WILL ONLY WORK ON HDMI PORT #1 !!!
+So make sure you have connected a screen there!
+
+Unfortunately TWRP currently doews NOT support decrypting 
+this decices encrypted userdata therefore encryption is disabled
+in builds (in fstab). This should be just a temporary restriction.
+
+On the first page of TWRP page where it asks for password
+simply press cancel
+
+Since we dont have a RTC on this device the automatic naming
+scheme of backups is not very useful and always starting on big bang time
+So make sure you manually name your backups for easy recognition
+
+Adjust screen resolution:
+To force a different screen resolution edit in /system/build.prop the line 
+
+#debug.drm.mode.force=1280x800
+
+Remove the leading # comment and adjust to the screen resolution you want e.g.
+
+debug.drm.mode.force=1280x720
+
+Alternativly you can use persist property to change screen resolution
+
+setprop persist.debug.drm.mode.force "1280x720"
+
+But make sure your screen can handle the resolution else you might end up with
+with a black screen on reboot. I that  happens and you have USB adb reset value with
+
+setprop persist.debug.drm.mode.force ""
+
+Else mount system partition on your PC and add a valid line
+in the file /system/build.prop for debug.drm.mode.force
+
+After that and rebooting persist.debug.drm.mode.force will
+be reset and you can start new. A valid line in the property file will always
+overrule the property so dont forget to again set the comment # on the line
+before using the persist value again.
+
+Other:
+These builds have a default overclock - remove from 
+config.txt.* if you dont feel comfortable using it.
+Just comment these two lines in config.txt
+
+over_voltage=2
+arm_freq=1750
+
+But you can limit the max frequency also during runtime
+in the advanced settings
+
+Other first time presets that are different then Android defaults
+-disabled lockscreen
+-disabled screen timeout (enabled stay on in development settings)
+-hide screen brightness in quick settings
