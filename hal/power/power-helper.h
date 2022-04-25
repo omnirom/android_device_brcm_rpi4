@@ -25,6 +25,7 @@ extern "C" {
 
 void power_init(void);
 void power_hint(power_hint_t hint, void *data);
+void set_interactive(bool interactive);
 
 #ifdef __cplusplus
 }

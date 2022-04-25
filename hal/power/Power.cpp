@@ -51,6 +51,7 @@ Power::Power() {
 
 // Methods from ::android::hardware::power::V1_0::IPower follow.
 Return<void> Power::setInteractive(bool interactive)  {
+    set_interactive(interactive);
     return Void();
 }
 
@@ -85,7 +86,7 @@ Return<void> Power::getSubsystemLowPowerStats(getSubsystemLowPowerStats_cb _hidl
 
 Return<void> Power::powerHintAsync(PowerHint hint, int32_t data) {
     // just call the normal power hint in this oneway function
-    return powerHint(hint, data);
+    powerHint(hint, data);
     return Void();
 }
 
