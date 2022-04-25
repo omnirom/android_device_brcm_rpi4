@@ -1,0 +1,8 @@
+type ttyreader, domain;
+type ttyreader_exec, exec_type, file_type, system_file_type;
+typeattribute ttyreader coredomain;
+
+init_daemon_domain(ttyreader)
+
+allow ttyreader serial_device:chr_file rw_file_perms;
+set_prop(ttyreader, system_prop);
