@@ -199,7 +199,8 @@ PRODUCT_PACKAGES += \
     gpiomon \
     gpioset \
     gpiod \
-    gpiosetd
+    gpiosetd \
+    ttyreader
 
 PRODUCT_COPY_FILES += \
     $(DEVICE_PATH)/scripts/switch_boot.sh:$(TARGET_COPY_OUT_SYSTEM)/xbin/switch_boot
