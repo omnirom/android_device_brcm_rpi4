@@ -15,3 +15,5 @@
 # cpufreq
 /sys/devices/system/cpu/cpu*   cpufreq/scaling_governor   0664  system system
 
+# cutiepi mcu
+/dev/ttyS0                                                                 0666   system  system

@@ -1,0 +1,15 @@
+cc_binary {
+    name: "ttyreader",
+    srcs: ["readall_mcu.c", "wiringSerial.c"],
+    shared_libs: [
+        "libgpiod",
+        "liblog",
+        "libutils",
+        "libcutils",
+    ],
+    cflags: [
+        "-Werror",
+        "-Wno-format-security",
+        "-Wno-unused-parameter",
+    ],
+}
