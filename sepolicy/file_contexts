@@ -33,6 +33,8 @@
 /system/bin/gpiod u:object_r:gpiod_exec:s0
 /system/bin/gpiosetd u:object_r:gpiosetd_exec:s0
 /data/gpio(/.*)? u:object_r:gpiod_data_file:s0
+/system/bin/ttyreader u:object_r:ttyreader_exec:s0
+/system/bin/cmd u:object_r:input_exec:s0
 
 /dev/block/sda1                                                              u:object_r:boot_block_device:s0
 /dev/block/sda2                                                              u:object_r:system_block_device:s0
