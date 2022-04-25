@@ -48,3 +48,21 @@ service gpiosetd /system/bin/gpiosetd ${persist.rpi4.gpiosetd.options} ${persist
     group system
     disabled
     oneshot
+
+on property:sys.boot_completed=1
+    start ttyreader
+
+service ttyreader /system/bin/ttyreader
+    user system
+    group system
+    disabled
+    oneshot
+
+service input_keyevent /system/bin/cmd input keyevent ${sys.rpi4.ttyreader.key}
+    user system
+    group system
+    disabled
+    oneshot
+
+on property:sys.rpi4.ttyreader.key=*
+    start input_keyevent
