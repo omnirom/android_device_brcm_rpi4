@@ -1,0 +1,9 @@
+type input, domain;
+type input_exec, exec_type, file_type, system_file_type;
+typeattribute input coredomain;
+
+init_daemon_domain(input)
+
+allow input servicemanager:binder { call };
+allow input system_server:binder { call transfer };
+allow input input_service:service_manager find;
