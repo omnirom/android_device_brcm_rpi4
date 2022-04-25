@@ -17,18 +17,25 @@ on boot
     mkdir /dev/usb-ffs 0775 shell shell
     mkdir /dev/usb-ffs/adb 0770 shell shell
     mkdir /dev/usb-ffs/mtp 0770 mtp mtp
+    setprop sys.usb.mtp.device_type 3
+    symlink /config/usb_gadget/g1/configs/b.1 /config/usb_gadget/g1/os_desc/b.1
+
+on property:sys.usb.controller=*
+    # TODO cutiepi
     mount functionfs adb /dev/usb-ffs/adb uid=2000,gid=2000
     mount functionfs mtp /dev/usb-ffs/mtp rmode=0770,fmode=0660,uid=1024,gid=1024,no_disconnect=1
-    setprop sys.usb.mtp.device_type 3
     setprop sys.usb.configfs 1
-    symlink /config/usb_gadget/g1/configs/b.1 /config/usb_gadget/g1/os_desc/b.1
 
 on property:sys.usb.config=mtp && property:sys.usb.configfs=1
     write /config/usb_gadget/g1/idProduct 0x4ee1
 
 on property:sys.usb.config=adb && property:sys.usb.configfs=1
     write /config/usb_gadget/g1/idProduct 0x4ee7
-    #setprop service.adb.tcp.port 5555
+    setprop service.adb.tcp.port -1
+
+# TODO cutiepi
+on property:sys.usb.config=adb && property:sys.usb.configfs=0
+    setprop service.adb.tcp.port 5555
 
 on property:sys.usb.config=accessory && property:sys.usb.configfs=1
     write /config/usb_gadget/g1/idVendor 0x18d1
