@@ -24,8 +24,10 @@
 #include <time.h>
 #include <pthread.h>
 #include <unistd.h>
-
+#include <stdio.h>
+#include <stdlib.h>
 #include <utils/Log.h>
+#include <cutils/properties.h>
 
 #include <hardware/hardware.h>
 #include <hardware/power.h>
@@ -40,8 +42,9 @@
 static pthread_t tid = -1;
 static char min_freq[1024];
 static char max_freq[1024];
-static int DEBUG = 0;
+static int DEBUG = 1;
 static pthread_mutex_t lock;
+static char interactive_max_freq[1024];
 
 static void *performance_boost_thread(UNUSED_ARGUMENT void *data)
 {
@@ -100,3 +103,24 @@ void power_hint(power_hint_t hint, UNUSED_ARGUMENT void *data)
     pthread_mutex_unlock(&lock);
 }
 
+void set_interactive(bool interactive)  {
+    char *end;
+    pthread_mutex_lock(&lock);
+    if (DEBUG) ALOGD("set_interactive %d", interactive);
+
+    if (interactive) {
+        // set to value of persist.rpi4.cpufreq.max_freq
+        get_cpuinfo_max_freq(max_freq, 1024);
+        int max_freq_int = strtoul(max_freq, &end, 10);
+        max_freq_int = property_get_int32("persist.rpi4.cpufreq.max_freq", max_freq_int);
+        sprintf(max_freq, "%d", max_freq_int);
+        sysfs_write(SCALING_MAX_FREQ, max_freq);
+        if (DEBUG) ALOGD("set_interactive scaling_max = %s", max_freq);
+    } else {
+        get_scaling_max_freq(interactive_max_freq, 1024);
+        get_cpuinfo_min_freq(min_freq, 1024);
+        sysfs_write(SCALING_MAX_FREQ, min_freq);
+        if (DEBUG) ALOGD("set_interactive scaling_max = %s", min_freq);
+    }
+    pthread_mutex_unlock(&lock);
+}

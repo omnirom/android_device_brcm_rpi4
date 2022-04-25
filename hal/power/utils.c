@@ -119,3 +119,35 @@ int get_scaling_min_freq(char min_freq[], int size)
     }
     return 0;
 }
+
+int get_cpuinfo_min_freq(char min_freq[], int size)
+{
+    if (sysfs_read(CPUINFO_MIN_FREQ, min_freq,
+                size) == -1) {
+        // Can't obtain the scaling min_freq. Return.
+        return -1;
+    } else {
+        // Strip newline at the end.
+        int len = strlen(min_freq);
+        len--;
+        while (len >= 0 && (min_freq[len] == '\n' || min_freq[len] == '\r'))
+            min_freq[len--] = '\0';
+    }
+    return 0;
+}
+
+int get_cpuinfo_max_freq(char max_freq[], int size)
+{
+    if (sysfs_read(CPUINFO_MAX_FREQ, max_freq,
+                size) == -1) {
+        // Can't obtain the scaling max_freq. Return.
+        return -1;
+    } else {
+        // Strip newline at the end.
+        int len = strlen(max_freq);
+        len--;
+        while (len >= 0 && (max_freq[len] == '\n' || max_freq[len] == '\r'))
+            max_freq[len--] = '\0';
+    }
+    return 0;
+}
