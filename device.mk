@@ -202,7 +202,8 @@ PRODUCT_PACKAGES += \
     gpiomon \
     gpioset \
     gpiod \
-    gpiosetd
+    gpiosetd \
+    ttyreader
 
 PRODUCT_PACKAGES += \
     tinymix \
