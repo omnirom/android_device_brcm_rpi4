@@ -1,0 +1,5 @@
+type input, domain;
+type input_exec, exec_type, file_type, system_file_type;
+typeattribute input coredomain;
+
+init_daemon_domain(input)

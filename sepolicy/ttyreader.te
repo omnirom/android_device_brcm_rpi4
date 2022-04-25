@@ -1,0 +1,14 @@
+type ttyreader, domain;
+type ttyreader_exec, exec_type, file_type, system_file_type;
+typeattribute ttyreader coredomain;
+
+init_daemon_domain(ttyreader)
+
+allow ttyreader serial_device:chr_file rw_file_perms;
+set_prop(ttyreader, system_prop);
+
+#allow ttyreader shell_exec:file rx_file_perms;
+#allow ttyreader toolbox_exec:file rx_file_perms;
+#allow ttyreader system_file:file execute_no_trans;
+#allow ttyreader system_server:binder { call transfer };
+#allow ttyreader servicemanager:binder { call };
