@@ -1,0 +1,15 @@
+cc_binary {
+    name: "cutoff",
+    srcs: ["cutoff.c", "wiringSerial.c"],
+    shared_libs: [
+        "libgpiod",
+        "liblog",
+        "libutils",
+        "libcutils",
+    ],
+    cflags: [
+        "-Werror",
+        "-Wno-format-security",
+        "-Wno-unused-parameter",
+    ],
+}
