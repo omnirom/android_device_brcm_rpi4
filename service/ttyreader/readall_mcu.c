@@ -1,3 +1,20 @@
+/*
+* Copyright (C) 2022 The OmniROM Project
+*
+* This program is free software: you can redistribute it and/or modify
+* it under the terms of the GNU General Public License as published by
+* the Free Software Foundation, either version 2 of the License, or
+* (at your option) any later version.
+*
+* This program is distributed in the hope that it will be useful,
+* but WITHOUT ANY WARRANTY; without even the implied warranty of
+* MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+* GNU General Public License for more details.
+*
+* You should have received a copy of the GNU General Public License
+* along with this program. If not, see <http://www.gnu.org/licenses/>.
+*
+*/
 #define LOG_TAG "ttyreader"
 
 #include <log/log.h>
@@ -8,6 +25,21 @@
 #include <cutils/properties.h>
 
 #define UART_NODE	"/dev/ttyS0"
+
+static int mVoltageHistory[] = {0,0,0,0,0,0,0,0,0,0};
+
+static int calcMedianVoltage() {
+	int sum = 0;
+	int values = 0;
+	for (int i = 0; i < 10; i++) {
+		if (mVoltageHistory[i] != 0) {
+			sum += mVoltageHistory[i];
+			values++;
+		}
+	}
+	//ALOGD("[BAT] %d %d %d\n", values, sum, sum / values);
+	return sum / values;
+}
 
 int main(int argc, char **argv)
 {
@@ -23,6 +55,7 @@ int main(int argc, char **argv)
 	int mDataBytes = 0;
 	int mCheckCount = 0;
 	int mIsValidated = 0;
+	int mVoltageHistoryIndex = 0;
 
 	if ((fd = serialOpen(UART_NODE, 115200)) < 0) {
 		ALOGE("open serial error  - exiting\n");
@@ -76,7 +109,14 @@ int main(int argc, char **argv)
 							property_set("sys.rpi4.ttyreader.key", "26");
 						}
 						if (mCmd == 0x02) {
-							mVoltage = mData;
+							int voltage = mData;
+							mVoltageHistory[mVoltageHistoryIndex] = voltage;
+							if (mVoltageHistoryIndex == 9) {
+								mVoltageHistoryIndex = 0;
+							} else {
+								mVoltageHistoryIndex++;
+							}
+							mVoltage = calcMedianVoltage();
 							//ALOGD("[BAT] %d\n", mVoltage);
 							char buf[PROPERTY_VALUE_MAX] = "";
 							sprintf(buf, "%d", mVoltage);
