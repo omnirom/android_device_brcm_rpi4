@@ -42,6 +42,17 @@ on property:sys.boot_completed=1
     swapon_all /vendor/etc/fstab.rpi4
     write /proc/sys/vm/swappiness 100
 
+    # Runtime fs tuning
+    write /sys/block/mmcblk0/queue/iostats 0
+    write /sys/block/mmcblk0/queue/scheduler bfq
+    write /sys/block/mmcblk0/queue/iosched/slice_idle 0
+    write /sys/block/mmcblk0/queue/nr_requests 256
+
+    write /sys/block/sda/queue/iostats 0
+    write /sys/block/sda/queue/scheduler bfq
+    write /sys/block/sda/queue/iosched/slice_idle 0
+    write /sys/block/sda/queue/nr_requests 256
+
 service wpa_supplicant /system/vendor/bin/hw/wpa_supplicant \
      -g@android:wpa_wlan0
      interface android.hardware.wifi.supplicant@1.0::ISupplicant default
