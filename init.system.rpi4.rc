@@ -49,6 +49,7 @@ service gpiosetd /system/bin/gpiosetd ${persist.rpi4.gpiosetd.options} ${persist
     disabled
     oneshot
 
+# ttyreader will stop on it own if its not applicable
 on property:sys.boot_completed=1
     start ttyreader
 
