@@ -29,14 +29,6 @@ ro.boot.wificountrycode=00
 # DONT ADD THIS
 #ro.apex.updatable=true
 
-# Audio
-# card 0 = hdmi
-# card 1 = headphone jack
-# can be overwrittem by persist.audio.pcm.card - used in DeviceParts
-# TODO for cutiepi only 1 makes sense
-audio.pcm.card=0
-audio.pcm.device=0
-
 # we are not caf
 #sys.vendor.qti.servicetracker.disable=true
 
