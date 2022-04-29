@@ -114,7 +114,8 @@ void vendor_load_properties()
 {
     set_revision_property();
 
-    set_audio_card_property();
+    // TODO 
+    //set_audio_card_property();
 
     set_drm_mode_property();
 
