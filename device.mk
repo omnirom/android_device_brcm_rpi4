@@ -199,8 +199,17 @@ PRODUCT_PACKAGES += \
     gpiomon \
     gpioset \
     gpiod \
-    gpiosetd \
-    ttyreader
+    gpiosetd
+
+PRODUCT_PACKAGES += \
+    ttyreader \
+    cutoff
+
+PRODUCT_PACKAGES += \
+    tinymix \
+    tinypcminfo \
+    tinyplay \
+    tinycap
 
 PRODUCT_COPY_FILES += \
     $(DEVICE_PATH)/scripts/switch_boot.sh:$(TARGET_COPY_OUT_SYSTEM)/xbin/switch_boot
