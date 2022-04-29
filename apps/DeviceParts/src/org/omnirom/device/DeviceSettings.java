@@ -45,13 +45,13 @@ public class DeviceSettings extends PreferenceFragment implements
     private static final String TAG = "DeviceSettings";
     private static final String KEY_ROTATION_LOCK = "rotation_lock";
     private static final String KEY_BOOT_MODE = "boot_mode";
-    private static final String KEY_AUDIO_CARD = "audio_card";
+    //private static final String KEY_AUDIO_CARD = "audio_card";
     private static final String KEY_CPU_GOVERNOR = "cpu_governor";
     private static final String KEY_CPU_MAX_FREQ = "cpu_max_Freq";
 
     private static final String BOOT_MODE_PROPERTY = "sys.rpi4.boot_mode";
-    private static final String AUDIO_CARD_PROPERTY = "audio.pcm.card";
-    private static final String AUDIO_CARD_OVERRIDE_PROPERTY = "persist.audio.pcm.card";
+    //private static final String AUDIO_CARD_PROPERTY = "audio.pcm.card";
+    //private static final String AUDIO_CARD_OVERRIDE_PROPERTY = "persist.audio.pcm.card";
     private static final String CPU_GOVERNOR_PROPERTY = "persist.rpi4.cpufreq.governor";
     private static final String CPU_MAX_FREQ_PROPERTY = "persist.rpi4.cpufreq.max_freq";
 
@@ -62,7 +62,7 @@ public class DeviceSettings extends PreferenceFragment implements
 
     private ListPreference mRotationLock;
     private ListPreference mBootMode;
-    private ListPreference mAudioCard;
+    //private ListPreference mAudioCard;
     private ListPreference mCPUGovernor;
     private ListPreference mCPUMaxFreq;
     // 0 landscape 1 portrait
@@ -82,12 +82,12 @@ public class DeviceSettings extends PreferenceFragment implements
         mBootMode.setValue(bootMode);
         mBootMode.setSummary(mBootMode.getEntry());
 
-        mAudioCard = (ListPreference) findPreference(KEY_AUDIO_CARD);
+        /*mAudioCard = (ListPreference) findPreference(KEY_AUDIO_CARD);
         mAudioCard.setOnPreferenceChangeListener(this);
         String card = SystemProperties.get(AUDIO_CARD_OVERRIDE_PROPERTY,
                 SystemProperties.get(AUDIO_CARD_PROPERTY, ""));
         mAudioCard.setValue(card);
-        mAudioCard.setSummary(mAudioCard.getEntry());
+        mAudioCard.setSummary(mAudioCard.getEntry());*/
 
         mCPUGovernor = (ListPreference) findPreference(KEY_CPU_GOVERNOR);
         mCPUGovernor.setOnPreferenceChangeListener(this);
@@ -143,10 +143,10 @@ public class DeviceSettings extends PreferenceFragment implements
             Settings.System.putInt(res, Settings.System.ACCELEROMETER_ROTATION, accelerometerRotation);
             Settings.System.putInt(res, Settings.System.USER_ROTATION, userRotation);
             mRotationLock.setSummary(mRotationLock.getEntries()[rotationLockValue]);
-        } else if (preference == mAudioCard) {
+        /*} else if (preference == mAudioCard) {
             String value = (String) newValue;
             SystemProperties.set(AUDIO_CARD_OVERRIDE_PROPERTY, value);
-            mAudioCard.setSummary(mAudioCard.getEntries()[Integer.valueOf(value)]);
+            mAudioCard.setSummary(mAudioCard.getEntries()[Integer.valueOf(value)]);*/
         } else if (preference == mCPUGovernor) {
             String value = (String) newValue;
             SystemProperties.set(CPU_GOVERNOR_PROPERTY, value);
