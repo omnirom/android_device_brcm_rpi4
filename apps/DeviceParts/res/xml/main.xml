@@ -44,13 +44,13 @@
     <PreferenceCategory
         android:title="@string/category_system">
 
-    <ListPreference
+    <!--<ListPreference
         android:key="audio_card"
         android:title="@string/audio_card_title"
         android:entries="@array/audio_card_entries"
         android:entryValues="@array/audio_card_values"
         android:persistent="false"
-        android:defaultValue="0" />
+        android:defaultValue="0" />-->
 
     <ListPreference
         android:key="boot_mode"
