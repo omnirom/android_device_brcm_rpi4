@@ -32,11 +32,11 @@ cc_library_shared {
     cflags: [
         "-Wall",
         "-Werror",
+        "-Wno-unused-parameter",
     ],
 
     static_libs: [
         "android.hardware.health@1.0-convert",
-        "libbatterymonitor",
         "libhealthloop",
         "libhealth2impl",
     ],
