@@ -103,6 +103,7 @@ int main(int argc, char **argv)
 				} else if (charpos == 6) {
 					if (gchar == (255 & mChecksum)) {
 						mIsValidated = 1;
+						property_set("sys.rpi4.ttyreader.valid", "1");
 						if (mCmd == 0x01) {
 							mKeyType = mData;
 							//ALOGD("[KEY] %d\n", mKeyType);
@@ -140,6 +141,7 @@ int main(int argc, char **argv)
 			}
 			if (mCheckCount > 20 && !mIsValidated) {
 				ALOGD("validate check failed - exiting\n");
+				property_set("sys.rpi4.ttyreader.valid", "0");
 				return -1;
 			}
 			// sleep
