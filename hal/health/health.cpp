@@ -112,6 +112,7 @@ protected:
   int mLastCapacity = 100;
   int mLastVoltage = -1;
   bool isBatteryDevice();
+  static const bool DEBUG = false;
 
 private:
   std::unique_ptr<healthd_config> healthd_config_;
@@ -145,7 +146,7 @@ Return<Result> HealthImpl::update() {
 }
 
 void HealthImpl::UpdateHealthInfo(HealthInfo *health_info) {
-  ALOGI("UpdateHealthInfo");
+  if (DEBUG) ALOGI("UpdateHealthInfo");
   auto *battery_props = &health_info->legacy.legacy;
   if (!isBatteryDevice()) {
     battery_props->batteryPresent = false;
@@ -212,7 +213,7 @@ int HealthImpl::calcBatteryLevel(int voltage) {
     }
   }
   // should never happen
-  return 42;
+  return -1;
 }
 
 BatteryStatus HealthImpl::getChargeStatusImpl() {
@@ -222,7 +223,7 @@ BatteryStatus HealthImpl::getChargeStatusImpl() {
   if (property_get("sys.rpi4.ttyreader.charge", property, NULL)) {
     charging = strcmp(property, "1") == 0;
   }
-  ALOGI("getChargeStatusImpl %d", charging);
+  if (DEBUG) ALOGI("getChargeStatusImpl %d", charging);
   return charging == -1 ? BatteryStatus::UNKNOWN
                         : (charging ? BatteryStatus::CHARGING
                                     : BatteryStatus::DISCHARGING);
@@ -240,16 +241,18 @@ int HealthImpl::getCapacityImpl() {
   if (property_get("sys.rpi4.ttyreader.charge", property, NULL)) {
     charging = strcmp(property, "1") == 0;
   }
-  int capacity = voltage != -1 ? calcBatteryLevel(voltage) : 42;
-  if (!charging && capacity > mLastCapacity) {
-    // it can never get higher if we are not charging
-    capacity = mLastCapacity;
+  int capacity = voltage != -1 ? calcBatteryLevel(voltage) : -1;
+  if (capacity != -1) {
+    if (!charging && capacity > mLastCapacity) {
+      // it can never get higher if we are not charging
+      capacity = mLastCapacity;
+    }
+    mLastCapacity = capacity;
+    mLastVoltage = voltage;
   }
-  mLastCapacity = capacity;
-  mLastVoltage = voltage;
-  ALOGI("getCapacityImpl %d %d %d", charging, voltage, capacity);
+  if (DEBUG) ALOGI("getCapacityImpl %d %d %d", charging, voltage, capacity);
 
-  return charging == -1 ? 42 : (charging ? 99 : capacity == 0 ? 42 : capacity);
+  return charging == -1 ? 100 : (charging ? 99 : capacity == -1 ? 100 : capacity);
 }
 
 bool HealthImpl::isBatteryDevice() {
@@ -258,8 +261,14 @@ bool HealthImpl::isBatteryDevice() {
 
   if (property_get("sys.rpi4.ttyreader.valid", property, NULL)) {
     ttyreaderValid = strcmp(property, "1") == 0;
+    if (!ttyreaderValid) {
+      property_set("sys.health.healthloop.disable", "1");
+      if (DEBUG) ALOGI("stop healthloop");
+    } else {
+      if (DEBUG) ALOGI("isBatteryDevice validated");
+    }
   }
-  ALOGI("isBatteryDevice %d", ttyreaderValid);
+  if (DEBUG) ALOGI("isBatteryDevice %d", ttyreaderValid);
   return ttyreaderValid;
 }
 
