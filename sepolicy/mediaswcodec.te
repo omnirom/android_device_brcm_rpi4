@@ -1,1 +1,2 @@
 gpu_access(mediaswcodec)
+allow mediaswcodec proc_uptime:file r_file_perms;
