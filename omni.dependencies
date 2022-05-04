@@ -26,6 +26,13 @@
   },
   {
     "remote": "omnirom",
+    "override": "platform/external/minigbm",
+    "repository": "android_external_minigbm",
+    "target_path": "external/minigbm",
+    "revision": "android-12.1"
+  },
+  {
+    "remote": "omnirom",
     "repository": "android_packages_apps_DeviceRegistration",
     "target_path": "packages/apps/DeviceRegistration",
     "revision": "android-12.0"
