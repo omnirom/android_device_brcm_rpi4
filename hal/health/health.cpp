@@ -213,7 +213,7 @@ int HealthImpl::calcBatteryLevel(int voltage) {
     }
   }
   // should never happen
-  return 42;
+  return -1;
 }
 
 BatteryStatus HealthImpl::getChargeStatusImpl() {
@@ -241,16 +241,18 @@ int HealthImpl::getCapacityImpl() {
   if (property_get("sys.rpi4.ttyreader.charge", property, NULL)) {
     charging = strcmp(property, "1") == 0;
   }
-  int capacity = voltage != -1 ? calcBatteryLevel(voltage) : 42;
-  if (!charging && capacity > mLastCapacity) {
-    // it can never get higher if we are not charging
-    capacity = mLastCapacity;
+  int capacity = voltage != -1 ? calcBatteryLevel(voltage) : -1;
+  if (capacity != -1) {
+    if (!charging && capacity > mLastCapacity) {
+      // it can never get higher if we are not charging
+      capacity = mLastCapacity;
+    }
+    mLastCapacity = capacity;
+    mLastVoltage = voltage;
   }
-  mLastCapacity = capacity;
-  mLastVoltage = voltage;
   if (DEBUG) ALOGI("getCapacityImpl %d %d %d", charging, voltage, capacity);
 
-  return charging == -1 ? 42 : (charging ? 99 : capacity == 0 ? 42 : capacity);
+  return charging == -1 ? 100 : (charging ? 99 : capacity == -1 ? 100 : capacity);
 }
 
 bool HealthImpl::isBatteryDevice() {
