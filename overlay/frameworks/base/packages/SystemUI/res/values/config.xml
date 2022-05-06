@@ -39,12 +39,11 @@
 
     <!-- Tiles native to System UI. Order should match "quick_settings_tiles_default" -->
     <string name="quick_settings_tiles_stock" translatable="false">
-        internet,bt,dnd,alarm,airplane,controls,screenrecord,mictoggle,location,hotspot,inversion,dark,work,night,cast
+        internet,bt,dnd,alarm,airplane,controls,screenrecord,mictoggle,location,hotspot,inversion,dark,work,night,cast,rotation,battery
     </string>
 
     <!-- tiles that should NEVER end up in qs -->
     <string name="quick_settings_tiles_blacklist" translatable="false">
-        rotation,battery
     </string>
 
     <!-- to hide statusbar and qs battery on unknown state
