@@ -17,3 +17,6 @@
 
 # cutiepi mcu
 /dev/ttyS0                                                                 0666   system  system
+
+# Sensors
+/dev/iio:device*                                                             0660   system     system
