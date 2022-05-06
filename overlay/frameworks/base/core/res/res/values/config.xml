@@ -158,9 +158,11 @@
     
     <bool name="config_smart_battery_available">false</bool>
 
-    <bool name="config_supportAutoRotation">false</bool>
+    <!--<bool name="config_supportAutoRotation">false</bool>-->
 
     <bool name="config_allowAllRotations">true</bool>
+
+    <bool name="config_forceOrientationListenerEnabledWhileDreaming">true</bool>
 
     <bool name="config_intrusiveBatteryLed">false</bool>
 
