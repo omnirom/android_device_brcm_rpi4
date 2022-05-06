@@ -25,6 +25,12 @@
     "revision": "android-12.1-v22.0"
   },
   {
+    "remote": "github",
+    "target_path": "hardware/iio-sensors-hal",
+    "repository": "maxwen/android_hardware_iio-sensors-hal",
+    "revision": "android-12.1"
+  },
+  {
     "remote": "omnirom",
     "override": "platform/external/minigbm",
     "repository": "android_external_minigbm",
