@@ -1,0 +1,2 @@
+allow hal_sensors_default sysfs:file r_file_perms;
+allow hal_sensors_default iio_device:chr_file r_file_perms;
