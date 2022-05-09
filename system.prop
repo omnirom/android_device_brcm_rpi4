@@ -7,6 +7,7 @@ ro.hardware.hwcomposer=drm
 # enabling vulkan breaks chrome based browsers
 #ro.hardware.vulkan=broadcom
 ro.hardware.sensors=iio
+ro.hardware.camera=libcamera
 ro.opengles.version=196609
 ro.sf.lcd_density=180
 
