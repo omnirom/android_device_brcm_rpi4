@@ -236,6 +236,24 @@ PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.hardware.sensor.stepcounter.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.sensor.stepcounter.xml \
     frameworks/native/data/etc/android.hardware.sensor.stepdetector.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.sensor.stepdetector.xml
 
+# libcamera
+PRODUCT_PACKAGES += \
+    android.hardware.camera.provider@2.5-service_64 \
+    camera.libcamera \
+    ipa_rpi
+
+PRODUCT_COPY_FILES += \
+    $(DEVICE_PATH)/hal/libcamera/camera_hal.yaml:$(TARGET_COPY_OUT_VENDOR)/etc/libcamera/camera_hal.yaml \
+    $(DEVICE_PATH)/hal/libcamera/ipa/raspberrypi/imx219.json:$(TARGET_COPY_OUT_VENDOR)/etc/libcamera/ipa/raspberrypi/imx219.json \
+    $(DEVICE_PATH)/hal/libcamera/ipa/raspberrypi/imx219_noir.json:$(TARGET_COPY_OUT_VENDOR)/etc/libcamera/ipa/raspberrypi/imx219_noir.json \
+    $(DEVICE_PATH)/hal/libcamera/ipa/raspberrypi/imx477.json:$(TARGET_COPY_OUT_VENDOR)/etc/libcamera/ipa/raspberrypi/imx477.json \
+    $(DEVICE_PATH)/hal/libcamera/ipa/raspberrypi/imx477_noir.json:$(TARGET_COPY_OUT_VENDOR)/etc/libcamera/ipa/raspberrypi/imx477_noir.json \
+    $(DEVICE_PATH)/hal/libcamera/ipa/raspberrypi/ov5647.json:$(TARGET_COPY_OUT_VENDOR)/etc/libcamera/ipa/raspberrypi/ov5647.json \
+    $(DEVICE_PATH)/hal/libcamera/ipa/raspberrypi/ov5647_noir.json:$(TARGET_COPY_OUT_VENDOR)/etc/libcamera/ipa/raspberrypi/ov5647_noir.json
+
+PRODUCT_COPY_FILES += \
+    frameworks/native/data/etc/android.hardware.camera.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.camera.xml
+
 PRODUCT_SOONG_NAMESPACES += $(DEVICE_PATH)
 PRODUCT_SOONG_NAMESPACES += external/mesa3d
 PRODUCT_SOONG_NAMESPACES += packages/apps/Bluetooth
