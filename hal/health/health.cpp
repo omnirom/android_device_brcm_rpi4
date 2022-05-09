@@ -156,7 +156,7 @@ void HealthImpl::UpdateHealthInfo(HealthInfo *health_info) {
         getChargeStatusImpl() == BatteryStatus::CHARGING;
     battery_props->chargerUsbOnline = false;
     battery_props->chargerWirelessOnline = false;
-    battery_props->maxChargingCurrent = 500000;
+    battery_props->maxChargingCurrent = 1450000;
     battery_props->maxChargingVoltage = 5000000;
     battery_props->batteryStatus = getChargeStatusImpl();
     battery_props->batteryHealth = V1_0::BatteryHealth::GOOD;
@@ -165,9 +165,9 @@ void HealthImpl::UpdateHealthInfo(HealthInfo *health_info) {
     battery_props->batteryLevel = getCapacityImpl();
     battery_props->batteryVoltage = mLastVoltage;
     battery_props->batteryTemperature = 350;
-    battery_props->batteryCurrent = 400000;
+    battery_props->batteryCurrent = 4000000;
     battery_props->batteryCycleCount = 32;
-    battery_props->batteryFullCharge = 4000000;
+    battery_props->batteryFullCharge = 1900000;
     battery_props->batteryChargeCounter = 1900000;
     battery_props->batteryTechnology = "Li-ion";
   }
@@ -179,12 +179,12 @@ Return<void> HealthImpl::getChargeCounter(getChargeCounter_cb _hidl_cb) {
 }
 
 Return<void> HealthImpl::getCurrentNow(getCurrentNow_cb _hidl_cb) {
-  _hidl_cb(Result::SUCCESS, 400000);
+  _hidl_cb(Result::SUCCESS, 1450000);
   return Void();
 }
 
 Return<void> HealthImpl::getCurrentAverage(getCurrentAverage_cb _hidl_cb) {
-  _hidl_cb(Result::SUCCESS, 400000);
+  _hidl_cb(Result::SUCCESS, 1450000);
   return Void();
 }
 
