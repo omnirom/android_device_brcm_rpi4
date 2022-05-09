@@ -97,10 +97,12 @@ PRODUCT_PACKAGES += \
     android.hardware.drm@1.4-service.clearkey
 
 # Enable USB Camera
-PRODUCT_PACKAGES += android.hardware.camera.provider@2.4-impl
-PRODUCT_PACKAGES += android.hardware.camera.provider@2.4-external-service
+PRODUCT_PACKAGES += \
+    android.hardware.camera.provider@2.5-external-service
+
 PRODUCT_COPY_FILES += \
-    $(DEVICE_PATH)/external_camera_config.xml:$(TARGET_COPY_OUT_VENDOR)/etc/external_camera_config.xml
+    $(DEVICE_PATH)/external_camera_config.xml:$(TARGET_COPY_OUT_VENDOR)/etc/external_camera_config.xml \
+    frameworks/native/data/etc/android.hardware.camera.external.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.camera.external.xml
 
 PRODUCT_PACKAGES += \
     android.hardware.configstore@1.1-service
