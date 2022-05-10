@@ -257,19 +257,28 @@ int HealthImpl::getCapacityImpl() {
 
 bool HealthImpl::isBatteryDevice() {
   char property[PROPERTY_VALUE_MAX] = {0};
-  int ttyreaderValid = -1;
 
-  if (property_get("sys.rpi4.ttyreader.valid", property, NULL)) {
-    ttyreaderValid = strcmp(property, "1") == 0;
-    if (!ttyreaderValid) {
-      property_set("sys.health.healthloop.disable", "1");
-      if (DEBUG) ALOGI("stop healthloop");
-    } else {
-      if (DEBUG) ALOGI("isBatteryDevice validated");
+  if (property_get("sys.rpi4.device", property, NULL)) {
+    if (strcmp(property, "cutiepi") == 0) {
+      if (property_get("sys.rpi4.ttyreader.valid", property, NULL)) {
+        if (strcmp(property, "1") == 0) {
+          ALOGI("isBatteryDevice validated");
+          return true;
+        } else {
+          // should not happen on a cutiepi
+          property_set("sys.health.healthloop.disable", "1");
+          ALOGI("stop healthloop");
+        }
+      }
+      // wait for validate
+      return false;
     }
+    // fall through
   }
-  if (DEBUG) ALOGI("isBatteryDevice %d", ttyreaderValid);
-  return ttyreaderValid;
+  // this might get called multiple times until loop really stopped
+  property_set("sys.health.healthloop.disable", "1");
+  ALOGI("stop healthloop");
+  return false;
 }
 
 Return<void> HealthImpl::getStorageInfo(getStorageInfo_cb _hidl_cb) {

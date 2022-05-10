@@ -22,6 +22,7 @@ import android.content.Context;
 import android.content.ComponentName;
 import android.content.Intent;
 import android.content.pm.PackageManager;
+import android.os.SystemProperties;
 import android.provider.DeviceConfig;
 import android.provider.Settings;
 import android.util.Log;
@@ -40,6 +41,11 @@ public class Startup extends BroadcastReceiver {
             Settings.Secure.putInt(context.getContentResolver(), "qs_show_brightness", 0);
         }
 
+        // cutiepi has a usb audio solution but we let audio.primary handle it
+        boolean cutiepi = SystemProperties.get("sys.rpi4.device", "").equals("cutiepi");
+        if (cutiepi) {
+            Settings.Secure.putInt(context.getContentResolver(), Settings.Secure.USB_AUDIO_AUTOMATIC_ROUTING_DISABLED, 1);
+        }
         DeviceConfig.setProperty(DeviceConfig.NAMESPACE_INTERACTION_JANK_MONITOR, "enabled", "false", true);
 
         // we dont need the boot receiver anymore
