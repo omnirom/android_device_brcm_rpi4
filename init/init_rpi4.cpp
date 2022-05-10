@@ -27,6 +27,7 @@
 #include <android-base/strings.h>
 
 #include "uevent.h"
+#include "util.h"
 
 #include <sys/resource.h>
 #define _REALLY_INCLUDE_SYS__SYSTEM_PROPERTIES_H_
@@ -81,12 +82,12 @@ static void set_revision_property() {
     }
 }
 
-static void set_audio_card_property() {
+/*static void set_audio_card_property() {
     std::string card = android::base::GetProperty("persist.audio.pcm.card", "");
     if (!card.empty()) {
         property_override("audio.pcm.card", card);
     }
-}
+}*/
 
 // debug.drm.mode.force=1280x800@60
 static void set_drm_mode_property() {
@@ -113,7 +114,18 @@ static void set_gps_device_property() {
 void vendor_load_properties()
 {
     set_revision_property();
-
+    
+    std::string device = "rpi4";
+    ImportKernelCmdline([&](const std::string& key, const std::string& value) {
+        if (key == "androidboot.rpi4.device") {
+            device = value;
+        }
+    });
+    property_override("sys.rpi4.device", device);
+    if (device == "cutiepi") {
+        // cutiepi has a usb audio solution but we let audio.primary handle it
+        property_override("audio.pcm.card", "3");
+    }
     // TODO 
     //set_audio_card_property();
 
