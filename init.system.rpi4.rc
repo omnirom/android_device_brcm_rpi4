@@ -49,7 +49,8 @@ service gpiosetd /system/bin/gpiosetd ${persist.rpi4.gpiosetd.options} ${persist
     disabled
     oneshot
 
-on property:sys.boot_completed=1
+# only cutiepi needs this
+on property:sys.boot_completed=1 && property:sys.rpi4.device=cutiepi
     start ttyreader
 
 service ttyreader /system/bin/ttyreader
