@@ -67,3 +67,10 @@ service input_keyevent /system/bin/cmd input keyevent ${sys.rpi4.ttyreader.key}
 
 on property:sys.rpi4.ttyreader.key=*
     start input_keyevent
+
+service cutoff /system/bin/cutoff
+    user system
+    group system
+    disabled
+    oneshot
+

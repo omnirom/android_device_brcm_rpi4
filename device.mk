@@ -205,7 +205,8 @@ PRODUCT_PACKAGES += \
     gpioset \
     gpiod \
     gpiosetd \
-    ttyreader
+    ttyreader \
+    cutoff
 
 PRODUCT_PACKAGES += \
     tinymix \
