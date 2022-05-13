@@ -1,0 +1,8 @@
+type cutoff, domain;
+type cutoff_exec, exec_type, file_type, system_file_type;
+typeattribute cutoff coredomain;
+
+init_daemon_domain(cutoff)
+
+allow cutoff serial_device:chr_file rw_file_perms;
+set_prop(cutoff, system_prop);
