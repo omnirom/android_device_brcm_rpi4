@@ -4,5 +4,6 @@
     "make": "Raspberry Foundation",
     "image": "meta/device_image.jpg",
     "state": "unofficial",
-    "device": "rpi4"
+    "device": "rpi4",
+    "readme": "https://dl.omnirom.org/tmp/rpi4/README.txt"
 }
