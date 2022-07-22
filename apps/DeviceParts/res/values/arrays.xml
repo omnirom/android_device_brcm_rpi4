@@ -31,13 +31,15 @@
     </string-array>
 
     <string-array name="audio_card_entries" translatable="false">
-        <item>@string/audio_card_hdmi</item>
         <item>@string/audio_card_headphone_jack</item>
+        <item>@string/audio_card_hdmi_one</item>
+        <item>@string/audio_card_hdmi_two</item>
     </string-array>
 
     <string-array name="audio_card_values" translatable="false">
-        <item>0</item>
-        <item>1</item>
+        <item>Headphones</item>
+        <item>vc4hdmi0</item>
+        <item>vc4hdmi1</item>
     </string-array>
 
     <string-array name="boot_mode_entries" translatable="false">
