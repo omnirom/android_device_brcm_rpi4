@@ -89,11 +89,11 @@ struct stub_stream_in {
 };
 
 static int get_pcm_card() {
-    return property_get_int32("audio.pcm.card", PCM_CARD);
+    return property_get_int32("persist.audio.pcm.card", PCM_CARD);
 }
 
 static int get_pcm_device() {
-    return property_get_int32("audio.pcm.device", PCM_DEVICE);
+    return property_get_int32("persist.audio.pcm.device", PCM_DEVICE);
 }
 
 static int check_output_config(struct audio_config *audio_config) {

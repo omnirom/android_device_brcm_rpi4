@@ -66,5 +66,17 @@
     "repository": "android_packages_apps_DeviceRegistration",
     "target_path": "packages/apps/DeviceRegistration",
     "revision": "android-12.0"
+  },
+  {
+    "remote": "github",
+    "repository": "lineage-rpi/android_external_alsa-lib",
+    "target_path": "external/alsa-lib",
+    "revision": "lineage-19.1"
+  },
+    {
+    "remote": "github",
+    "repository": "lineage-rpi/android_external_alsa-utils",
+    "target_path": "external/alsa-utils",
+    "revision": "lineage-19.1"
   }
 ]

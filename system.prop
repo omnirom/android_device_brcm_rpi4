@@ -58,3 +58,11 @@ ro.iio.humidity.quirks=no-trig,no-event
 ro.iio.magn.quirks=no-trig,no-event
 ro.iio.pressure.quirks=no-trig,no-event
 ro.iio.temp.quirks=no-trig,no-event
+
+# audio
+# default output to loopback device which will forward to persist.audio.output.device
+# you normally dont want to change that - IF you change set persist.audio.output.device=''
+persist.audio.pcm.card=1
+# possible values are Headphones vc4hdmi0 vc4hdmi1 Device (aka USB Audio Device)
+persist.audio.output.device=Headphones
+# cutipi will force overwrite those to 0 and Device
