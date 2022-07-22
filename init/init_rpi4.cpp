@@ -82,13 +82,6 @@ static void set_revision_property() {
     }
 }
 
-/*static void set_audio_card_property() {
-    std::string card = android::base::GetProperty("persist.audio.pcm.card", "");
-    if (!card.empty()) {
-        property_override("audio.pcm.card", card);
-    }
-}*/
-
 // debug.drm.mode.force=1280x800@60
 static void set_drm_mode_property() {
     std::string drmMode = android::base::GetProperty("debug.drm.mode.force", "");
@@ -123,11 +116,11 @@ void vendor_load_properties()
     });
     property_override("sys.rpi4.device", device);
     if (device == "cutiepi") {
-        // cutiepi has a usb audio solution but we let audio.primary handle it
-        property_override("audio.pcm.card", "3");
+        // cutiepi has a usb audio solution but 'USB Audio Device' will be cut to Device only
+        // loopback is 0 and not 1 as normal
+        property_override("persist.audio.pcm.card", "0");
+        property_override("persist.audio.output.device", "Device");
     }
-    // TODO 
-    //set_audio_card_property();
 
     set_drm_mode_property();
 
