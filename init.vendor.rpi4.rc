@@ -61,3 +61,17 @@ service wpa_supplicant /system/vendor/bin/hw/wpa_supplicant \
      class main
      disabled
      oneshot
+
+on property:sys.boot_completed=1 && property:persist.audio.output.device=*
+    stop alsa_loop
+    start alsa_loop
+
+on property:persist.audio.output.device=
+    stop alsa_loop
+
+service alsa_loop /vendor/bin/alsa_loop --cdevice=hw:${persist.audio.pcm.card},1 --pdevice=default:CARD=${persist.audio.output.device}
+    user root
+    group system
+    priority 10
+    ioprio rt 4
+    disabled

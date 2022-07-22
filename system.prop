@@ -58,3 +58,10 @@ ro.iio.humidity.quirks=no-trig,no-event
 ro.iio.magn.quirks=no-trig,no-event
 ro.iio.pressure.quirks=no-trig,no-event
 ro.iio.temp.quirks=no-trig,no-event
+
+# audio
+# default output to loopback device which will forward to persist.audio.output.device
+# you normally dont want to change that - IF you change set persist.audio.output.device=''
+persist.audio.pcm.card=1
+# possible values are Headphones vc4hdmi0 or vc4hdmi1
+persist.audio.output.device=Headphones

@@ -1,0 +1,8 @@
+# alsa_loop service
+type alsa_loop, domain;
+type alsa_loop_exec, exec_type, file_type, vendor_file_type;
+
+init_daemon_domain(alsa_loop)
+
+allow alsa_loop audio_device:dir r_dir_perms;
+allow alsa_loop audio_device:chr_file rw_file_perms;
