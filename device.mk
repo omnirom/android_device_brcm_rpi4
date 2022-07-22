@@ -212,6 +212,37 @@ PRODUCT_PACKAGES += \
     tinyplay \
     tinycap
 
+PRODUCT_PACKAGES += \
+    libasound \
+    alsa_amixer \
+    alsa_aplay \
+    alsa_arecord \
+    alsa_loop
+
+PRODUCT_COPY_FILES += \
+    $(DEVICE_PATH)/alsa/alsa.conf:$(TARGET_COPY_OUT_VENDOR)/etc/alsa/alsa.conf \
+    $(DEVICE_PATH)/alsa/smixer.conf:$(TARGET_COPY_OUT_VENDOR)/etc/alsa/smixer.conf \
+    $(DEVICE_PATH)/alsa/cards/vc4-hdmi.conf:$(TARGET_COPY_OUT_VENDOR)/etc/alsa/cards/vc4-hdmi.conf \
+    $(DEVICE_PATH)/alsa/cards/aliases.conf:$(TARGET_COPY_OUT_VENDOR)/etc/alsa/cards/aliases.conf \
+    $(DEVICE_PATH)/alsa/ctl/default.conf:$(TARGET_COPY_OUT_VENDOR)/etc/alsa/ctl/default.conf \
+    $(DEVICE_PATH)/alsa/pcm/side.conf:$(TARGET_COPY_OUT_VENDOR)/etc/alsa/pcm/side.conf \
+    $(DEVICE_PATH)/alsa/pcm/surround21.conf:$(TARGET_COPY_OUT_VENDOR)/etc/alsa/pcm/surround21.conf \
+    $(DEVICE_PATH)/alsa/pcm/surround40.conf:$(TARGET_COPY_OUT_VENDOR)/etc/alsa/pcm/surround40.conf \
+    $(DEVICE_PATH)/alsa/pcm/surround41.conf:$(TARGET_COPY_OUT_VENDOR)/etc/alsa/pcm/surround41.conf \
+    $(DEVICE_PATH)/alsa/pcm/surround50.conf:$(TARGET_COPY_OUT_VENDOR)/etc/alsa/pcm/surround50.conf \
+    $(DEVICE_PATH)/alsa/pcm/surround51.conf:$(TARGET_COPY_OUT_VENDOR)/etc/alsa/pcm/surround51.conf \
+    $(DEVICE_PATH)/alsa/pcm/surround71.conf:$(TARGET_COPY_OUT_VENDOR)/etc/alsa/pcm/surround71.conf \
+    $(DEVICE_PATH)/alsa/pcm/front.conf:$(TARGET_COPY_OUT_VENDOR)/etc/alsa/pcm/front.conf \
+    $(DEVICE_PATH)/alsa/pcm/hdmi.conf:$(TARGET_COPY_OUT_VENDOR)/etc/alsa/pcm/hdmi.conf \
+    $(DEVICE_PATH)/alsa/pcm/iec958.conf:$(TARGET_COPY_OUT_VENDOR)/etc/alsa/pcm/iec958.conf \
+    $(DEVICE_PATH)/alsa/pcm/modem.conf:$(TARGET_COPY_OUT_VENDOR)/etc/alsa/pcm/modem.conf \
+    $(DEVICE_PATH)/alsa/pcm/rear.conf:$(TARGET_COPY_OUT_VENDOR)/etc/alsa/pcm/rear.conf \
+    $(DEVICE_PATH)/alsa/pcm/center_lfe.conf:$(TARGET_COPY_OUT_VENDOR)/etc/alsa/pcm/center_lfe.conf \
+    $(DEVICE_PATH)/alsa/pcm/default.conf:$(TARGET_COPY_OUT_VENDOR)/etc/alsa/pcm/default.conf \
+    $(DEVICE_PATH)/alsa/pcm/dmix.conf:$(TARGET_COPY_OUT_VENDOR)/etc/alsa/pcm/dmix.conf \
+    $(DEVICE_PATH)/alsa/pcm/dpl.conf:$(TARGET_COPY_OUT_VENDOR)/etc/alsa/pcm/dpl.conf \
+    $(DEVICE_PATH)/alsa/pcm/dsnoop.conf:$(TARGET_COPY_OUT_VENDOR)/etc/alsa/pcm/dsnoop.conf
+
 PRODUCT_COPY_FILES += \
     $(DEVICE_PATH)/scripts/switch_boot.sh:$(TARGET_COPY_OUT_SYSTEM)/xbin/switch_boot
 
