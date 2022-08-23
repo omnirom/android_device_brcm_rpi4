@@ -1,0 +1,22 @@
+android_app {
+    name: "DeviceParts",
+    resource_dirs: ["res"],
+    manifest: "AndroidManifest.xml",
+    static_libs: [
+        "androidx.core_core",
+        "androidx.preference_preference",
+        "OmniLib",
+        "SettingsLib"
+    ],
+    srcs: ["src/**/*.java"],
+    certificate: "platform",
+    privileged: true,
+    platform_apis: true,
+    optimize: {
+        enabled: false,
+    },
+    dex_preopt: {
+        enabled: false,
+    },
+}
+
