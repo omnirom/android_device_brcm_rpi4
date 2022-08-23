@@ -9,7 +9,7 @@
     "remote": "omnirom",
     "repository": "proprietary_vendor_brcm",
     "target_path": "vendor/brcm",
-    "revision": "android-12.0"
+    "revision": "android-12.1"
   },
   {
     "remote": "omnirom",
