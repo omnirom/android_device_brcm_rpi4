@@ -31,9 +31,7 @@ PRODUCT_PACKAGES += \
     audio.usb.default \
     audio.primary.yukawa \
     audio.r_submix.default \
-    audio.bluetooth.default \
-    audio.hearing_aid.default \
-    audio.a2dp.default
+    audio.bluetooth.default
 
 # bluetooth firmware
 PRODUCT_COPY_FILES += \
