@@ -108,7 +108,7 @@ BOARD_LIBCAMERA_IPAS := raspberrypi
 BOARD_LIBCAMERA_PIPELINES := simple raspberrypi
 
 # recovery
-ifeq ($(TARGET_NO_RECOVERY),true)
+ifneq ($(TARGET_NO_RECOVERY),true)
 BOARD_USES_RECOVERY_AS_BOOT := true
 endif
 

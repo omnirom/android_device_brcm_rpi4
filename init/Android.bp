@@ -3,7 +3,7 @@ cc_library_static {
     include_dirs: [
         "system/core/init",
     ],
-    shared_libs: [
+    static_libs: [
         "libbase",
     ],
     cflags: [
@@ -11,5 +11,6 @@ cc_library_static {
     ],
     srcs: ["init_rpi4.cpp"],
     recovery_available: true,
+    ramdisk_available: true,
 }
 
