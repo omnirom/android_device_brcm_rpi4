@@ -17,7 +17,6 @@
 
 <profiles xmlns:launcher="http://schemas.android.com/apk/res-auto" >
 
-    
     <grid-option
         launcher:name="5_by_5"
         launcher:numRows="5"
@@ -33,16 +32,20 @@
             launcher:name="Large Phone"
             launcher:minWidthDps="406"
             launcher:minHeightDps="694"
-            launcher:iconImageSize="48"
-            launcher:iconTextSize="15"
+            launcher:iconImageSize="56"
+            launcher:iconTextSize="14.4"
+            launcher:allAppsBorderSpace="16"
+            launcher:allAppsCellHeight="104"
             launcher:canBeDefault="true" />
 
         <display-option
             launcher:name="Large Phone Split Display"
             launcher:minWidthDps="406"
             launcher:minHeightDps="694"
-            launcher:iconImageSize="48"
-            launcher:iconTextSize="15"
+            launcher:iconImageSize="56"
+            launcher:iconTextSize="14.4"
+            launcher:allAppsBorderSpace="16"
+            launcher:allAppsCellHeight="104"
             launcher:canBeDefault="true" />
 
         <display-option
@@ -50,7 +53,9 @@
             launcher:minWidthDps="255"
             launcher:minHeightDps="400"
             launcher:iconImageSize="48"
-            launcher:iconTextSize="15"
+            launcher:iconTextSize="13.0"
+            launcher:allAppsBorderSpace="16"
+            launcher:allAppsCellHeight="104"
             launcher:canBeDefault="true" />
 
     </grid-option>
@@ -59,28 +64,45 @@
         launcher:name="6_by_6"
         launcher:numRows="6"
         launcher:numColumns="6"
-        launcher:numFolderRows="4"
-        launcher:numFolderColumns="4"
+        launcher:numSearchContainerColumns="3"
+        launcher:numFolderRows="3"
+        launcher:numFolderColumns="3"
         launcher:numHotseatIcons="6"
+        launcher:hotseatColumnSpanLandscape="4"
         launcher:numAllAppsColumns="6"
+        launcher:isScalable="true"
+        launcher:devicePaddingId="@xml/paddings_6x5"
         launcher:dbFile="launcher_6_by_6.db"
         launcher:defaultLayoutId="@xml/default_workspace_6x5"
-        launcher:deviceCategory="tablet">
+        launcher:deviceCategory="tablet" >
 
         <display-option
-            launcher:name="1280x800"
-            launcher:minWidthDps="500"
-            launcher:minHeightDps="900"
-            launcher:iconImageSize="48"
-            launcher:iconTextSize="15"
-            launcher:canBeDefault="true" />
-
-        <display-option
-            launcher:name="1920x1080"
+            launcher:name="Tablet"
             launcher:minWidthDps="900"
-            launcher:minHeightDps="1500"
-            launcher:iconImageSize="48"
-            launcher:iconTextSize="15"
+            launcher:minHeightDps="820"
+            launcher:minCellHeight="120"
+            launcher:minCellWidth="102"
+            launcher:minCellHeightLandscape="104"
+            launcher:minCellWidthLandscape="120"
+            launcher:iconImageSize="60"
+            launcher:iconTextSize="14"
+            launcher:borderSpaceHorizontal="16"
+            launcher:borderSpaceVertical="64"
+            launcher:borderSpaceLandscapeHorizontal="64"
+            launcher:borderSpaceLandscapeVertical="16"
+            launcher:horizontalMargin="54"
+            launcher:horizontalMarginLandscape="120"
+            launcher:allAppsCellWidth="96"
+            launcher:allAppsCellHeight="142"
+            launcher:allAppsCellWidthLandscape="126"
+            launcher:allAppsCellHeightLandscape="126"
+            launcher:allAppsIconSize="60"
+            launcher:allAppsIconTextSize="14"
+            launcher:allAppsBorderSpaceHorizontal="8"
+            launcher:allAppsBorderSpaceVertical="16"
+            launcher:allAppsBorderSpaceLandscape="16"
+            launcher:hotseatBorderSpace="58"
+            launcher:hotseatBorderSpaceLandscape="50.4"
             launcher:canBeDefault="true" />
     </grid-option>
 
@@ -88,28 +110,45 @@
         launcher:name="7_by_5"
         launcher:numRows="5"
         launcher:numColumns="7"
-        launcher:numFolderRows="5"
-        launcher:numFolderColumns="5"
+        launcher:numSearchContainerColumns="3"
+        launcher:numFolderRows="3"
+        launcher:numFolderColumns="3"
         launcher:numHotseatIcons="7"
+        launcher:hotseatColumnSpanLandscape="4"
         launcher:numAllAppsColumns="7"
+        launcher:isScalable="true"
+        launcher:devicePaddingId="@xml/paddings_6x5"
         launcher:dbFile="launcher_7_by_5.db"
         launcher:defaultLayoutId="@xml/default_workspace_6x5"
-        launcher:deviceCategory="tablet">
+        launcher:deviceCategory="tablet" >
 
         <display-option
-            launcher:name="1280x800"
-            launcher:minWidthDps="500"
-            launcher:minHeightDps="900"
-            launcher:iconImageSize="48"
-            launcher:iconTextSize="15"
-            launcher:canBeDefault="true" />
-
-        <display-option
-            launcher:name="1920x1080"
+            launcher:name="Tablet"
             launcher:minWidthDps="900"
-            launcher:minHeightDps="1500"
-            launcher:iconImageSize="48"
-            launcher:iconTextSize="15"
+            launcher:minHeightDps="820"
+            launcher:minCellHeight="120"
+            launcher:minCellWidth="102"
+            launcher:minCellHeightLandscape="104"
+            launcher:minCellWidthLandscape="120"
+            launcher:iconImageSize="60"
+            launcher:iconTextSize="14"
+            launcher:borderSpaceHorizontal="16"
+            launcher:borderSpaceVertical="64"
+            launcher:borderSpaceLandscapeHorizontal="64"
+            launcher:borderSpaceLandscapeVertical="16"
+            launcher:horizontalMargin="54"
+            launcher:horizontalMarginLandscape="120"
+            launcher:allAppsCellWidth="96"
+            launcher:allAppsCellHeight="142"
+            launcher:allAppsCellWidthLandscape="126"
+            launcher:allAppsCellHeightLandscape="126"
+            launcher:allAppsIconSize="60"
+            launcher:allAppsIconTextSize="14"
+            launcher:allAppsBorderSpaceHorizontal="8"
+            launcher:allAppsBorderSpaceVertical="16"
+            launcher:allAppsBorderSpaceLandscape="16"
+            launcher:hotseatBorderSpace="58"
+            launcher:hotseatBorderSpaceLandscape="50.4"
             launcher:canBeDefault="true" />
     </grid-option>
     
@@ -117,28 +156,45 @@
         launcher:name="7_by_7"
         launcher:numRows="7"
         launcher:numColumns="7"
-        launcher:numFolderRows="5"
-        launcher:numFolderColumns="5"
-        launcher:numHotseatIcons="6"
+        launcher:numSearchContainerColumns="3"
+        launcher:numFolderRows="3"
+        launcher:numFolderColumns="3"
+        launcher:numHotseatIcons="7"
+        launcher:hotseatColumnSpanLandscape="4"
         launcher:numAllAppsColumns="7"
+        launcher:isScalable="true"
+        launcher:devicePaddingId="@xml/paddings_6x5"
         launcher:dbFile="launcher_7_by_7.db"
         launcher:defaultLayoutId="@xml/default_workspace_6x5"
-        launcher:deviceCategory="tablet">
+        launcher:deviceCategory="tablet" >
 
         <display-option
-            launcher:name="1280x800"
-            launcher:minWidthDps="500"
-            launcher:minHeightDps="900"
-            launcher:iconImageSize="48"
-            launcher:iconTextSize="15"
-            launcher:canBeDefault="true" />
-
-        <display-option
-            launcher:name="1920x1080"
+            launcher:name="Tablet"
             launcher:minWidthDps="900"
-            launcher:minHeightDps="1500"
-            launcher:iconImageSize="48"
-            launcher:iconTextSize="15"
+            launcher:minHeightDps="820"
+            launcher:minCellHeight="120"
+            launcher:minCellWidth="102"
+            launcher:minCellHeightLandscape="104"
+            launcher:minCellWidthLandscape="120"
+            launcher:iconImageSize="60"
+            launcher:iconTextSize="14"
+            launcher:borderSpaceHorizontal="16"
+            launcher:borderSpaceVertical="64"
+            launcher:borderSpaceLandscapeHorizontal="64"
+            launcher:borderSpaceLandscapeVertical="16"
+            launcher:horizontalMargin="54"
+            launcher:horizontalMarginLandscape="120"
+            launcher:allAppsCellWidth="96"
+            launcher:allAppsCellHeight="142"
+            launcher:allAppsCellWidthLandscape="126"
+            launcher:allAppsCellHeightLandscape="126"
+            launcher:allAppsIconSize="60"
+            launcher:allAppsIconTextSize="14"
+            launcher:allAppsBorderSpaceHorizontal="8"
+            launcher:allAppsBorderSpaceVertical="16"
+            launcher:allAppsBorderSpaceLandscape="16"
+            launcher:hotseatBorderSpace="58"
+            launcher:hotseatBorderSpaceLandscape="50.4"
             launcher:canBeDefault="true" />
     </grid-option>
 
@@ -146,28 +202,45 @@
         launcher:name="8_by_5"
         launcher:numRows="5"
         launcher:numColumns="8"
-        launcher:numFolderRows="5"
-        launcher:numFolderColumns="5"
+        launcher:numSearchContainerColumns="3"
+        launcher:numFolderRows="3"
+        launcher:numFolderColumns="3"
         launcher:numHotseatIcons="8"
+        launcher:hotseatColumnSpanLandscape="4"
         launcher:numAllAppsColumns="8"
+        launcher:isScalable="true"
+        launcher:devicePaddingId="@xml/paddings_6x5"
         launcher:dbFile="launcher_8_by_5.db"
         launcher:defaultLayoutId="@xml/default_workspace_6x5"
-        launcher:deviceCategory="tablet">
+        launcher:deviceCategory="tablet" >
 
         <display-option
-            launcher:name="1280x800"
-            launcher:minWidthDps="500"
-            launcher:minHeightDps="900"
-            launcher:iconImageSize="48"
-            launcher:iconTextSize="15"
-            launcher:canBeDefault="true" />
-
-        <display-option
-            launcher:name="1920x1080"
+            launcher:name="Tablet"
             launcher:minWidthDps="900"
-            launcher:minHeightDps="1500"
-            launcher:iconImageSize="48"
-            launcher:iconTextSize="15"
+            launcher:minHeightDps="820"
+            launcher:minCellHeight="120"
+            launcher:minCellWidth="102"
+            launcher:minCellHeightLandscape="104"
+            launcher:minCellWidthLandscape="120"
+            launcher:iconImageSize="60"
+            launcher:iconTextSize="14"
+            launcher:borderSpaceHorizontal="16"
+            launcher:borderSpaceVertical="64"
+            launcher:borderSpaceLandscapeHorizontal="64"
+            launcher:borderSpaceLandscapeVertical="16"
+            launcher:horizontalMargin="54"
+            launcher:horizontalMarginLandscape="120"
+            launcher:allAppsCellWidth="96"
+            launcher:allAppsCellHeight="142"
+            launcher:allAppsCellWidthLandscape="126"
+            launcher:allAppsCellHeightLandscape="126"
+            launcher:allAppsIconSize="60"
+            launcher:allAppsIconTextSize="14"
+            launcher:allAppsBorderSpaceHorizontal="8"
+            launcher:allAppsBorderSpaceVertical="16"
+            launcher:allAppsBorderSpaceLandscape="16"
+            launcher:hotseatBorderSpace="58"
+            launcher:hotseatBorderSpaceLandscape="50.4"
             launcher:canBeDefault="true" />
     </grid-option>
     
@@ -175,28 +248,45 @@
         launcher:name="8_by_8"
         launcher:numRows="8"
         launcher:numColumns="8"
-        launcher:numFolderRows="5"
-        launcher:numFolderColumns="5"
-        launcher:numHotseatIcons="6"
+        launcher:numSearchContainerColumns="3"
+        launcher:numFolderRows="3"
+        launcher:numFolderColumns="3"
+        launcher:numHotseatIcons="8"
+        launcher:hotseatColumnSpanLandscape="4"
         launcher:numAllAppsColumns="8"
+        launcher:isScalable="true"
+        launcher:devicePaddingId="@xml/paddings_6x5"
         launcher:dbFile="launcher_8_by_8.db"
         launcher:defaultLayoutId="@xml/default_workspace_6x5"
-        launcher:deviceCategory="tablet">
+        launcher:deviceCategory="tablet" >
 
         <display-option
-            launcher:name="1280x800"
-            launcher:minWidthDps="500"
-            launcher:minHeightDps="900"
-            launcher:iconImageSize="48"
-            launcher:iconTextSize="15"
-            launcher:canBeDefault="true" />
-
-        <display-option
-            launcher:name="1920x1080"
+            launcher:name="Tablet"
             launcher:minWidthDps="900"
-            launcher:minHeightDps="1500"
-            launcher:iconImageSize="48"
-            launcher:iconTextSize="15"
+            launcher:minHeightDps="820"
+            launcher:minCellHeight="120"
+            launcher:minCellWidth="102"
+            launcher:minCellHeightLandscape="104"
+            launcher:minCellWidthLandscape="120"
+            launcher:iconImageSize="60"
+            launcher:iconTextSize="14"
+            launcher:borderSpaceHorizontal="16"
+            launcher:borderSpaceVertical="64"
+            launcher:borderSpaceLandscapeHorizontal="64"
+            launcher:borderSpaceLandscapeVertical="16"
+            launcher:horizontalMargin="54"
+            launcher:horizontalMarginLandscape="120"
+            launcher:allAppsCellWidth="96"
+            launcher:allAppsCellHeight="142"
+            launcher:allAppsCellWidthLandscape="126"
+            launcher:allAppsCellHeightLandscape="126"
+            launcher:allAppsIconSize="60"
+            launcher:allAppsIconTextSize="14"
+            launcher:allAppsBorderSpaceHorizontal="8"
+            launcher:allAppsBorderSpaceVertical="16"
+            launcher:allAppsBorderSpaceLandscape="16"
+            launcher:hotseatBorderSpace="58"
+            launcher:hotseatBorderSpaceLandscape="50.4"
             launcher:canBeDefault="true" />
     </grid-option>
 
@@ -204,28 +294,45 @@
         launcher:name="9_by_5"
         launcher:numRows="5"
         launcher:numColumns="9"
-        launcher:numFolderRows="5"
-        launcher:numFolderColumns="5"
+        launcher:numSearchContainerColumns="3"
+        launcher:numFolderRows="3"
+        launcher:numFolderColumns="3"
         launcher:numHotseatIcons="9"
+        launcher:hotseatColumnSpanLandscape="4"
         launcher:numAllAppsColumns="9"
+        launcher:isScalable="true"
+        launcher:devicePaddingId="@xml/paddings_6x5"
         launcher:dbFile="launcher_9_by_5.db"
         launcher:defaultLayoutId="@xml/default_workspace_6x5"
-        launcher:deviceCategory="tablet">
+        launcher:deviceCategory="tablet" >
 
         <display-option
-            launcher:name="1280x800"
-            launcher:minWidthDps="500"
-            launcher:minHeightDps="900"
-            launcher:iconImageSize="48"
-            launcher:iconTextSize="15"
-            launcher:canBeDefault="true" />
-
-        <display-option
-            launcher:name="1920x1080"
+            launcher:name="Tablet"
             launcher:minWidthDps="900"
-            launcher:minHeightDps="1500"
-            launcher:iconImageSize="48"
-            launcher:iconTextSize="15"
+            launcher:minHeightDps="820"
+            launcher:minCellHeight="120"
+            launcher:minCellWidth="102"
+            launcher:minCellHeightLandscape="104"
+            launcher:minCellWidthLandscape="120"
+            launcher:iconImageSize="60"
+            launcher:iconTextSize="14"
+            launcher:borderSpaceHorizontal="16"
+            launcher:borderSpaceVertical="64"
+            launcher:borderSpaceLandscapeHorizontal="64"
+            launcher:borderSpaceLandscapeVertical="16"
+            launcher:horizontalMargin="54"
+            launcher:horizontalMarginLandscape="120"
+            launcher:allAppsCellWidth="96"
+            launcher:allAppsCellHeight="142"
+            launcher:allAppsCellWidthLandscape="126"
+            launcher:allAppsCellHeightLandscape="126"
+            launcher:allAppsIconSize="60"
+            launcher:allAppsIconTextSize="14"
+            launcher:allAppsBorderSpaceHorizontal="8"
+            launcher:allAppsBorderSpaceVertical="16"
+            launcher:allAppsBorderSpaceLandscape="16"
+            launcher:hotseatBorderSpace="58"
+            launcher:hotseatBorderSpaceLandscape="50.4"
             launcher:canBeDefault="true" />
     </grid-option>
 </profiles>
