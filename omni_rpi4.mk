@@ -17,8 +17,6 @@
 # Inherit device configuration
 DEVICE_PATH := device/brcm/rpi4
 
-TARGET_NO_RECOVERY := true
-
 $(call inherit-product, $(SRC_TARGET_DIR)/product/core_64_bit.mk)
 
 # before including common overlay
