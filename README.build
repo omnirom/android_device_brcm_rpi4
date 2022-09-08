@@ -11,7 +11,7 @@ on you rpi4. Same is true if you want to use an USB boot device
 Refer to http://source.android.com/source/downloading.html
 Refer to https://github.com/omnirom/android
 
-$ repo init -u git://github.com/omnirom/android.git -b android-12.1
+$ repo init -u git://github.com/omnirom/android.git -b android-13.0
 
 If you want to use the contents of omni-private.xml please check
 https://github.com/omnirom/android/README and head over to send us a short
@@ -30,23 +30,13 @@ $ repo sync
 
 Refer to http://source.android.com/source/building.html
 
-# install needed host packages
-
-This depends on your distro. There is also a list on the google
-page linked above. The following list should be an example
-
-apt-get install git-core gnupg flex bison build-essential zip curl zlib1g-dev gcc-multilib g++-multilib libc6-dev-i386 lib32ncurses5-dev x11proto-core-dev libx11-dev lib32z1-dev libgl1-mesa-dev libxml2-utils xsltproc unzip fontconfig kpartx sudo dosfstools rsync  libncurses5 libssl-dev python3-mako unzip
-
 # prepare environment
 
 $ export ROM_BUILDTYPE=<MICROG|WEEKLY>
-$ export TEMPORARY_DISABLE_PATH_RESTRICTIONS=true
 $ export PRODUCT_EXCLUDE_EXTRA_PACKAGES=true
 $ source build/envsetup.sh
 
 # start build
-# we dont build an OTA therefore we cant use
-# brunch and lunch but simply use
 
 $ breakfast rpi4 userdebug
 $ m
