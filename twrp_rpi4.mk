@@ -17,8 +17,6 @@
 # Inherit device configuration
 DEVICE_PATH := device/brcm/rpi4
 
-TARGET_NO_RECOVERY := false
-
 $(call inherit-product, $(SRC_TARGET_DIR)/product/core_64_bit.mk)
 
 $(call inherit-product, device/brcm/rpi4/device.mk)
