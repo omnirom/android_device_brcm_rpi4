@@ -1,1 +1,2 @@
 system_public_prop(rpi4_system_prop)
+vendor_public_prop(rpi4_vendor_prop)
