@@ -20,46 +20,6 @@
 <!-- These resources are around just to allow their values to be customized
      for different hardware and product builds. -->
 <resources>
-    
-    <dimen name="notification_scrim_corner_radius">8dp</dimen>
-    
-    <!-- Radius for notifications corners without adjacent notifications -->
-    <dimen name="notification_corner_radius">8dp</dimen>
-    
-    <!--<dimen name="notification_button_corner_radius">8dp</dimen>-->
-
-    <!-- Distance over which notification corner animations run, near the shelf while scrolling. -->
-    <dimen name="notification_corner_animation_distance">28dp</dimen>
-    
-    <dimen name="qs_corner_radius">8dp</dimen>
-
-    <dimen name="control_corner_radius">8dp</dimen>
-
-    <!--<dimen name="qs_footer_action_corner_radius">8dp</dimen>-->
-    
-    <!-- global actions dialog -->
-    <dimen name="global_actions_corner_radius">8dp</dimen>
-        
-    <!--<dimen name="rounded_slider_height">8dp</dimen>
-    
-    <dimen name="volume_dialog_slider_width">8dp</dimen>-->
-    
-    <dimen name="qs_security_footer_corner_radius">8dp</dimen>
-    
-    <dimen name="volume_dialog_panel_width_half">8dp</dimen>
-
-    <dimen name="screenshot_action_container_corner_radius">8dp</dimen>
-
-    <dimen name="screenshot_border_corner_radius">8dp</dimen>
-
-    <dimen name="screenshot_preview_corner_radius">8dp</dimen>
-
-    <!--<dimen name="screenshot_button_corner_radius">8dp</dimen>-->
-    
-    <dimen name="internet_dialog_corner_radius">8dp</dimen>
-
-    <!--<dimen name="internet_dialog_button_corner_radius">8dp</dimen>-->
-
     <!-- 12dp -->
     <dimen name="cpu_info_text_height">14dp</dimen>
 
