@@ -4,3 +4,6 @@ persist.rpi4.gpiod.lines               u:object_r:rpi4_system_prop:s0 exact stri
 persist.rpi4.gpiod.options             u:object_r:rpi4_system_prop:s0 exact string
 persist.rpi4.gpiosetd.values           u:object_r:rpi4_system_prop:s0 exact string
 persist.rpi4.gpiosetd.options          u:object_r:rpi4_system_prop:s0 exact string
+persist.rpi4.audio.output.device         u:object_r:rpi4_vendor_prop:s0 exact string
+persist.rpi4.audio.pcm.card          u:object_r:rpi4_vendor_prop:s0 exact string
+persist.rpi4.audio.pcm.device          u:object_r:rpi4_vendor_prop:s0 exact string

@@ -52,8 +52,8 @@ public class DeviceSettings extends PreferenceFragment implements
     private static final String KEY_CPU_MAX_FREQ = "cpu_max_Freq";
 
     private static final String BOOT_MODE_PROPERTY = "sys.rpi4.boot_mode";
-    private static final String AUDIO_CARD_PROPERTY = "persist.audio.pcm.card";
-    private static final String AUDIO_OUTPUT_DEVICE_PROPERTY = "persist.audio.output.device";
+    private static final String AUDIO_CARD_PROPERTY = "persist.rpi4.audio.pcm.card";
+    private static final String AUDIO_OUTPUT_DEVICE_PROPERTY = "persist.rpi4.audio.output.device";
     private static final String CPU_GOVERNOR_PROPERTY = "persist.rpi4.cpufreq.governor";
     private static final String CPU_MAX_FREQ_PROPERTY = "persist.rpi4.cpufreq.max_freq";
 

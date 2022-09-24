@@ -118,8 +118,8 @@ void vendor_load_properties()
     if (device == "cutiepi") {
         // cutiepi has a usb audio solution but 'USB Audio Device' will be cut to Device only
         // loopback is 0 and not 1 as normal
-        property_override("persist.audio.pcm.card", "0");
-        property_override("persist.audio.output.device", "Device");
+        property_override("persist.rpi4.audio.pcm.card", "0");
+        property_override("persist.rpi4.audio.output.device", "Device");
     }
 
     set_drm_mode_property();
