@@ -17,7 +17,12 @@ umount /sdcard 2>&1
 
 # remove existing data partition and create new partition table entry
 FIRST_SECTOR=$(/tmp/fdisk -l /dev/block/$DEVICE | grep $DEVICE$PARTITION | awk '{print $2}')
-echo FIRST_SECTOR=$FIRST_SECTOR >> /tmp/resize.log
+echo /dev/block/$DEVICE - $DEVICE$PARTITION - $FIRST_SECTOR >> /tmp/resize.log
+
+if [ $FIRST_SECTOR = "" ]; then
+    echo "find first sector failed" >> /tmp/resize.log
+    exit 1
+fi
 
 (
 echo d
