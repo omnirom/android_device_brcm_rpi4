@@ -4,9 +4,10 @@
 #
 #<src>                  <mnt_point>         <type>    <mnt_flags and options>                               <fs_mgr_flags>
 
-/dev/block/by-name/boot    /boot             vfat      defaults defaults
-/dev/block/by-name/system    /system             ext4      defaults defaults
-/dev/block/by-name/vendor    /vendor             ext4     defaults defaults
+/dev/block/mmcblk0p1    /boot             vfat      defaults defaults
+/dev/block/mmcblk0p2    /system             ext4      defaults defaults
+/dev/block/mmcblk0p3    /vendor             ext4     defaults defaults
 # TODO fileencryption=aes-256-xts
-/dev/block/by-name/userdata    /data               ext4      noatime,nosuid,nodev,barrier=1,noauto_da_alloc defaults
+/dev/block/mmcblk0p4    /data               ext4      noatime,nosuid,nodev,barrier=1,noauto_da_alloc defaults
+
 /devices/platform/scb/*.pcie/*/*/*/usb*    /usb    auto     defaults defaults
