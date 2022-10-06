@@ -109,9 +109,14 @@ void vendor_load_properties()
     set_revision_property();
     
     std::string device = "rpi4";
+    std::string model = "pi4";
+
     ImportKernelCmdline([&](const std::string& key, const std::string& value) {
         if (key == "androidboot.rpi4.device") {
             device = value;
+        }
+        if (key == "androidboot.model") {
+            model = value;
         }
     });
     property_override("sys.rpi4.device", device);
@@ -120,6 +125,10 @@ void vendor_load_properties()
         // loopback is 0 and not 1 as normal
         property_override("persist.rpi4.audio.pcm.card", "0");
         property_override("persist.rpi4.audio.output.device", "Device");
+    } else if (model == "cm4" || model == "pi400") {
+        // general cm4 (cutiepi is also one but special) and pi400 have loopback at 0 and no headphones
+        property_override("persist.rpi4.audio.pcm.card", "0");
+        property_override("persist.rpi4.audio.output.device", "vc4hdmi0");
     }
 
     set_drm_mode_property();
