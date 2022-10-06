@@ -93,8 +93,13 @@ public class DeviceSettings extends PreferenceFragment implements
         mAudioCard.setSummary(mAudioCard.getEntry());
 
         boolean cutiepi = SystemProperties.get("sys.rpi4.device", "").equals("cutiepi");
+        boolean cm4 = SystemProperties.get("ro.boot.model", "").equals("cm4");
+
         if (cutiepi) {
             mAudioCard.setVisible(false);
+        } else if (true || cm4) {
+            mAudioCard.setEntryValues(R.array.audio_card_values_cm4);
+            mAudioCard.setEntries(R.array.audio_card_entries_cm4);
         }
 
         mCPUGovernor = (ListPreference) findPreference(KEY_CPU_GOVERNOR);

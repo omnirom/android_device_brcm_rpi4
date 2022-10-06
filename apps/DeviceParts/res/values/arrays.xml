@@ -42,6 +42,16 @@
         <item>vc4hdmi1</item>
     </string-array>
 
+    <string-array name="audio_card_entries_cm4" translatable="false">
+        <item>@string/audio_card_hdmi_one</item>
+        <item>@string/audio_card_hdmi_two</item>
+    </string-array>
+
+    <string-array name="audio_card_values_cm4" translatable="false">
+        <item>vc4hdmi0</item>
+        <item>vc4hdmi1</item>
+    </string-array>
+    
     <string-array name="boot_mode_entries" translatable="false">
         <item>@string/boot_mode_rom</item>
         <item>@string/boot_mode_recovery</item>
