@@ -1,0 +1,13 @@
+# Android fstab file.
+# The filesystem that contains the filesystem checker binary (typically /system) cannot
+# specify MF_CHECK, and must come before any filesystems that do specify MF_CHECK
+#
+#<src>                  <mnt_point>         <type>    <mnt_flags and options>                               <fs_mgr_flags>
+
+/dev/block/sda1    /boot             vfat      defaults defaults
+/dev/block/sda2    /system             ext4      defaults defaults
+/dev/block/sda3    /vendor             ext4     defaults defaults
+# TODO fileencryption=aes-256-xts
+/dev/block/sda4    /data               ext4      noatime,nosuid,nodev,barrier=1,noauto_da_alloc defaults
+
+/devices/platform/scb/*.pcie/*/*/*/usb*    /usb    auto     defaults defaults
