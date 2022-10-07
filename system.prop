@@ -42,6 +42,7 @@ sys.vendor.vold.skip_root_mnt=true
 
 # default
 persist.rpi4.cpufreq.governor=ondemand
+persist.rpi4.cpufreq.max_freq=1500000
 
 # twrp failing to read storage.xml
 persist.sys.binary_xml=false
