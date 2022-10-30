@@ -90,6 +90,8 @@ DEVICE_MANIFEST_FILE += $(DEVICE_PATH)/hal/sensors/manifest.xml
 DEVICE_PRODUCT_COMPATIBILITY_MATRIX_FILE := $(DEVICE_PATH)/compatibility_matrix.device.xml
 DEVICE_MATRIX_FILE := $(DEVICE_PATH)/compatibility_matrix.xml
 
+include vendor/omni/sepolicy/sepolicy.mk
+
 BOARD_SEPOLICY_DIRS += \
     $(DEVICE_PATH)/sepolicy
 
