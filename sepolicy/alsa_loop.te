@@ -6,3 +6,4 @@ init_daemon_domain(alsa_loop)
 
 allow alsa_loop audio_device:dir r_dir_perms;
 allow alsa_loop audio_device:chr_file rw_file_perms;
+allow alsa_loop self:global_capability_class_set { sys_nice };
