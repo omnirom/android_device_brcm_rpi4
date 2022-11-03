@@ -62,6 +62,9 @@ std::map<int, int> batteryLevelMapping = {
 #define DEFAULT_PERIODIC_CHORES_INTERVAL_FAST (30 * 1)
 #define DEFAULT_PERIODIC_CHORES_INTERVAL_SLOW (60 * 10)
 
+#define FAKE_BATTERY_CAPACITY 42
+#define FAKE_BATTERY_TEMPERATURE 424
+
 void InitHealthdConfig(struct healthd_config *healthd_config) {
   *healthd_config = {
       .periodic_chores_interval_fast = DEFAULT_PERIODIC_CHORES_INTERVAL_FAST,
@@ -170,6 +173,16 @@ void HealthImpl::UpdateHealthInfo(HealthInfo *health_info) {
     battery_props->batteryFullCharge = 1900000;
     battery_props->batteryChargeCounter = 1900000;
     battery_props->batteryTechnology = "Li-ion";
+  }
+
+  char property[PROPERTY_VALUE_MAX] = {0};
+  if (property_get("persist.vendor.fake_battery", property, NULL)) {
+    if (strcmp(property, "1") == 0) {
+      battery_props->batteryPresent = true;
+      battery_props->batteryTemperature = FAKE_BATTERY_TEMPERATURE;
+      battery_props->batteryLevel = FAKE_BATTERY_CAPACITY;
+      battery_props->batteryStatus = BatteryStatus::DISCHARGING;
+    }
   }
 }
 
