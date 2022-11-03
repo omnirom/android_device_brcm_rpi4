@@ -3,7 +3,7 @@
     "remote": "omnirom",
     "repository": "android_kernel_brcm_arpi",
     "target_path": "kernel/brcm/arpi",
-    "revision": "android-12.1"
+    "revision": "android-13.0"
   },
   {
     "remote": "omnirom",
