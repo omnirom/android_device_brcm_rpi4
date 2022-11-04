@@ -39,27 +39,27 @@
   },
   {
     "remote": "github",
-    "repository": "lineage-rpi/android_external_libcamera",
+    "repository": "raspberry-vanilla/android_external_libcamera",
     "target_path": "external/libcamera",
-    "revision": "lineage-19.1"
+    "revision": "android-13.0"
   },
   {
     "remote": "github",
-    "repository": "glodroid/glodroid_forks.git",
+    "repository": "raspberry-vanilla/android_external_boost",
     "target_path": "external/boost",
-    "revision": "refs/tags/boost-v0.7.0"
+    "revision": "android-13.0"
   },
   {
     "remote": "github",
-    "repository": "glodroid/glodroid_forks.git",
+    "repository": "raspberry-vanilla/android_external_libyuv_chromium",
     "target_path": "external/libyuv_chromium",
-    "revision": "refs/tags/libyuv_chromium-v0.7.0"
+    "revision": "android-13.0"
   },
   {
     "remote": "github",
-    "repository": "maxwen/android_external_libyaml",
+    "repository": "raspberry-vanilla/android_external_libyaml",
     "target_path": "external/libyaml",
-    "revision": "android-12.1"
+    "revision": "android-13.0"
   },
   {
     "remote": "omnirom",
@@ -69,14 +69,14 @@
   },
   {
     "remote": "github",
-    "repository": "lineage-rpi/android_external_alsa-lib",
+    "repository": "raspberry-vanilla/android_external_alsa-lib",
     "target_path": "external/alsa-lib",
-    "revision": "lineage-19.1"
+    "revision": "android-13.0"
   },
     {
     "remote": "github",
-    "repository": "lineage-rpi/android_external_alsa-utils",
+    "repository": "raspberry-vanilla/android_external_alsa-utils",
     "target_path": "external/alsa-utils",
-    "revision": "lineage-19.1"
+    "revision": "android-13.0"
   }
 ]
