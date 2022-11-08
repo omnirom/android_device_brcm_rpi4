@@ -13,14 +13,7 @@
     See the License for the specific language governing permissions and
     limitations under the License.
 -->
-<resources>
-    <style name="AppTheme" parent="Theme.Material3.DayNight.NoActionBar">
-        <item name="colorPrimary">@color/colorPrimary</item>
-        <item name="colorAccent">?attr/colorPrimary</item>
-        <item name="android:navigationBarColor">@android:color/transparent</item>
-        <item name="android:statusBarColor">@android:color/transparent</item>
-        <item name="android:windowLightStatusBar">?attr/isLightTheme</item>
-        <item name="android:windowLightNavigationBar">?attr/isLightTheme</item>
-        <item name="android:windowBackground">@color/windowBackground</item>
-    </style>
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <color name="colorPrimary">@android:color/system_accent1_100</color>
+    <color name="windowBackground">@android:color/system_neutral1_900</color>
 </resources>

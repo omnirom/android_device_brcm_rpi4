@@ -5,8 +5,7 @@ android_app {
     static_libs: [
         "androidx.core_core",
         "androidx.preference_preference",
-        "OmniLib",
-        "SettingsLib"
+        "com.google.android.material_material",
     ],
     srcs: ["src/**/*.java"],
     certificate: "platform",

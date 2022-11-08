@@ -26,7 +26,7 @@ import android.os.Bundle;
 import android.os.RemoteException;
 import android.os.ServiceManager;
 import android.os.SystemProperties;
-import androidx.preference.PreferenceFragment;
+import androidx.preference.PreferenceFragmentCompat;
 import androidx.preference.ListPreference;
 import androidx.preference.Preference;
 import androidx.preference.PreferenceScreen;
@@ -42,7 +42,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-public class DeviceSettings extends PreferenceFragment implements
+public class DeviceSettings extends PreferenceFragmentCompat implements
         Preference.OnPreferenceChangeListener {
     private static final String TAG = "DeviceSettings";
     private static final String KEY_ROTATION_LOCK = "rotation_lock";

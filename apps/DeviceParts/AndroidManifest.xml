@@ -8,9 +8,6 @@
     <uses-permission android:name="android.permission.INJECT_EVENTS" />
     <uses-permission android:name="android.permission.SET_ORIENTATION" />
 
-    <uses-sdk
-        android:minSdkVersion="26"
-        android:targetSdkVersion="26" />
     <application
         android:icon="@drawable/ic_launcher"
         android:label="@string/advanced_settings"
@@ -20,7 +17,6 @@
         android:supportsRtl="true" >
         <activity
             android:name="org.omnirom.device.DeviceSettingsActivity"
-            android:label="@string/advanced_settings"
             android:launchMode="singleTask"
             android:exported="true" >
             <intent-filter>
@@ -31,7 +27,6 @@
         <activity-alias
             android:name="org.omnirom.device.DeviceSettings"
             android:exported="true"
-            android:label="@string/advanced_settings"
             android:targetActivity="DeviceSettingsActivity" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -39,7 +34,8 @@
             </intent-filter>
         </activity-alias>
 
-        <receiver android:name="org.omnirom.device.Startup" >
+        <receiver android:name="org.omnirom.device.Startup"
+            android:exported="false" >
             <intent-filter android:priority="100" >
                 <action android:name="android.intent.action.BOOT_COMPLETED" />
             </intent-filter>
