@@ -308,6 +308,7 @@ PRODUCT_COPY_FILES += \
 PRODUCT_SOONG_NAMESPACES += $(DEVICE_PATH)
 PRODUCT_SOONG_NAMESPACES += external/mesa3d
 PRODUCT_SOONG_NAMESPACES += packages/apps/Bluetooth
+PRODUCT_SOONG_NAMESPACES += hardware/iio-sensors-hal
 
 # for bringup to disable secure adb - copy adbkey.pub from ~/.android
 #PRODUCT_ADB_KEYS := device/amlogic/yukawa/adbkey.pub
