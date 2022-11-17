@@ -21,6 +21,8 @@
         <item name="android:statusBarColor">@android:color/transparent</item>
         <item name="android:windowLightStatusBar">?attr/isLightTheme</item>
         <item name="android:windowLightNavigationBar">?attr/isLightTheme</item>
-        <item name="android:windowBackground">@color/windowBackground</item>
+        <item name="preferenceTheme">@style/Omni.PreferenceTheme</item>
+        <item name="android:switchStyle">@style/Omni.SwitchStyle</item>
+        <item name="android:textAppearanceListItem">@style/Omni.PreferenceTitle</item>
     </style>
 </resources>

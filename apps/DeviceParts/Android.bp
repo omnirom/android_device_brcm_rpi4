@@ -6,6 +6,7 @@ android_app {
         "androidx.core_core",
         "androidx.preference_preference",
         "com.google.android.material_material",
+        "OmniPreferenceTheme"
     ],
     srcs: ["src/**/*.java"],
     certificate: "platform",
