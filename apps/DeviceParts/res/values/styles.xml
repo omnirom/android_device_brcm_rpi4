@@ -24,6 +24,12 @@
         <item name="preferenceTheme">@style/Omni.PreferenceTheme</item>
         <item name="android:switchStyle">@style/Omni.SwitchStyle</item>
         <item name="android:textAppearanceListItem">@style/Omni.PreferenceTitle</item>
+        <item name="alertDialogTheme">@style/AlertDialogTheme</item>
+    </style>
+
+    <style name="AlertDialogTheme" parent="Theme.Material3.DayNight.Dialog.Alert">
+        <item name="colorAccent">?attr/colorPrimary</item>
+        <item name="colorPrimary">@color/colorPrimary</item>
         <item name="dialogCornerRadius">8dp</item>
     </style>
 </resources>
