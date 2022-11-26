@@ -215,6 +215,9 @@ PRODUCT_PACKAGES += \
 endif
 
 PRODUCT_PACKAGES += \
+    RemovePackages
+
+PRODUCT_PACKAGES += \
     gpiodetect \
     gpiofind \
     gpioget \
@@ -317,9 +320,9 @@ PRODUCT_SOONG_NAMESPACES += hardware/iio-sensors-hal
 
 # Keep the VNDK APEX in /system partition for REL branches as these branches are
 # expected to have stable API/ABI surfaces.
-ifneq (REL,$(PLATFORM_VERSION_CODENAME))
+#ifneq (REL,$(PLATFORM_VERSION_CODENAME))
   PRODUCT_PACKAGES += com.android.vndk.current.on_vendor
-endif
+#endif
 
 # All VNDK libraries (HAL interfaces, VNDK, VNDK-SP, LL-NDK)
 PRODUCT_PACKAGES += vndk_package

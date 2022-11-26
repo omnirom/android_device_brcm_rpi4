@@ -1,21 +1,13 @@
 LOCAL_PATH := $(call my-dir)
 
+ifeq ($(TARGET_DEVICE),$(filter $(TARGET_DEVICE),rpi4))
 include $(CLEAR_VARS)
-LOCAL_MODULE := RemoveOpenDelta
+LOCAL_MODULE := RemovePackages
 LOCAL_MODULE_CLASS := APPS
 LOCAL_MODULE_TAGS := optional
-LOCAL_OVERRIDES_PACKAGES := OpenDelta
+LOCAL_OVERRIDES_PACKAGES := NfcNci SecureElement SimAppDialog HTMLViewer BasicDreams BlockedNumberProvider MmsService
 LOCAL_UNINSTALLABLE_MODULE := true
 LOCAL_CERTIFICATE := PRESIGNED
 LOCAL_SRC_FILES := /dev/null
 include $(BUILD_PREBUILT)
-
-include $(CLEAR_VARS)
-LOCAL_MODULE := RemoveCamera2
-LOCAL_MODULE_CLASS := APPS
-LOCAL_MODULE_TAGS := optional
-LOCAL_OVERRIDES_PACKAGES := Camera2
-LOCAL_UNINSTALLABLE_MODULE := true
-LOCAL_CERTIFICATE := PRESIGNED
-LOCAL_SRC_FILES := /dev/null
-include $(BUILD_PREBUILT)
+endif
