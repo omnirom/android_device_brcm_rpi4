@@ -206,8 +206,7 @@ PRODUCT_PACKAGES += \
 
 PRODUCT_PACKAGES += \
     OmniProvision \
-    DeviceParts \
-    Terminal
+    DeviceParts
 
 ifeq ($(ROM_BUILDTYPE),GAPPS)
 PRODUCT_PACKAGES += \
