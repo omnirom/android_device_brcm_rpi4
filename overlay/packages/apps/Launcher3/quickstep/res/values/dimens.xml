@@ -1,0 +1,3 @@
+<resources>
+    <dimen name="taskbar_button_margin_6_5">75dp</dimen>
+</resources>

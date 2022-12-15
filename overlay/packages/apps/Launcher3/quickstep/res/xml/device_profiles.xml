@@ -24,7 +24,6 @@
         launcher:numFolderRows="4"
         launcher:numFolderColumns="4"
         launcher:numHotseatIcons="5"
-        launcher:numShrunkenHotseatIcons="5"
         launcher:dbFile="launcher.db"
         launcher:defaultLayoutId="@xml/default_workspace_5x5"
         launcher:deviceCategory="phone|multi_display" >
@@ -69,9 +68,10 @@
         launcher:numFolderRows="3"
         launcher:numFolderColumns="3"
         launcher:numHotseatIcons="6"
-        launcher:numShrunkenHotseatIcons="6"
+        launcher:hotseatColumnSpanLandscape="4"
         launcher:numAllAppsColumns="6"
         launcher:isScalable="true"
+        launcher:inlineNavButtonsEndSpacing="@dimen/taskbar_button_margin_6_5"
         launcher:devicePaddingId="@xml/paddings_6x5"
         launcher:dbFile="launcher_6_by_6.db"
         launcher:defaultLayoutId="@xml/default_workspace_6x5"
@@ -102,8 +102,8 @@
             launcher:allAppsBorderSpaceHorizontal="8"
             launcher:allAppsBorderSpaceVertical="16"
             launcher:allAppsBorderSpaceLandscape="16"
-            launcher:hotseatBorderSpace="8"
-            launcher:hotseatBorderSpaceLandscape="16"
+            launcher:hotseatBarBottomSpace="76"
+            launcher:hotseatBarBottomSpaceLandscape="40"
             launcher:canBeDefault="true" />
     </grid-option>
 
@@ -115,9 +115,10 @@
         launcher:numFolderRows="3"
         launcher:numFolderColumns="3"
         launcher:numHotseatIcons="7"
-        launcher:numShrunkenHotseatIcons="7"
+        launcher:hotseatColumnSpanLandscape="4"
         launcher:numAllAppsColumns="7"
         launcher:isScalable="true"
+        launcher:inlineNavButtonsEndSpacing="@dimen/taskbar_button_margin_6_5"
         launcher:devicePaddingId="@xml/paddings_6x5"
         launcher:dbFile="launcher_7_by_5.db"
         launcher:defaultLayoutId="@xml/default_workspace_6x5"
@@ -148,9 +149,9 @@
             launcher:allAppsBorderSpaceHorizontal="8"
             launcher:allAppsBorderSpaceVertical="16"
             launcher:allAppsBorderSpaceLandscape="16"
-            launcher:hotseatBorderSpace="8"
-            launcher:hotseatBorderSpaceLandscape="16"
-            launcher:canBeDefault="true" />
+            launcher:hotseatBarBottomSpace="76"
+            launcher:hotseatBarBottomSpaceLandscape="40"
+            launcher:canBeDefault="true"/>
     </grid-option>
     
     <grid-option
@@ -161,9 +162,10 @@
         launcher:numFolderRows="3"
         launcher:numFolderColumns="3"
         launcher:numHotseatIcons="7"
-        launcher:numShrunkenHotseatIcons="6"
+        launcher:hotseatColumnSpanLandscape="4"
         launcher:numAllAppsColumns="7"
         launcher:isScalable="true"
+        launcher:inlineNavButtonsEndSpacing="@dimen/taskbar_button_margin_6_5"
         launcher:devicePaddingId="@xml/paddings_6x5"
         launcher:dbFile="launcher_7_by_7.db"
         launcher:defaultLayoutId="@xml/default_workspace_6x5"
@@ -194,8 +196,8 @@
             launcher:allAppsBorderSpaceHorizontal="8"
             launcher:allAppsBorderSpaceVertical="16"
             launcher:allAppsBorderSpaceLandscape="16"
-            launcher:hotseatBorderSpace="8"
-            launcher:hotseatBorderSpaceLandscape="16"
+            launcher:hotseatBarBottomSpace="76"
+            launcher:hotseatBarBottomSpaceLandscape="40"
             launcher:canBeDefault="true" />
     </grid-option>
 
@@ -207,9 +209,10 @@
         launcher:numFolderRows="3"
         launcher:numFolderColumns="3"
         launcher:numHotseatIcons="8"
-        launcher:numShrunkenHotseatIcons="8"
+        launcher:hotseatColumnSpanLandscape="4"
         launcher:numAllAppsColumns="8"
         launcher:isScalable="true"
+        launcher:inlineNavButtonsEndSpacing="@dimen/taskbar_button_margin_6_5"
         launcher:devicePaddingId="@xml/paddings_6x5"
         launcher:dbFile="launcher_8_by_5.db"
         launcher:defaultLayoutId="@xml/default_workspace_6x5"
@@ -240,8 +243,8 @@
             launcher:allAppsBorderSpaceHorizontal="8"
             launcher:allAppsBorderSpaceVertical="16"
             launcher:allAppsBorderSpaceLandscape="16"
-            launcher:hotseatBorderSpace="8"
-            launcher:hotseatBorderSpaceLandscape="16"
+            launcher:hotseatBarBottomSpace="76"
+            launcher:hotseatBarBottomSpaceLandscape="40"
             launcher:canBeDefault="true" />
     </grid-option>
     
@@ -253,9 +256,10 @@
         launcher:numFolderRows="3"
         launcher:numFolderColumns="3"
         launcher:numHotseatIcons="9"
-        launcher:numShrunkenHotseatIcons="9"
+        launcher:hotseatColumnSpanLandscape="4"
         launcher:numAllAppsColumns="9"
         launcher:isScalable="true"
+        launcher:inlineNavButtonsEndSpacing="@dimen/taskbar_button_margin_6_5"
         launcher:devicePaddingId="@xml/paddings_6x5"
         launcher:dbFile="launcher_9_by_5.db"
         launcher:defaultLayoutId="@xml/default_workspace_6x5"
@@ -286,8 +290,8 @@
             launcher:allAppsBorderSpaceHorizontal="8"
             launcher:allAppsBorderSpaceVertical="16"
             launcher:allAppsBorderSpaceLandscape="16"
-            launcher:hotseatBorderSpace="8"
-            launcher:hotseatBorderSpaceLandscape="16"
+            launcher:hotseatBarBottomSpace="76"
+            launcher:hotseatBarBottomSpaceLandscape="40"
             launcher:canBeDefault="true" />
     </grid-option>
 </profiles>
