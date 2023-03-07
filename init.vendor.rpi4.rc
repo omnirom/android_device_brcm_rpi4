@@ -53,6 +53,13 @@ on property:sys.boot_completed=1
     write /sys/block/sda/queue/iosched/slice_idle 0
     write /sys/block/sda/queue/nr_requests 256
 
+on property:ro.revision=*
+    start btuart
+
+service btuart /vendor/bin/btuart /dev/ttyAMA0 bcm43xx 3000000 flow - ${ro.serialno}
+    user bluetooth
+    group bluetooth net_bt_admin system
+
 service wpa_supplicant /system/vendor/bin/hw/wpa_supplicant \
      -g@android:wpa_wlan0
      interface aidl android.hardware.wifi.supplicant.ISupplicant/default

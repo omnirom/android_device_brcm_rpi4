@@ -22,19 +22,16 @@ $(call inherit-product, $(SRC_TARGET_DIR)/product/emulated_storage.mk)
 $(call inherit-product, frameworks/native/build/tablet-10in-xhdpi-2048-dalvik-heap.mk)
 $(call inherit-product, $(SRC_TARGET_DIR)/product/full_base.mk)
 
-# bluetooth
+# Build default bluetooth a2dp and usb audio HALs
 PRODUCT_PACKAGES += \
     android.hardware.bluetooth.audio@2.0-impl \
-    android.hardware.bluetooth@1.0-service \
-    android.hardware.bluetooth@1.0-impl \
-    libbt-vendor \
     audio.usb.default \
     audio.primary.yukawa \
     audio.r_submix.default \
     audio.bluetooth.default
 
 # bluetooth firmware
-PRODUCT_COPY_FILES += \
+#PRODUCT_COPY_FILES += \
     $(DEVICE_PATH)/bluetooth/firmware/BCM4345C0.hcd:vendor/etc/firmware/brcm/BCM4345C0.hcd \
     $(DEVICE_PATH)/bluetooth/firmware/BCM4345C5.hcd:vendor/etc/firmware/brcm/BCM4345C5.hcd
 
@@ -160,6 +157,11 @@ PRODUCT_COPY_FILES += \
     $(DEVICE_PATH)/wifi/wpa_supplicant.conf:$(TARGET_COPY_OUT_VENDOR)/etc/wifi/wpa_supplicant.conf \
     $(DEVICE_PATH)/wifi/wpa_supplicant_overlay.conf:$(TARGET_COPY_OUT_VENDOR)/etc/wifi/wpa_supplicant_overlay.conf \
     $(DEVICE_PATH)/wifi/p2p_supplicant_overlay.conf:$(TARGET_COPY_OUT_VENDOR)/etc/wifi/p2p_supplicant_overlay.conf
+
+# bluetooth
+PRODUCT_PACKAGES += \
+    android.hardware.bluetooth@1.1-service.btlinux \
+    btuart
 
 # USB
 PRODUCT_PACKAGES += \
