@@ -38,6 +38,7 @@
 /system/bin/cmd u:object_r:input_exec:s0
 /system/bin/cutoff u:object_r:cutoff_exec:s0
 /vendor/bin/alsa_loop u:object_r:alsa_loop_exec:s0
+/vendor/bin/btuart u:object_r:btuart_exec:s0
 
 /dev/block/sda1                                                              u:object_r:boot_block_device:s0
 /dev/block/sda2                                                              u:object_r:system_block_device:s0
