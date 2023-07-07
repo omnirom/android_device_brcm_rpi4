@@ -42,4 +42,6 @@
     <!-- When true enable gesture setting. -->
     <bool name="config_gesture_settings_enabled">true</bool>
 
+    <!-- no calls & sms -->
+    <bool name="config_show_sim_info">false</bool>
 </resources>
