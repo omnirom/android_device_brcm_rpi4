@@ -21,6 +21,7 @@ $(call inherit-product, $(SRC_TARGET_DIR)/product/emulated_storage.mk)
 
 $(call inherit-product, frameworks/native/build/tablet-10in-xhdpi-2048-dalvik-heap.mk)
 $(call inherit-product, $(SRC_TARGET_DIR)/product/full_base.mk)
+$(call inherit-product, $(SRC_TARGET_DIR)/product/updatable_apex.mk)
 
 # Build default bluetooth a2dp and usb audio HALs
 PRODUCT_PACKAGES += \
@@ -29,11 +30,6 @@ PRODUCT_PACKAGES += \
     audio.primary.yukawa \
     audio.r_submix.default \
     audio.bluetooth.default
-
-# bluetooth firmware
-#PRODUCT_COPY_FILES += \
-    $(DEVICE_PATH)/bluetooth/firmware/BCM4345C0.hcd:vendor/etc/firmware/brcm/BCM4345C0.hcd \
-    $(DEVICE_PATH)/bluetooth/firmware/BCM4345C5.hcd:vendor/etc/firmware/brcm/BCM4345C5.hcd
 
 PRODUCT_PROPERTY_OVERRIDES += \
     bluetooth.core.gap.le.privacy.enabled=false \
@@ -61,21 +57,12 @@ PRODUCT_PACKAGES += \
     android.hardware.audio.effect@7.0-impl \
     android.hardware.soundtrigger@2.3-impl
 
-#PRODUCT_PACKAGES += \
-    android.hardware.graphics.composer@2.2-impl \
-    android.hardware.graphics.composer@2.2-service \
-    android.hardware.graphics.allocator@2.0-service \
-    android.hardware.graphics.allocator@2.0-impl \
-    android.hardware.graphics.mapper@2.0-impl-2.1 \
-    hwcomposer.drm \
-    gralloc.gbm
-
 PRODUCT_PACKAGES += \
     android.hardware.graphics.allocator@4.0-service.minigbm_gbm_mesa \
     android.hardware.graphics.mapper@4.0-impl.minigbm_gbm_mesa \
-    android.hardware.graphics.composer@2.4-impl \
     android.hardware.graphics.composer@2.4-service \
-    hwcomposer.drm
+    hwcomposer.drm \
+    libgbm_mesa_wrapper
 
 # egl
 PRODUCT_PACKAGES += \
@@ -85,31 +72,34 @@ PRODUCT_PACKAGES += \
     libgallium_dri \
     libglapi
 
+PRODUCT_COPY_FILES += \
+    frameworks/native/data/etc/android.software.opengles.deqp.level-2022-03-01.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.software.opengles.deqp.level.xml
+
 # Vulkan
 PRODUCT_COPY_FILES += \
-    frameworks/native/data/etc/android.hardware.vulkan.version-1_0_3.xml:vendor/etc/permissions/android.hardware.vulkan.version.xml \
-    frameworks/native/data/etc/android.hardware.vulkan.level-1.xml:vendor/etc/permissions/android.hardware.vulkan.level.xml
+    $(DEVICE_PATH)/permissions/android.hardware.vulkan.version-1_2.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.vulkan.version.xml \
+    frameworks/native/data/etc/android.hardware.vulkan.level-0.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.vulkan.level.xml \
+    frameworks/native/data/etc/android.software.vulkan.deqp.level-2022-03-01.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.software.vulkan.deqp.level.xml
 
 PRODUCT_PACKAGES +=  vulkan.broadcom
-
-#PRODUCT_PACKAGES += \
-    libEGL_swiftshader \
-    libGLESv1_CM_swiftshader \
-    libGLESv2_swiftshader
 
 # Software Gatekeeper HAL
 PRODUCT_PACKAGES += \
     android.hardware.gatekeeper@1.0-service.software
 
+# Keymaster
 PRODUCT_PACKAGES += \
-    android.hardware.keymaster@3.0-impl \
-    android.hardware.keymaster@3.0-service
+    android.hardware.keymaster@4.1-service
 
 # DRM
 PRODUCT_PACKAGES += \
-    android.hardware.drm@1.0-impl \
-    android.hardware.drm@1.0-service \
-    android.hardware.drm@1.4-service.clearkey
+    android.hardware.drm-service.clearkey
+    
+PRODUCT_PACKAGES += \
+    android.hardware.drm@1.0.vendor \
+    android.hardware.drm@1.1.vendor \
+    android.hardware.drm@1.2.vendor \
+    android.hardware.drm@1.3.vendor
 
 # Enable USB Camera
 PRODUCT_PACKAGES += \
@@ -118,9 +108,6 @@ PRODUCT_PACKAGES += \
 PRODUCT_COPY_FILES += \
     $(DEVICE_PATH)/external_camera_config.xml:$(TARGET_COPY_OUT_VENDOR)/etc/external_camera_config.xml \
     frameworks/native/data/etc/android.hardware.camera.external.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.camera.external.xml
-
-PRODUCT_PACKAGES += \
-    android.hardware.configstore@1.1-service
 
 # gps
 PRODUCT_PACKAGES += \
@@ -319,12 +306,6 @@ PRODUCT_SOONG_NAMESPACES += hardware/iio-sensors-hal
 #PRODUCT_ADB_KEYS := device/amlogic/yukawa/adbkey.pub
 #PRODUCT_PACKAGES += \
     adb_keys
-
-# Keep the VNDK APEX in /system partition for REL branches as these branches are
-# expected to have stable API/ABI surfaces.
-#ifneq (REL,$(PLATFORM_VERSION_CODENAME))
-  PRODUCT_PACKAGES += com.android.vndk.current.on_vendor
-#endif
 
 # All VNDK libraries (HAL interfaces, VNDK, VNDK-SP, LL-NDK)
 PRODUCT_PACKAGES += vndk_package

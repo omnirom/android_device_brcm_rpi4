@@ -18,11 +18,10 @@
     "revision": "android-12.0"
   },
   {
-    "remote": "github",
-    "override": "platform/external/mesa3d",
-    "repository": "maxwen/android_external_mesa3d",
-    "target_path": "external/mesa3d",
-    "revision": "android-12.1-v22.0"
+    "remote": "omnirom",
+    "repository": "android_packages_apps_DeviceRegistration",
+    "target_path": "packages/apps/DeviceRegistration",
+    "revision": "android-12.0"
   },
   {
     "remote": "github",
@@ -31,11 +30,25 @@
     "revision": "android-13.0"
   },
   {
-    "remote": "omnirom",
+    "remote": "github",
+    "override": "platform/external/mesa3d",
+    "repository": "raspberry-vanilla/android_external_mesa3d",
+    "target_path": "external/mesa3d",
+    "revision": "android-14.0"
+  },
+  {
+    "remote": "github",
     "override": "platform/external/minigbm",
-    "repository": "android_external_minigbm",
+    "repository": "raspberry-vanilla/android_external_minigbm",
     "target_path": "external/minigbm",
-    "revision": "android-12.1"
+    "revision": "android-14.0"
+  },
+  {
+    "remote": "github",
+    "override": "android_external_wpa_supplicant_8",
+    "repository": "raspberry-vanilla/android_external_wpa_supplicant_8",
+    "target_path": "external/wpa_supplicant_8",
+    "revision": "android-14.0"
   },
   {
     "remote": "github",
@@ -60,12 +73,6 @@
     "repository": "raspberry-vanilla/android_external_libyaml",
     "target_path": "external/libyaml",
     "revision": "android-13.0"
-  },
-  {
-    "remote": "omnirom",
-    "repository": "android_packages_apps_DeviceRegistration",
-    "target_path": "packages/apps/DeviceRegistration",
-    "revision": "android-12.0"
   },
   {
     "remote": "github",

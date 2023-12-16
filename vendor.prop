@@ -4,21 +4,15 @@
 #debug.drm.mode.force=1280x800@60
 
 ro.hardware.hwcomposer=drm
-# enabling vulkan breaks chrome based browsers
-#ro.hardware.vulkan=broadcom
+ro.hardware.egl=mesa
+ro.hardware.vulkan=broadcom
 ro.hardware.sensors=iio
 ro.hardware.camera=libcamera
 ro.opengles.version=196609
 ro.sf.lcd_density=180
 
 # no flickering for now
-#debug.sf.disable_hwc_overlays=1
-
-# TODO just for reference
-#vendor.hwc.drm.scale_with_gpu=1
-
-# no SkiaGl for us
-debug.renderengine.backend=gles
+debug.sf.disable_hwc_overlays=1
 
 # GPS
 gps.device.path=/dev/ttyACM0
@@ -27,12 +21,6 @@ gps.device.path=/dev/ttyACM0
 wifi.interface=wlan0
 wifi.supplicant_scan_interval=15
 ro.boot.wificountrycode=00
-
-# DONT ADD THIS
-#ro.apex.updatable=true
-
-# we are not caf
-#sys.vendor.qti.servicetracker.disable=true
 
 # used in DeviceParts
 sys.rpi4.boot_mode=rom

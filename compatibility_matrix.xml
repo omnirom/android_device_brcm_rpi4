@@ -1,13 +1,5 @@
 <compatibility-matrix version="1.0" type="device">
     <hal format="hidl" optional="false">
-        <name>android.frameworks.displayservice</name>
-        <version>1.0</version>
-        <interface>
-            <name>IDisplayService</name>
-            <instance>default</instance>
-        </interface>
-    </hal>
-    <hal format="hidl" optional="false">
         <name>android.frameworks.sensorservice</name>
         <version>1.0</version>
         <interface>
@@ -36,22 +28,6 @@
         <version>1.0</version>
         <interface>
             <name>ITokenManager</name>
-            <instance>default</instance>
-        </interface>
-    </hal>
-    <hal format="hidl" optional="false">
-        <name>android.system.net.netd</name>
-        <version>1.1</version>
-        <interface>
-            <name>INetd</name>
-            <instance>default</instance>
-        </interface>
-    </hal>
-    <hal format="hidl" optional="false">
-        <name>android.system.wifi.keystore</name>
-        <version>1.0</version>
-        <interface>
-            <name>IKeystore</name>
             <instance>default</instance>
         </interface>
     </hal>

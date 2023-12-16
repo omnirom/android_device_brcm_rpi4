@@ -26,13 +26,13 @@
 
 int main(int argc, char **argv)
 {
-	int fd;
-	uint8_t payload[7];
+    int fd;
+    uint8_t payload[7];
 
-	if ((fd = serialOpen(UART_NODE, 115200)) < 0) {
-		ALOGE("open serial error  - exiting\n");
-		return -1;
-	}
+    if ((fd = serialOpen(UART_NODE, 115200)) < 0) {
+        ALOGE("open serial error  - exiting\n");
+        return -1;
+    }
 
     payload[0] = 0x5A;
     payload[1] = 0xA5;
@@ -43,12 +43,12 @@ int main(int argc, char **argv)
 
     // CRC
     payload[6] = 0;
-    for (int i = 0; i < 6; i++)
+    for (int i = 0; i < 6; i++) {
         payload[6] = (payload[6] + payload[i]);
-
+    }
     // write to UART 
-	write(fd, payload, 7) ;
-	serialFlush(fd);
-	serialClose(fd);
-	return 0;
+    write(fd, payload, 7) ;
+    serialFlush(fd);
+    serialClose(fd);
+    return 0;
 }
