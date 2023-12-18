@@ -10,6 +10,7 @@ ro.hardware.sensors=iio
 ro.hardware.camera=libcamera
 ro.opengles.version=196609
 ro.sf.lcd_density=180
+vendor.hwc.drm.ctm=DRM_OR_IGNORE
 
 # no flickering for now
 debug.sf.disable_hwc_overlays=1
