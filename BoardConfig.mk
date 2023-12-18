@@ -113,8 +113,8 @@ BUILD_BROKEN_ELF_PREBUILT_PRODUCT_COPY_FILES := true
 
 # libcamera
 BOARD_LIBCAMERA_USES_MESON_BUILD := true
-BOARD_LIBCAMERA_IPAS := raspberrypi
-BOARD_LIBCAMERA_PIPELINES := simple raspberrypi
+BOARD_LIBCAMERA_IPAS := rpi/vc4
+BOARD_LIBCAMERA_PIPELINES := rpi/vc4
 
 # only used when building twrp
 TARGET_RECOVERY_FSTAB := $(DEVICE_PATH)/recovery/root/system/etc/recovery_mmc.fstab

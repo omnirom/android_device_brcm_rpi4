@@ -54,25 +54,31 @@
     "remote": "github",
     "repository": "raspberry-vanilla/android_external_libcamera",
     "target_path": "external/libcamera",
-    "revision": "android-13.0"
-  },
-  {
-    "remote": "github",
-    "repository": "raspberry-vanilla/android_external_boost",
-    "target_path": "external/boost",
-    "revision": "android-13.0"
+    "revision": "android-14.0"
   },
   {
     "remote": "github",
     "repository": "raspberry-vanilla/android_external_libyuv_chromium",
     "target_path": "external/libyuv_chromium",
-    "revision": "android-13.0"
+    "revision": "android-14.0"
   },
   {
     "remote": "github",
     "repository": "raspberry-vanilla/android_external_libyaml",
     "target_path": "external/libyaml",
-    "revision": "android-13.0"
+    "revision": "android-14.0"
+  },
+  {
+    "remote": "github",
+    "repository": "raspberry-vanilla/android_external_libpisp",
+    "target_path": "external/libpisp",
+    "revision": "android-14.0"
+  },
+  {
+    "remote": "github",
+    "repository": "raspberry-vanilla/android_external_libudev-zero",
+    "target_path": "external/libudev-zero",
+    "revision": "android-14.0"
   },
   {
     "remote": "github",
