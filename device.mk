@@ -330,10 +330,6 @@ PRODUCT_PACKAGES += \
     android.hardware.health@2.1-impl-rpi4 \
     android.hardware.health@2.1-service
 
-PRODUCT_PROPERTY_OVERRIDES += ro.surface_flinger.use_color_management=false \
-    ro.surface_flinger.has_wide_color_display=false \
-    ro.surface_flinger.has_HDR_display=false
-
 PRODUCT_PACKAGES += \
     androidx.window.extensions \
     androidx.window.sidecar
